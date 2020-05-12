@@ -21,7 +21,7 @@ function createWindow() {
   if (args.hasOwnProperty('ihm')) {
       const fs = require('fs')
       let rawdata = fs.readFileSync(args['ihm'])
-      
+      console.log('url', url)
       mainWindow.loadURL(url + '/creation', {
         postData: [{
           type: "rawData",
