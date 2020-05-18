@@ -1,0 +1,13 @@
+<p hidden>
+<commands directory="<%=oncreate['directory']%>">
+    <%_ for(var i in oncreate['environment']) { %>
+        <% let env=oncreate['environment'][i] %>
+        <environment name="<%=env['name']%>" value="<%=env['value']%>" >
+    <% } %>
+    <%_ for(var i in oncreate['commands']) { %>
+        <% let cmd=oncreate['commands'][i] %>
+        <% let tagname=Object.keys(cmd)[0] %>
+        <<%=tagname%>> <%=cmd['execute']%></<%=tagname%>>
+    <% } %>
+</commands>
+</p>

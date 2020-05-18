@@ -1,0 +1,52 @@
+<!-- views/pages/creation.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head") %>
+</head>
+
+<% if (ihm_data.hasOwnProperty('dependencies')) { %>
+    <body class="container" onload="initialize_dependencies()">
+<% } else {%>
+    <body class="container">
+<% } %>
+
+<header>
+    <%- include("../partials/header") %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <%- include("../ihm/style") %>
+        <form action="getParams" method="post" class="gpao-params">
+        <div class=gpao-ihm>
+            <div class=tabs>
+                <% var electron='off' %>
+                <% if (locals.electron) { %>
+                <%    electron='on'; %>
+                <% } %>
+                <% for(var myKey in ihm_data ) { %>
+                    <%- include("../ihm/readJsonContent",{content:ihm_data[myKey],custom_style:'p',electron,electron}) %>
+                <% } %>
+                <% if (ihm_data.hasOwnProperty('dependencies')) { %>
+                    <%- include("../ihm/buildDependencies", {dependencies:ihm_data['dependencies']}) %>
+                <% } %>
+                <% if (ihm_data.hasOwnProperty('oncreate')) { %>
+                    <%- include("../ihm/buildCommands", {oncreate:ihm_data['oncreate']}) %>
+                <% } %>
+             </div>
+         </div>
+        <%- include("../ihm/fileloader.ejs", {id:'load-project',params:'gpao-params'}) %>
+        <%- include("../ihm/oncreate.ejs", {id:'create-project',params:'gpao-params'}) %>
+
+         </form>
+    </div>
+</main>
+
+
+<footer>
+    <%- include("../partials/footer") _%>
+</footer>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!-- views/ihm/readJsonContent.ejs -->
+
+<%_ var numpage=0; %>
+
+<%_ for(var myKey in content) { %>
+  <%_ if (content[myKey].hasOwnProperty('Type')) { %>
+    <% if (content[myKey]['Type'] == 'Page') { %>
+        <% console.log( 'on parse la page:', numpage, content[myKey]['Name']) %>
+        <% numpage=numpage+1; %>
+        <%- include("./page", {content:content[myKey], numpage:numpage, custom_style:custom_style} ) %>
+    <% } _%>
+
+    <%_ if (content[myKey]['Type'] == 'Group') { %>
+          <%- include("./group", {content:content[myKey], custom_style:custom_style} ) %>
+     <% } _%>
+
+    <%_ if (content[myKey]['Type'] == 'CheckBox') { %>
+        <%- include("./checkbox", {content:content[myKey],custom_style:custom_style} ) %>
+    <% } _%>
+
+    <%_ if (content[myKey]['Type'] == 'Label') { %>
+            <%- include("./label", {content:content[myKey],custom_style:custom_style} ) %>
+        <% } _%>
+
+    <%_ if (content[myKey]['Type'] == 'LineEdit') { %>
+            <%- include("./lineedit", {content:content[myKey],custom_style:custom_style} ) %>
+    <% } _%>
+
+    <%_ if (content[myKey]['Type'] == 'ButtonGroup') { %>
+        <%- include("./radiogroup", {content:content[myKey],custom_style:custom_style} ) %>
+    <% } _%>
+    
+    <% if (content[myKey]['Type'] == 'FileSelector') { %>
+            <%- include("./fileselector", {content:content[myKey],custom_style:custom_style} ) %>
+    <% } %>
+
+    <% if (content[myKey]['Type'] == 'FolderSelector') { %>
+        <%- include("./folderselector", {content:content[myKey],custom_style:custom_style} ) %>
+    <% } %>
+
+    <%_ if (content[myKey]['Type'] == 'ComboBox') { %>
+        <%- include("./combobox", {content:content[myKey],custom_style:custom_style} ) %>
+    <% } _%>
+
+<% } _%>
+<% } _%>

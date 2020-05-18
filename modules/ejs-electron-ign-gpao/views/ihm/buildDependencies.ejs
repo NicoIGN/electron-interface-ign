@@ -1,0 +1,10 @@
+<p hidden onload="initialize_dependencies()">
+<script src="../../js/depends.js"></script>
+
+<dependencies>
+<%_ for(var i in dependencies) { %>
+    <% let dep=dependencies[i] %>
+    <depends master="<%=dep['Master']%>" slave="<%=dep['Slave']%>" inverse="<%=dep['Inverse']%>">
+<% } %>
+</dependencies>
+</p>
