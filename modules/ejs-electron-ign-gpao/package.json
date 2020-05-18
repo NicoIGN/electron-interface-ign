@@ -1,6 +1,6 @@
 {
   "name": "ejs-electron-ign-gpao",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "module to build an html interface from a json, used for the specific needs of the French national geographic Institute. Further development may result in a wider potential use of the module.",
   "bin": "index.js",
   "repository": "https://github.com/NicoIGN/ign-gpao-client.git",
