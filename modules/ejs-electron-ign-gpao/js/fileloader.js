@@ -1,4 +1,4 @@
-verbose = true
+verbose = false
 {
     let  asyncBtn  = document.querySelector('#'+document.currentScript.getAttribute('name'));
     let myForm = undefined;
