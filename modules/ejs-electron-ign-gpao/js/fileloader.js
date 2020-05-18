@@ -1,3 +1,4 @@
+verbose = true
 {
     let  asyncBtn  = document.querySelector('#'+document.currentScript.getAttribute('name'));
     let myForm = undefined;
@@ -77,17 +78,18 @@
               var data = fs.readFileSync(result.filePaths[0]);
 
               const obj = JSON.parse(data);
-              if (!obj.hasOwnProperty('parameters')) {
+              if (!obj.hasOwnProperty('param')) {
                    dialog.showErrorBox('error', 'not a parameters file');
                }
-               jsonData = obj['parameters'];
 
-                  
+              jsonData = obj['param'];
+
               var inputs = myForm.querySelectorAll('input');
               append(inputs, myForm.querySelectorAll('select'));
               console.log('number of inputs:', inputs.length);
               for (var i = 0; i < inputs.length; i++)
               {
+                  if (verbose)   console.log(i, JSON.stringify(inputs[i]))
                   if (inputs[i].hasAttribute("name"))
                   {
                       if (jsonData.hasOwnProperty(inputs[i]["name"]))  {

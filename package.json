@@ -1,20 +1,21 @@
 {
   "name": "electron-quick-start",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "gpao client application",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/NicoIGN/ign-gpao-client.git",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "electron",
+    "IGN",
+    "gpao",
+    "ihm",
+    "interface",
+    "json"
   ],
-  "author": "GitHub",
+  "author": "Nicolas Bellaiche",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^8.2.5",

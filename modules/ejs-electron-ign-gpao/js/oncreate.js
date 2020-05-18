@@ -1,5 +1,8 @@
 {
-    const formreader = require('./renderer-process/formio');
+    console.log('Current directory: ' + process.cwd());
+    var ign_gpao = require('ejs-electron-ign-gpao')
+    
+    const formreader = require(ign_gpao.script_folder() + '/formio');
 
     let myForm = undefined;
     for (var i = 0; i < document.getElementsByTagName("form").length; i++) {
