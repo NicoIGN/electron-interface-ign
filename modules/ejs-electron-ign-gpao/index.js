@@ -10,7 +10,7 @@ var script_folder = function() {
     return path.join(__dirname, '/js');
 }
 
-const { validationResult } = require('express-validator/check')
+const { validationResult } = require('express-validator')
 
 var validate = function (req, res, next) {
     result = validationResult(req);
