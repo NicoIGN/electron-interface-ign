@@ -18,12 +18,12 @@
   "author": "Nicolas Bellaiche",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^8.2.5",
+    "electron": "^8.3.0",
     "electron-react-devtools": "^0.5.3"
   },
   "dependencies": {
     "ejs-electron": "^2.0.3",
-    "ejs-electron-ign-gpao": "^0.1.1",
+    "ejs-electron-ign-gpao": "^0.1.15",
     "express": "^4.6.1",
     "minimist": "^1.2.5"
   }
