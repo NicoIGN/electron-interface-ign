@@ -22,6 +22,10 @@ function createWindow() {
       const fs = require('fs')
       let rawdata = fs.readFileSync(args['ihm'])
       console.log('url', url)
+      if (url == undefined) {
+          console.log('env variable GPAO_URL undefined');
+          process.exit(1)
+      }
       mainWindow.loadURL(url + '/creation', {
         postData: [{
           type: "rawData",
