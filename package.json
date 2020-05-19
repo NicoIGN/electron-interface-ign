@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "ejs-electron": "^2.0.3",
-    "ejs-electron-ign-gpao": "^0.1.20",
+    "ejs-electron-ign-gpao": "^0.1.26",
     "express": "^4.6.1",
     "minimist": "^1.2.5"
   }

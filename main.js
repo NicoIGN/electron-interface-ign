@@ -20,10 +20,10 @@ function main() {
 
     var jsonfile = './data/ihm.json';
     ihm_data = require(jsonfile)['ihm'];
-    ejse.data('electron', 'on');
+    ejse.data('no_header', 'on');
+    ejse.data('js_folder', '../../js');
     ejse.data('ihm_data', ihm_data);
 
-    console.log('file://' + ign_gpao.view_folder() + '/pages/creation.ejs')
     mainWindow.loadURL('file://' + ign_gpao.view_folder() + '/pages/creation.ejs');
     mainWindow.on('close', event => {
                   mainWindow = null
