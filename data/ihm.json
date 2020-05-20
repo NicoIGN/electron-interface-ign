@@ -234,7 +234,6 @@
                                 "DefaultValue":""
                             },                            {
                                 "Name":"Format des orthos RGB",
-                                "Key":"Gr5",
                                 "Type":"ButtonGroup",
                                 "content":[                                {
                                     "Name":"TIF",
@@ -308,7 +307,6 @@
                                 "DefaultValue":""
                             },                            {
                                 "Name":"Format des orthos PIR",
-                                "Key":"Gr8",
                                 "Type":"ButtonGroup",
                                 "content":[                                {
                                     "Name":"TIF",
@@ -893,7 +891,7 @@
                                 "Type":"ComboBox",
                                 "ValueType":"String",
                                 "Parent":"vectorizeGroup",
-                                "DefaultValue":0
+                                "DefaultValue":"0"
                             },                            {
                                 "Name":"Simplifier la geometrie (Douglas-Peucker)",
                                 "Key":"kSimplifyGeometry",
