@@ -23,8 +23,9 @@ function main() {
     ejse.data('no_header', 'on');
     ejse.data('js_folder', '../../js');
     ejse.data('ihm_data', ihm_data);
+    mainWindow.loadURL('file:///Temp/express-useragent/test/client_test.html');
 
-    mainWindow.loadURL('file://' + ign_gpao.view_folder() + '/pages/creation.ejs');
+    //mainWindow.loadURL('file://' + ign_gpao.view_folder() + '/pages/creation.ejs');
     mainWindow.on('close', event => {
                   mainWindow = null
                   })
