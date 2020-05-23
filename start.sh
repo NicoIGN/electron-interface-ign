@@ -5,4 +5,4 @@ cd $BASEDIR
 
 export GPAO_URL='http://localhost:8000'
 
-electron client.js  --ihm ./data/ihm.json
+electron client.js  --ihm ./data/ihm_micmacmgr.json
