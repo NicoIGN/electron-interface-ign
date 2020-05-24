@@ -856,6 +856,26 @@
             "Type":"Dependency",
             "Inverse":false        
 }],
-        "IgnoredKeys":["version","date","CHANGELOG","NUMLINES","NUMMAXTHREADS","LOGLEVEL","metadata","NAME","VERSION","IGN_DATA","GDAL_DATA","PROJ_LIB"]    
-}
+        "oncreate":{
+            "directory":"/Users/nbellaiche/DATA/TEMP/",
+            "environment":[
+                {
+                    "name":"IGN_DATA",
+                    "value":"/Applications/MicMacMgrV2.app/Contents/Data"
+                },
+                {
+                    "name":"PROJ_LIB",
+                    "value":"/Applications/MicMacMgrV2.app/Contents/Data/geodesy/nad"
+                }
+            ],
+            "commands":[
+                {"execute":"open $PARAM$"},
+                {"execute":"/Applications/MicMacMgrV2.app/Contents/MacOS/MicMacMgrV2 --make -i $PARAM$ -o $DIRECTORY$/gpao.json"},
+                {"execute":"mkdir -p $DIRECTORY$/gpao_scripts"},
+                {"execute":"python /Users/nbellaiche/DATA/TEMP/ign-gpao-client/io/convert.py --gpaoname MicMacMgrV2 --input $DIRECTORY$/gpao.json --strategy script --directory $DIRECTORY$/gpao_scripts --resolvekeys --output $DIRECTORY$/gpaonew.json"},
+                {"execute":"open $DIRECTORY$/gpaonew.json"}
+
+            ]
+        }
+    }
 }

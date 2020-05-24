@@ -139,7 +139,6 @@ def convertwithmerge(my_chantier):
             idbloc =  my_chantier['lots'][idlot]['idbloc']
             if bloc['name'] == my_chantier['blocs'][idbloc]['name']:
                 # ce job est bien inclus dans le bloc courant, on l'ajoute.
-                #print "job", job
                 my_job = {}
                 my_job['name'] = job['name']
                 my_job['command'] = job['commande']
@@ -252,7 +251,6 @@ def convertwithscript(my_chantier, directory):
             idbloc =  my_chantier['lots'][idlot]['idbloc']
             if bloc['name'] == my_chantier['blocs'][idbloc]['name']:
                 # ce job est bien inclus dans le bloc courant, on l'ajoute.
-                #print "job", job
                 my_job = {}
                 my_job['name'] = job['name']
                 my_job['command'] = job['commande']
@@ -297,7 +295,6 @@ def convertwithscript(my_chantier, directory):
 
         if int(verbose) > 0: print 'adding new project', my_project['name']
         my_projects.append(my_project)
-        print(my_project)
 
 
     #on ajoute les pretraitements en dependances de tous les autres projets
@@ -375,7 +372,7 @@ for eachArg in sys.argv:
     elif eachArg == "--resolvekeys":
         resolvekeys=True
     elif eachArg == "--help":
-        print "usage: python convert.py\n --input inputfile\n --output outputfilename\n  --gpaoname name\n [--strategy simple|mergejoblot|script]\n [--resolvekeys]\n [--verbose verbosity_level]\n [--exedir exedir]"
+        print "usage: python convert.py\n --input inputfile\n --output outputfilename\n  --gpaoname name\n [--strategy simple|mergejoblot|script]\n [--directory script_dir]\n [--resolvekeys]\n [--verbose verbosity_level]\n [--exedir exedir]"
         exit(1)
     elif "--" in eachArg:
         print "unrecognized option: ", eachArg
@@ -416,6 +413,7 @@ if int(verbose) > 0:
     print "input: ", input
     print "output: ", output
     print "strategy: ", strategy
+    print "directory: ", directory
     print "resolvekeys: ", resolvekeys
     print "gpaoname: ", gpaoname
     print "exedir: ", exedir
@@ -424,6 +422,11 @@ if int(verbose) > 0:
 #lecture du json
 inputjsondata = readfile(input)
 
+if not (gpaoname in inputjsondata):
+    print "invalid main key: ", gpaoname;
+    print "inputjsondata: ", inputjsondata;
+    exit(1);
+    
 chantier = inputjsondata[gpaoname]['chantier']
 
 if exedir != "":
