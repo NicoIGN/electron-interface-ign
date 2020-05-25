@@ -46,13 +46,12 @@ def convertsimple(my_chantier):
     # on scanne les blocs et on ne garde que les jobs appartenant a ces blocs
     for bloc in my_chantier['blocs']:
         my_jobs = []
-        print 'scanning bloc', bloc['name']
+        print( 'scanning bloc', bloc['name'])
         for job in my_chantier['jobs']:
             idlot = job['idlot']
             idbloc =  my_chantier['lots'][idlot]['idbloc']
             if bloc['name'] == my_chantier['blocs'][idbloc]['name']:
                 # ce job est bien inclus dans le bloc courant, on l'ajoute.
-                #print "job", job
                 my_job = {}
                 my_job['name'] = job['name']
                 my_job['command'] = job['commande']
@@ -76,7 +75,7 @@ def convertsimple(my_chantier):
                     my_dep = {}
                     my_dep['id'] = newiddependant
                     my_project['jobs'][newid]['deps'].append(my_dep)
-                    print 'le job ', jobname, ' d identifiant (', depjob['idjob'], ', ', newid, ') depend du job ', jobnamedependant, 'd identifiant (', depjob['idjobdependant'], ', ', newiddependant, ')'
+                    print( 'le job ', jobname, ' d identifiant (', depjob['idjob'], ', ', newid, ') depend du job ', jobnamedependant, 'd identifiant (', depjob['idjobdependant'], ', ', newiddependant, ')')
 
         print('adding new project', my_project['name'])
         my_projects.append(my_project)
@@ -122,7 +121,7 @@ def convertwithmerge(my_chantier):
         my_jobs = {}
         my_newjobs = []
         with_pretraitements = False
-        if int(verbose) > 0: print 'scanning bloc', bloc['name']
+        if int(verbose) > 0: print( 'scanning bloc', bloc['name'])
         for job in my_chantier['jobs']:
             idlot = job['idlot']
             if idlot >= 0:
@@ -142,7 +141,7 @@ def convertwithmerge(my_chantier):
                 my_job = {}
                 my_job['name'] = job['name']
                 my_job['command'] = job['commande']
-                if int(verbose) > 2: print 'add job ', job['name'], 'in the stack of jobset ', nomlot
+                if int(verbose) > 2: print ('add job ', job['name'], 'in the stack of jobset ', nomlot)
                 if not (nomlot in my_jobs):
                     my_jobs[nomlot] = []
                 my_jobs[nomlot].append(my_job)
@@ -155,7 +154,7 @@ def convertwithmerge(my_chantier):
             if len(job) == 0:
                 raise NameError("no jobs in ", nomlot)
 
-            if int(verbose) > 0: print 'add ', len(job), ' jobs of lot ', nomlot, ' in project ', bloc['name']
+            if int(verbose) > 0: print ('add ', len(job), ' jobs of lot ', nomlot, ' in project ', bloc['name'])
             my_job = {}
             my_job['name'] = nomlot
             my_job['deps'] = []
@@ -169,21 +168,22 @@ def convertwithmerge(my_chantier):
            
             my_newjobs.append(my_job)
                 
-        if int(verbose) > 1: print 'adding ', len(my_newjobs), ' jobs in project'
+        if int(verbose) > 1: print ('adding ', len(my_newjobs), ' jobs in project')
 
         my_project = {}
         my_project['name'] = bloc['name']
         my_project['jobs'] = my_newjobs
         my_project['deps'] = []
 
-        if int(verbose) > 0: print 'adding new project', my_project['name']
+        if int(verbose) > 0: print ('adding new project', my_project['name'])
         my_projects.append(my_project)
 
 
     #on ajoute les pretraitements en dependances de tous les autres projets
     if len(my_project_pretraitements['jobs']) > 0:
-        my_projects.append(my_project_pretraitements)
-        id_pretraitements = len(my_projects) -1
+        print("ajout du bloc de pretraitements")
+        my_projects.insert(0, my_project_pretraitements)
+        id_pretraitements = 0
 
         for project in my_projects:
             my_dep = {}
@@ -208,7 +208,7 @@ def convertwithmerge(my_chantier):
                 my_dep['id'] = newiddependant
                 my_projects[newid]['deps'].append(my_dep)
 
-    print 'conversion succeeded'
+    print ('conversion succeeded')
     outputjsonData = {}
     outputjsonData['projects'] = my_projects
     return outputjsonData
@@ -234,7 +234,7 @@ def convertwithscript(my_chantier, directory):
         my_jobs = {}
         my_newjobs = []
         with_pretraitements = False
-        if int(verbose) > 0: print 'scanning bloc', bloc['name']
+        if int(verbose) > 0: print ('scanning bloc', bloc['name'])
         for job in my_chantier['jobs']:
             idlot = job['idlot']
             if idlot >= 0:
@@ -254,7 +254,7 @@ def convertwithscript(my_chantier, directory):
                 my_job = {}
                 my_job['name'] = job['name']
                 my_job['command'] = job['commande']
-                if int(verbose) > 2: print 'add job ', job['name'], 'in the stack of jobset ', nomlot
+                if int(verbose) > 2: print ('add job ', job['name'], 'in the stack of jobset ', nomlot)
                 if not (nomlot in my_jobs):
                     my_jobs[nomlot] = []
                 my_jobs[nomlot].append(my_job)
@@ -267,7 +267,7 @@ def convertwithscript(my_chantier, directory):
             if len(job) == 0:
                 raise NameError("no jobs in ", nomlot)
 
-            if int(verbose) > 0: print 'add ', len(job), ' jobs of lot ', nomlot, ' in project ', bloc['name']
+            if int(verbose) > 0: print ('add ', len(job), ' jobs of lot ', nomlot, ' in project ', bloc['name'])
             my_job = {}
             my_job['name'] = nomlot
             my_job['deps'] = []
@@ -286,33 +286,34 @@ def convertwithscript(my_chantier, directory):
            
             script_file.write(newcommand)
                 
-        if int(verbose) > 1: print 'adding ', len(my_newjobs), ' jobs in project'
+        if int(verbose) > 1: print ('adding ', len(my_newjobs), ' jobs in project')
 
         my_project = {}
         my_project['name'] = bloc['name']
         my_project['jobs'] = my_newjobs
         my_project['deps'] = []
 
-        if int(verbose) > 0: print 'adding new project', my_project['name']
+        if int(verbose) > 0: print ('adding new project', my_project['name'])
         my_projects.append(my_project)
 
 
     #on ajoute les pretraitements en dependances de tous les autres projets
     if len(my_project_pretraitements['jobs']) > 0:
-        my_projects.append(my_project_pretraitements)
-        id_pretraitements = len(my_projects) -1
+        print("ajout du bloc de pretraitements")
+        my_projects.insert(0, my_project_pretraitements)
+        id_pretraitements = 0
 
         for project in my_projects:
             my_dep = {}
             my_dep['id'] = id_pretraitements
             project['deps'].append(my_dep)
 
+
     # maintenant qu'on a une pile de projects ordonnee, on peut reconstruire les dependances de projects
     # avec les identifiants de la nouvelle pile
     if int(verbose) > 0: print('building project dependencies')
     
     for depbloc in my_chantier['dependanceblocs']:
-        
         idbloc = depbloc['idbloc']
         idblocdependant = depbloc['idblocdependant']
         blocname = my_chantier['blocs'][idbloc]['name']
@@ -325,7 +326,7 @@ def convertwithscript(my_chantier, directory):
                 my_dep['id'] = newiddependant
                 my_projects[newid]['deps'].append(my_dep)
 
-    print 'conversion succeeded'
+    print ('conversion succeeded')
     outputjsonData = {}
     outputjsonData['projects'] = my_projects
     return outputjsonData
@@ -372,10 +373,10 @@ for eachArg in sys.argv:
     elif eachArg == "--resolvekeys":
         resolvekeys=True
     elif eachArg == "--help":
-        print "usage: python convert.py\n --input inputfile\n --output outputfilename\n  --gpaoname name\n [--strategy simple|mergejoblot|script]\n [--directory script_dir]\n [--resolvekeys]\n [--verbose verbosity_level]\n [--exedir exedir]"
+        print ("usage: python convert.py\n --input inputfile\n --output outputfilename\n  --gpaoname name\n [--strategy simple|mergejoblot|script]\n [--directory script_dir]\n [--resolvekeys]\n [--verbose verbosity_level]\n [--exedir exedir]")
         exit(1)
     elif "--" in eachArg:
-        print "unrecognized option: ", eachArg
+        print ("unrecognized option: ", eachArg)
         exit(1)
     count += 1
 
@@ -389,42 +390,42 @@ else:
     raise NameError("unhandled stategy. Possible values: simple/mergejoblot/script")
 
 if not os.path.exists(input):
-    print "file does not exist: ", input
+    print ("file does not exist: ", input)
     exit(1)
 
 if output.endswith('.json') == False:
-    print "invalid output path: ", output
+    print ("invalid output path: ", output)
     exit(1)
     
 if gpaoname == "":
-    print "gpaoname not valid"
+    print ("gpaoname not valid")
     exit(1)
 
 if input == output:
-    print "input and output file names must differ"
+    print ("input and output file names must differ")
     exit(1)
 
 if strategy == "script":
     if not os.path.exists(os.path.dirname(directory)):
-        print "directory does not exist: ", directory
+        print ("directory does not exist: ", directory)
         exit(1)
 
 if int(verbose) > 0:
-    print "input: ", input
-    print "output: ", output
-    print "strategy: ", strategy
-    print "directory: ", directory
-    print "resolvekeys: ", resolvekeys
-    print "gpaoname: ", gpaoname
-    print "exedir: ", exedir
-    print "verbose: ", verbose
+    print ("input: ", input)
+    print ("output: ", output)
+    print ("strategy: ", strategy)
+    print ("directory: ", directory)
+    print ("resolvekeys: ", resolvekeys)
+    print ("gpaoname: ", gpaoname)
+    print ("exedir: ", exedir)
+    print ("verbose: ", verbose)
 
 #lecture du json
 inputjsondata = readfile(input)
 
 if not (gpaoname in inputjsondata):
-    print "invalid main key: ", gpaoname;
-    print "inputjsondata: ", inputjsondata;
+    print ("invalid main key: ", gpaoname);
+    print ("inputjsondata: ", inputjsondata);
     exit(1);
     
 chantier = inputjsondata[gpaoname]['chantier']
