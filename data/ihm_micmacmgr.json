@@ -872,9 +872,9 @@
                 {"execute":"open $PARAM$"},
                 {"execute":"/Applications/MicMacMgrV2.app/Contents/MacOS/MicMacMgrV2 --make -i $PARAM$ -o $DIRECTORY$/gpao.json"},
                 {"execute":"mkdir -p $DIRECTORY$/gpao_scripts"},
-                {"execute":"python /Users/nbellaiche/DATA/TEMP/ign-gpao-client/io/convert.py --gpaoname MicMacMgrV2 --input $DIRECTORY$/gpao.json --strategy script --directory $DIRECTORY$/gpao_scripts --resolvekeys --output $DIRECTORY$/gpaonew.json"},
-                {"execute":"open $DIRECTORY$/gpaonew.json"}
-
+                {"execute":"python3 /Users/nbellaiche/DATA/TEMP/ign-gpao-client/io/convert.py --gpaoname MicMacMgrV2 --input $DIRECTORY$/gpao.json --strategy script --directory $DIRECTORY$/gpao_scripts --resolvekeys --output $DIRECTORY$/gpaonew.json"},
+                {"execute":"open $DIRECTORY$/gpaonew.json"},
+                {"execute":"python3 /Users/nbellaiche/DATA/TEMP/ign-gpao-client/io/insert_project.py --input $DIRECTORY$/gpaonew.json --url http://localhost:8080"}
             ]
         }
     }
