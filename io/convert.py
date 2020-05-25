@@ -186,9 +186,10 @@ def convertwithmerge(my_chantier):
         id_pretraitements = 0
 
         for project in my_projects:
-            my_dep = {}
-            my_dep['id'] = id_pretraitements
-            project['deps'].append(my_dep)
+            if project['name'] != "pretraitements":
+                my_dep = {}
+                my_dep['id'] = id_pretraitements
+                project['deps'].append(my_dep)
 
     # maintenant qu'on a une pile de projects ordonnee, on peut reconstruire les dependances de projects
     # avec les identifiants de la nouvelle pile
@@ -304,9 +305,10 @@ def convertwithscript(my_chantier, directory):
         id_pretraitements = 0
 
         for project in my_projects:
-            my_dep = {}
-            my_dep['id'] = id_pretraitements
-            project['deps'].append(my_dep)
+            if project['name'] != "pretraitements":
+                my_dep = {}
+                my_dep['id'] = id_pretraitements
+                project['deps'].append(my_dep)
 
 
     # maintenant qu'on a une pile de projects ordonnee, on peut reconstruire les dependances de projects
