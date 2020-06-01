@@ -857,17 +857,19 @@
             "Inverse":false        
 }],
         "oncreate":{
-            "directory":"/Users/nbellaiche/DATA/TEMP/",
+            "prerequisite": {
             "environment":[
-                {
-                    "name":"IGN_DATA",
-                    "value":"/Applications/MicMacMgrV2.app/Contents/Data"
-                },
-                {
-                    "name":"PROJ_LIB",
-                    "value":"/Applications/MicMacMgrV2.app/Contents/Data/geodesy/nad"
-                }
+                "IGN_DATA",
+                "PROJ_LIB",
+                "APPLICATION_DIR",
+                "GPAO_CLIENT_DIR",
+                "DIRECTORY"
             ],
+            "directory":"DIRECTORY"
+            "resources":[
+                "$APPLICATION_DIR$/MicMacMgrV2.app/Contents/MacOS/MicMacMgrV2",
+                "/Users/nbellaiche/DATA/TEMP/ign-gpao-client/io/convert.py"
+            ]},
             "commands":[
                 {"execute":"/Applications/MicMacMgrV2.app/Contents/MacOS/MicMacMgrV2 --make -i $PARAM$ -o $DIRECTORY$/gpao.json"},
                 {"execute":"mkdir -p $DIRECTORY$/gpao_scripts"},
