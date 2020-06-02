@@ -2,6 +2,7 @@ import json
 import sys
 import os
 import string
+from sys import platform
 
 
 ###
@@ -18,9 +19,22 @@ def readfile(filename):
 ###
 
 def resolve(my_chantier):
+    tmpdir = os.getcwd()
+    for param in my_chantier['params']:
+        if param['cle'] == 'TEMP':
+            tmpdir = param['valeur']
+        
     for job in my_chantier['jobs']:
         for param in my_chantier['params']:
             job['commande'] = job['commande'].replace('$'+param['cle']+'$', param['valeur'])
+            key ='$RELPATH('+param['cle']+')$'
+            #relative_path = os.path.relpath(param['valeur'], tmpdir)
+            relative_path = os.path.relpath(tmpdir, param['valeur'])
+            cmd = job['commande'].replace(key, relative_path)
+            if cmd != job['commande']:
+                if int(verbose) > 0: print('replacing ', key, 'with ',relative_path, 'value is ', param['valeur'])
+                job['commande'] = cmd
+                
     return my_chantier
 ###
 ###
@@ -279,6 +293,17 @@ def convertwithscript(my_chantier, directory):
             
             script_file = open(script_filename,"w")
             newcommand = ""
+
+            for key in environment:
+                if newcommand != "":  newcommand += " && "
+                
+                if platform == "linux" or platform == "linux2" or platform == "darwin":
+                    # linux & macos
+                    newcommand += "export " + key + "=" + environment[key]
+                elif platform == "win32":
+                    # Windows...
+                    newcommand += "set " + key + "=" + environment[key]
+                
             for subjob in job:
                 if newcommand == "":
                     newcommand = subjob['command']
@@ -355,6 +380,7 @@ count = 0
 exedir = ""
 gpaoname = ""
 resolvekeys = False
+environment = {}
 
 for eachArg in sys.argv:
     eachArg = eachArg.lower()
@@ -372,10 +398,14 @@ for eachArg in sys.argv:
         verbose=sys.argv[count + 1]
     elif eachArg == "--exedir":
         exedir=sys.argv[count + 1]
+    elif eachArg == "--env":
+        key=sys.argv[count + 1]
+        value=sys.argv[count + 2]
+        environment[key] = value
     elif eachArg == "--resolvekeys":
         resolvekeys=True
     elif eachArg == "--help":
-        print ("usage: python convert.py\n --input inputfile\n --output outputfilename\n  --gpaoname name\n [--strategy simple|mergejoblot|script]\n [--directory script_dir]\n [--resolvekeys]\n [--verbose verbosity_level]\n [--exedir exedir]")
+        print ("usage: python convert.py\n --input inputfile\n --output outputfilename\n  --gpaoname name\n [--strategy simple|mergejoblot|script]\n [--directory script_dir]\n [--resolvekeys]\n [--verbose verbosity_level]\n [--exedir exedir]\n [--env key value]")
         exit(1)
     elif "--" in eachArg:
         print ("unrecognized option: ", eachArg)
