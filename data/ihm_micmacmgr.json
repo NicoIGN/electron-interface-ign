@@ -10,8 +10,8 @@
                     "Name":"                                          ",
                     "Type":"Group",
                     "content":[],
-                    "GroupType":"VerticalGroup"                
-},                {
+                    "GroupType":"VerticalGroup"
+                },                {
                     "Name":"                                          ",
                     "Type":"Group",
                     "content":[                    {
@@ -23,41 +23,41 @@
                             "Value":"Chantier",
                             "Type":"LineEdit",
                             "ValueType":"String",
-                            "DefaultValue":"Chantier"                        
-},                        {
+                            "DefaultValue":"Chantier"
+                        },                        {
                             "Name":"Projection",
                             "Key":"kProjection",
                             "Value":"LAMB93",
                             "Type":"LineEdit",
                             "ValueType":"String",
-                            "DefaultValue":"LAMB93"                        
-},                        {
+                            "DefaultValue":"LAMB93"
+                        },                        {
                             "Name":"Dossier temporaire",
                             "Key":"TEMP",
                             "Value":"",
                             "Type":"FolderSelector",
                             "ValueType":"Path",
                             "DefaultValue":"",
-                            "ToolTip":"TEMP | dossier temporaire de calcul en local"                        
-},                        {
+                            "ToolTip":"TEMP | dossier temporaire de calcul en local"
+                        },                        {
                             "Name":"Dossier en sortie",
                             "Key":"ROOT",
                             "Value":"",
                             "Type":"FolderSelector",
                             "ValueType":"Path",
                             "DefaultValue":"",
-                            "ToolTip":"ROOT | dossier des resultats en sortie"                        
-},                        {
+                            "ToolTip":"ROOT | dossier des resultats en sortie"
+                        },                        {
                             "Name":"Ne pas transferer les donnees en local (option non valable sur un pool avec machines windows)",
                             "Key":"kComputeOnServer",
                             "Value":false,
                             "Type":"CheckBox",
                             "ValueType":"Boolean",
                             "DefaultValue":false,
-                            "ToolTip":"kComputeOnServer | Effectue les calculs directement avec les donnees sur le serveur"                        
-}],
-                        "GroupType":"VerticalGroup"                    
-},                    {
+                            "ToolTip":"kComputeOnServer | Effectue les calculs directement avec les donnees sur le serveur"
+                        }],
+                        "GroupType":"VerticalGroup"
+                    },                    {
                         "Name":"Altimetrie",
                         "Type":"Group",
                         "content":[                        {
@@ -67,50 +67,50 @@
                             "Type":"FolderSelector",
                             "ValueType":"Path",
                             "DefaultValue":"",
-                            "ToolTip":"iDtm | Si indique, sert a l'initialisation du calcul"                        
-},                        {
+                            "ToolTip":"iDtm | Si indique, sert a l'initialisation du calcul"
+                        },                        {
                             "Name":"Z Moyen (metres)",
                             "Key":"kZmean",
                             "Value":"0.0",
                             "Type":"LineEdit",
                             "ValueType":"Double",
                             "DefaultValue":"0.0",
-                            "ToolTip":"kZmean | Z moyen sert a l'initialisation du calcul quand MNT absent ou partiel"                        
-},                        {
+                            "ToolTip":"kZmean | Z moyen sert a l'initialisation du calcul quand MNT absent ou partiel"
+                        },                        {
                             "Name":"Z Neutre",
                             "Key":"kZneutral",
                             "Value":"-99999.0",
                             "Type":"LineEdit",
                             "ValueType":"Double",
                             "DefaultValue":"-99999.O",
-                            "ToolTip":"kZneutral | Z Neutre sert a invalider le MNT sur les pixels a ces valeurs"                        
-},                        {
+                            "ToolTip":"kZneutral | Z Neutre sert a invalider le MNT sur les pixels a ces valeurs"
+                        },                        {
                             "Name":"Hauteur max. du sursol (metres):",
                             "Key":"kDeltaZMax",
                             "Value":"80.0",
                             "Type":"LineEdit",
                             "ValueType":"Double",
                             "DefaultValue":"80.0",
-                            "ToolTip":"kDeltaZMax | Ecart positif maximal au MNT ou Zmoyen en entree"                        
-},                        {
+                            "ToolTip":"kDeltaZMax | Ecart positif maximal au MNT ou Zmoyen en entree"
+                        },                        {
                             "Name":"Incertitude sur le MNT (metres):",
                             "Key":"kSigmaZ",
                             "Value":"10.0",
                             "Type":"LineEdit",
                             "ValueType":"Double",
                             "DefaultValue":"10.0",
-                            "ToolTip":"kSigmaZ | Ecart max. accepte entre Z nominal et Z MNT en entree"                        
-},                        {
+                            "ToolTip":"kSigmaZ | Ecart max. accepte entre Z nominal et Z MNT en entree"
+                        },                        {
                             "Name":"Copier le MNT sur le serveur",
                             "Key":"kCopyDTMOnServer",
                             "Value":true,
                             "Type":"CheckBox",
                             "ValueType":"Boolean",
                             "DefaultValue":true,
-                            "ToolTip":"kCopyDTMOnServer | Copie le MNT dans la structure de donnees de GPAO. Inutile si donnees deja sur un serveur visible par tous les clients"                        
-}],
-                        "GroupType":"VerticalGroup"                    
-},                    {
+                            "ToolTip":"kCopyDTMOnServer | Copie le MNT dans la structure de donnees de GPAO. Inutile si donnees deja sur un serveur visible par tous les clients"
+                        }],
+                        "GroupType":"VerticalGroup"
+                    },                    {
                         "Name":"Images orientees",
                         "Type":"Group",
                         "content":[                        {
@@ -120,15 +120,15 @@
                             "Type":"FolderSelector",
                             "ValueType":"Path",
                             "DefaultValue":"",
-                            "ToolTip":"iImage | dossier des images de la PVA"                        
-},                        {
+                            "ToolTip":"iImage | dossier des images de la PVA"
+                        },                        {
                             "Name":"Scanner les sous-dossiers",
                             "Key":"kScanSubDir",
                             "Value":false,
                             "Type":"CheckBox",
                             "ValueType":"Boolean",
-                            "DefaultValue":false                        
-},                        {
+                            "DefaultValue":false
+                        },                        {
                             "Name":"Format image",
                             "Type":"ButtonGroup",
                             "Key":"kImageFormat",
@@ -138,24 +138,24 @@
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-},                            {
+                                "DefaultValue":false
+                            },                            {
                                 "Name":"JP2",
                                 "Key":"kImageFormatJP2",
                                 "Value":true,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":true                            
-},                            {
+                                "DefaultValue":true
+                            },                            {
                                 "Name":"DMR",
                                 "Key":"kImageFormatDMR",
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-}],
-                            "GroupType":"HorizontalGroup"                        
-},                        {
+                                "DefaultValue":false
+                            }],
+                            "GroupType":"HorizontalGroup"
+                        },                        {
                             "Name":"Format orientation",
                             "Type":"ButtonGroup",
                             "Key":"kOrientationFormat",
@@ -165,38 +165,38 @@
                                 "Value":true,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":true                            
-},                            {
+                                "DefaultValue":true
+                            },                            {
                                 "Name":"XML micmac",
                                 "Key":"kOrientationFormatXML",
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-},                            {
+                                "DefaultValue":false
+                            },                            {
                                 "Name":"GRI",
                                 "Key":"kOrientationFormatGRI",
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-},                            {
+                                "DefaultValue":false
+                            },                            {
                                 "Name":"RTO",
                                 "Key":"kOrientationFormatRTO",
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-},                            {
+                                "DefaultValue":false
+                            },                            {
                                 "Name":"TA",
                                 "Key":"kOrientationFormatTA",
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-}],
-                            "GroupType":"HorizontalGroup"                        
-},                        {
+                                "DefaultValue":false
+                            }],
+                            "GroupType":"HorizontalGroup"
+                        },                        {
                             "Name":"",
                             "Type":"Group",
                             "content":[                            {
@@ -206,20 +206,20 @@
                                 "Type":"FileSelector",
                                 "ValueType":"FilePath",
                                 "DefaultValue":"",
-                                "ToolTip":"kTA |\n* permet de generer les orientations CON et XML si c'est le format d'orientation specifie\n* gere les cliches inactifs\n* en mode Image + Bascule ne prend en compte que les voisins d'une image au sein d'une meme bande"                            
-},                            {
+                                "ToolTip":"kTA |\n* permet de generer les orientations CON et XML si c'est le format d'orientation specifie\n* gere les cliches inactifs\n* en mode Image + Bascule ne prend en compte que les voisins d'une image au sein d'une meme bande"
+                            },                            {
                                 "Name":"TA en hauteur ellipsoidale",
                                 "Key":"kTAHEllips",
                                 "Value":true,
                                 "Type":"CheckBox",
                                 "ValueType":"Boolean",
                                 "DefaultValue":true,
-                                "ToolTip":"kTAHEllips | indique que les sommets de PV sont en hauteur ellipoidale afin de les convertir en altitude dans les fichiers d'orientation"                            
-}],
-                            "GroupType":"HorizontalGroup"                        
-}],
-                        "GroupType":"VerticalGroup"                    
-},                    {
+                                "ToolTip":"kTAHEllips | indique que les sommets de PV sont en hauteur ellipoidale afin de les convertir en altitude dans les fichiers d'orientation"
+                            }],
+                            "GroupType":"HorizontalGroup"
+                        }],
+                        "GroupType":"VerticalGroup"
+                    },                    {
                         "Name":"Geometrie",
                         "Type":"Group",
                         "content":[                        {
@@ -232,24 +232,24 @@
                                 "Value":true,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":true                            
-},                            {
+                                "DefaultValue":true
+                            },                            {
                                 "Name":"Emprise rectangulaire",
                                 "Key":"kEmpriseBBox",
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-},                            {
+                                "DefaultValue":false
+                            },                            {
                                 "Name":"Emprise polygonale",
                                 "Key":"kEmpriseZone",
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-}],
-                            "GroupType":"HorizontalGroup"                        
-},                        {
+                                "DefaultValue":false
+                            }],
+                            "GroupType":"HorizontalGroup"
+                        },                        {
                             "Name":"",
                             "Type":"Group",
                             "content":[                            {
@@ -259,71 +259,71 @@
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
                                 "DefaultValue":"0.0",
-                                "Parent":"kEmpriseBBoxGroup"                            
-},                            {
+                                "Parent":"kEmpriseBBoxGroup"
+                            },                            {
                                 "Name":"xmax",
                                 "Key":"kEmpriseXmax",
                                 "Value":"0.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
                                 "DefaultValue":"0.0",
-                                "Parent":"kEmpriseBBoxGroup"                            
-},                            {
+                                "Parent":"kEmpriseBBoxGroup"
+                            },                            {
                                 "Name":"ymin",
                                 "Key":"kEmpriseYmin",
                                 "Value":"0.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
                                 "DefaultValue":"0.0",
-                                "Parent":"kEmpriseBBoxGroup"                            
-},                            {
+                                "Parent":"kEmpriseBBoxGroup"
+                            },                            {
                                 "Name":"ymax",
                                 "Key":"kEmpriseYmax",
                                 "Value":"0.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
                                 "DefaultValue":"0.0",
-                                "Parent":"kEmpriseBBoxGroup"                            
-}],
+                                "Parent":"kEmpriseBBoxGroup"
+                            }],
                             "GroupType":"HorizontalGroup",
-                            "Key":"kEmpriseBBoxGroup"                        
-},                        {
+                            "Key":"kEmpriseBBoxGroup"
+                        },                        {
                             "Name":"Fichier shapefile",
                             "Key":"kEmpriseSHP",
                             "Value":"",
                             "Type":"FileSelector",
                             "ValueType":"FilePath",
                             "DefaultValue":"",
-                            "ToolTip":"kEmpriseSHP | shapefile decrivant l'emprise polygonale desiree"                        
-},                        {
+                            "ToolTip":"kEmpriseSHP | shapefile decrivant l'emprise polygonale desiree"
+                        },                        {
                             "Name":"Buffer (metres)",
                             "Key":"kBuffer",
                             "Value":"0.0",
                             "Type":"LineEdit",
                             "ValueType":"String",
                             "DefaultValue":"0.0",
-                            "ToolTip":"kBuffer | indique un buffer de dilatation (ou d'erosion en cas de valeur negative) autour de la zone definie par les champs precedents"                        
-},                        {
+                            "ToolTip":"kBuffer | indique un buffer de dilatation (ou d'erosion en cas de valeur negative) autour de la zone definie par les champs precedents"
+                        },                        {
                             "Name":"Fichier shapefile de masque (ZI \/ Hydro)",
                             "Key":"kMaskSHP",
                             "Value":"",
                             "Type":"FileSelector",
                             "ValueType":"FilePath",
                             "DefaultValue":"",
-                            "ToolTip":"kMaskSHP | retranche a la zone de calcul definie par les champs precedents les zones definies dans ce fichier"                        
-}],
-                        "GroupType":"VerticalGroup"                    
-}],
-                    "GroupType":"VerticalGroup"                
-},                {
+                            "ToolTip":"kMaskSHP | retranche a la zone de calcul definie par les champs precedents les zones definies dans ce fichier"
+                        }],
+                        "GroupType":"VerticalGroup"
+                    }],
+                    "GroupType":"VerticalGroup"
+                },                {
                     "Name":"                                          ",
                     "Type":"Group",
                     "content":[],
-                    "GroupType":"VerticalGroup"                
-}],
-                "GroupType":"HorizontalGroup"            
-}]        
-},        {
+                    "GroupType":"VerticalGroup"
+                }],
+                "GroupType":"HorizontalGroup"
+            }]
+        },        {
             "Name":"Correlation",
             "Type":"Page",
             "content":[            {
@@ -333,8 +333,8 @@
                     "Name":"                                          ",
                     "Type":"Group",
                     "content":[],
-                    "GroupType":"VerticalGroup"                
-},                {
+                    "GroupType":"VerticalGroup"
+                },                {
                     "Name":"                                          ",
                     "Type":"Group",
                     "content":[                    {
@@ -346,8 +346,8 @@
                             "Value":true,
                             "Type":"CheckBox",
                             "ValueType":"Boolean",
-                            "DefaultValue":true                        
-},                        {
+                            "DefaultValue":true
+                        },                        {
                             "Name":"Mode de correlation",
                             "Type":"ButtonGroup",
                             "Key":"kMode",
@@ -357,32 +357,32 @@
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-},                            {
+                                "DefaultValue":false
+                            },                            {
                                 "Name":"Image + Bascule",
                                 "Key":"kModeImage",
                                 "Value":true,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":true                            
-},                            {
+                                "DefaultValue":true
+                            },                            {
                                 "Name":"Utiliser un patron MicMac",
                                 "Key":"kModeTemplateMicMac",
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-}],
-                            "GroupType":"HorizontalGroup"                        
-},                        {
+                                "DefaultValue":false
+                            }],
+                            "GroupType":"HorizontalGroup"
+                        },                        {
                             "Name":"Patron MicMac",
                             "Key":"kParamMicMac",
                             "Value":"",
                             "Type":"FileSelector",
                             "ValueType":"FilePath",
                             "DefaultValue":"\/Applications\/MicMacMgrV2.app\/Contents\/Data\/templates",
-                            "ToolTip":"kParamMicMac | patron de fichier MicMac de correlation"                        
-},                        {
+                            "ToolTip":"kParamMicMac | patron de fichier MicMac de correlation"
+                        },                        {
                             "Name":"Resolution du calcul",
                             "Type":"Group",
                             "content":[                            {
@@ -393,8 +393,8 @@
                                 "ValueType":"Double",
                                 "DefaultValue":"1.0",
                                 "ValueMin":0,
-                                "ValueMax":10000000000                            
-},                            {
+                                "ValueMax":10000000000
+                            },                            {
                                 "Name":"res. Y (metres)",
                                 "Key":"kImageResolutionY",
                                 "Value":"1.0",
@@ -402,17 +402,17 @@
                                 "ValueType":"Double",
                                 "DefaultValue":"1.0",
                                 "ValueMin":-10000000000,
-                                "ValueMax":10000000000                            
-},                            {
+                                "ValueMax":10000000000
+                            },                            {
                                 "Name":"Facteur de sousech",
                                 "Key":"kSousEch",
                                 "Value":"1;2;4;8",
                                 "Type":"ComboBox",
                                 "ValueType":"String",
-                                "DefaultValue":0                            
-}],
-                            "GroupType":"HorizontalGroup"                        
-},                        {
+                                "DefaultValue":0
+                            }],
+                            "GroupType":"HorizontalGroup"
+                        },                        {
                             "Name":"",
                             "Type":"Group",
                             "content":[                            {
@@ -425,8 +425,8 @@
                                     "Type":"LineEdit",
                                     "ValueType":"Double",
                                     "DefaultValue":"0.1",
-                                    "Parent":"kOptionGroup"                                
-},                                {
+                                    "Parent":"kOptionGroup"
+                                },                                {
                                     "Name":"Marge (pixel)",
                                     "Key":"kTileMargin",
                                     "Value":"10",
@@ -436,12 +436,12 @@
                                     "Parent":"kOptionGroup",
                                     "ValueMin":5,
                                     "ValueMax":100,
-                                    "ToolTip":"kTileMargin | marge autour de la tuile de calcul afin d'eviter des effets de bord\nLa dalle exportee sera cropee afin de correspondre a la taille de dalle donnee par l'utilisateur dans les options d'export"                                
-}],
+                                    "ToolTip":"kTileMargin | marge autour de la tuile de calcul afin d'eviter des effets de bord\nLa dalle exportee sera cropee afin de correspondre a la taille de dalle donnee par l'utilisateur dans les options d'export"
+                                }],
                                 "GroupType":"VerticalGroup",
                                 "Parent":"kOptionGroup",
-                                "Key":"kOptionGroup"                            
-},                            {
+                                "Key":"kOptionGroup"
+                            },                            {
                                 "Name":"",
                                 "Type":"Group",
                                 "content":[                                {
@@ -452,8 +452,8 @@
                                     "ValueType":"Integer",
                                     "DefaultValue":"3",
                                     "Parent":"kOptionGroup",
-                                    "ToolTip":"kWindowSize | Taille de la demi-fenêtre de correlation"                                
-},                                {
+                                    "ToolTip":"kWindowSize | Taille de la demi-fenêtre de correlation"
+                                },                                {
                                     "Name":"Parametres supplementaires MALT",
                                     "Key":"kParamMalt",
                                     "Value":"CorMS=true NbVI=2 DefCor=0.2",
@@ -461,27 +461,27 @@
                                     "ValueType":"String",
                                     "DefaultValue":"CorMS=true NbVI=2 DefCor=0.2",
                                     "Parent":"kOptionGroup",
-                                    "ToolTip":"kParamMalt | parametres supplementaires dans la ligne de commande de correlation Malt. Consulter la doc de MicMac pour la liste des parametres valides"                                
-}],
+                                    "ToolTip":"kParamMalt | parametres supplementaires dans la ligne de commande de correlation Malt. Consulter la doc de MicMac pour la liste des parametres valides"
+                                }],
                                 "GroupType":"VerticalGroup",
                                 "Parent":"kOptionGroup",
-                                "Key":"kOptionGroup"                            
-}],
+                                "Key":"kOptionGroup"
+                            }],
                             "GroupType":"HorizontalGroup",
-                            "Key":"kOptionGroup"                        
-}],
-                        "GroupType":"VerticalGroup"                    
-}],
-                    "GroupType":"VerticalGroup"                
-},                {
+                            "Key":"kOptionGroup"
+                        }],
+                        "GroupType":"VerticalGroup"
+                    }],
+                    "GroupType":"VerticalGroup"
+                },                {
                     "Name":"                                          ",
                     "Type":"Group",
                     "content":[],
-                    "GroupType":"VerticalGroup"                
-}],
-                "GroupType":"HorizontalGroup"            
-}]        
-},        {
+                    "GroupType":"VerticalGroup"
+                }],
+                "GroupType":"HorizontalGroup"
+            }]
+        },        {
             "Name":"Donnees en sortie",
             "Type":"Page",
             "content":[            {
@@ -491,8 +491,8 @@
                     "Name":"                                          ",
                     "Type":"Group",
                     "content":[],
-                    "GroupType":"VerticalGroup"                
-},                {
+                    "GroupType":"VerticalGroup"
+                },                {
                     "Name":"                                          ",
                     "Type":"Group",
                     "content":[                    {
@@ -505,26 +505,26 @@
                             "Type":"CheckBox",
                             "ValueType":"Boolean",
                             "DefaultValue":false,
-                            "ToolTip":"kComputeShaded | genere un MNS en ombrage avec GrShade"                        
-},                        {
+                            "ToolTip":"kComputeShaded | genere un MNS en ombrage avec GrShade"
+                        },                        {
                             "Name":"Calculer l'emprise finale",
                             "Key":"kBuildFinalExtent",
                             "Value":false,
                             "Type":"CheckBox",
                             "ValueType":"Boolean",
                             "DefaultValue":false,
-                            "ToolTip":"kBuildFinalExtent | genere un fichier shapefile de l'emprise finale des donnees en fusionnant les fichiers geojson par dalle. ATTENTION: post-traitement pouvant durer plusieurs heures"                        
-},                        {
+                            "ToolTip":"kBuildFinalExtent | genere un fichier shapefile de l'emprise finale des donnees en fusionnant les fichiers geojson par dalle. ATTENTION: post-traitement pouvant durer plusieurs heures"
+                        },                        {
                             "Name":"Controler les MNS",
                             "Key":"kCheckDSM",
                             "Value":false,
                             "Type":"CheckBox",
                             "ValueType":"Boolean",
                             "DefaultValue":false,
-                            "ToolTip":"kCheckDSM | Controle le MNS et en cas de detection d'alerte, genere un fichier texte d'accompagnement"                        
-}],
-                        "GroupType":"VerticalGroup"                    
-},                    {
+                            "ToolTip":"kCheckDSM | Controle le MNS et en cas de detection d'alerte, genere un fichier texte d'accompagnement"
+                        }],
+                        "GroupType":"VerticalGroup"
+                    },                    {
                         "Name":"Gestion du NO DATA",
                         "Type":"Group",
                         "content":[                        {
@@ -538,41 +538,41 @@
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
                                 "DefaultValue":true,
-                                "ToolTip":"kNoDataNeutral | la valeur finale des pixels non correles"                            
-},                            {
+                                "ToolTip":"kNoDataNeutral | la valeur finale des pixels non correles"
+                            },                            {
                                 "Name":"Valeur MNT",
                                 "Key":"kNoDataDTM",
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
                                 "DefaultValue":false,
-                                "ToolTip":"kNoDataDTM | remplace les valeurs non correlees par la valeur du MNT en entree (z moyen si pas de valeur)"                            
-},                            {
+                                "ToolTip":"kNoDataDTM | remplace les valeurs non correlees par la valeur du MNT en entree (z moyen si pas de valeur)"
+                            },                            {
                                 "Name":"Aucun post-traitement",
                                 "Key":"kNoDataKeepZ",
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
                                 "DefaultValue":false,
-                                "ToolTip":"kNoDataKeepZ | conserve le MNS en l'etat sans appliquer de post-traitement"                            
-}],
-                            "GroupType":"HorizontalGroup"                        
-},                        {
+                                "ToolTip":"kNoDataKeepZ | conserve le MNS en l'etat sans appliquer de post-traitement"
+                            }],
+                            "GroupType":"HorizontalGroup"
+                        },                        {
                             "Name":"                                                          ",
-                            "Type":"Label"                        
-},                        {
+                            "Type":"Label"
+                        },                        {
                             "Name":"Valeur neutre",
                             "Key":"kNoDataValue",
                             "Value":"-999",
                             "Type":"LineEdit",
                             "ValueType":"Double",
-                            "DefaultValue":"-999"                        
-},                        {
+                            "DefaultValue":"-999"
+                        },                        {
                             "Name":"                                                           ",
-                            "Type":"Label"                        
-}],
-                        "GroupType":"HorizontalGroup"                    
-},                    {
+                            "Type":"Label"
+                        }],
+                        "GroupType":"HorizontalGroup"
+                    },                    {
                         "Name":"",
                         "Type":"Group",
                         "content":[                        {
@@ -585,35 +585,35 @@
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
                                 "DefaultValue":"1000.0"
-},                            {
+                            },                            {
                                 "Name":"                               ",
-                                "Type":"Label"                            
-},                            {
+                                "Type":"Label"
+                            },                            {
                                 "Name":"Pas Y",
                                 "Key":"kTileSizeY",
                                 "Value":"1000.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
                                 "DefaultValue":"1000.0"
-},                            {
+                            },                            {
                                 "Name":"                               ",
-                                "Type":"Label"                            
-},                            {
+                                "Type":"Label"
+                            },                            {
                                 "Name":"Recouvrement",
                                 "Key":"kTileOverlap",
                                 "Value":"0.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
                                 "DefaultValue":"0.0",
-                                "ToolTip":"kTileOverlap | Recouvrement entre dalle en elargissant la tuile de cette valeur dans chaque direction"                            
-},                            {
+                                "ToolTip":"kTileOverlap | Recouvrement entre dalle en elargissant la tuile de cette valeur dans chaque direction"
+                            },                            {
                                 "Name":"                               ",
-                                "Type":"Label"                            
-}],
-                            "GroupType":"HorizontalGroup"                        
-}],
-                        "GroupType":"VerticalGroup"                    
-},                    {
+                                "Type":"Label"
+                            }],
+                            "GroupType":"HorizontalGroup"
+                        }],
+                        "GroupType":"VerticalGroup"
+                    },                    {
                         "Name":"Nomenclature",
                         "Type":"Group",
                         "content":[                        {
@@ -626,33 +626,33 @@
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-},                            {
+                                "DefaultValue":false
+                            },                            {
                                 "Name":"Coord. Carto",
                                 "Key":"kNomenclatureCoordCarto",
                                 "Value":true,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
-                                "DefaultValue":true                            
-}],
-                            "GroupType":"HorizontalGroup"                        
-},                        {
+                                "DefaultValue":true
+                            }],
+                            "GroupType":"HorizontalGroup"
+                        },                        {
                             "Name":"Prefixe",
                             "Key":"kNomenclaturePrefix",
                             "Value":"MNS_",
                             "Type":"LineEdit",
                             "ValueType":"String",
-                            "DefaultValue":"MNS_"                        
-},                        {
+                            "DefaultValue":"MNS_"
+                        },                        {
                             "Name":"Suffixe",
                             "Key":"kNomenclatureSuffix",
                             "Value":"",
                             "Type":"LineEdit",
                             "ValueType":"String",
-                            "DefaultValue":""                        
-}],
-                        "GroupType":"VerticalGroup"                    
-},                    {
+                            "DefaultValue":""
+                        }],
+                        "GroupType":"VerticalGroup"
+                    },                    {
                         "Name":"Format de fichier",
                         "Type":"Group",
                         "content":[                        {
@@ -668,26 +668,26 @@
                                     "Value":false,
                                     "Type":"RadioButton",
                                     "ValueType":"Boolean",
-                                    "DefaultValue":false                                
-},                                {
+                                    "DefaultValue":false
+                                },                                {
                                     "Name":"TIF",
                                     "Key":"kOutputFormatImageTIF",
                                     "Value":true,
                                     "Type":"RadioButton",
                                     "ValueType":"Boolean",
-                                    "DefaultValue":true                                
-},                                {
+                                    "DefaultValue":true
+                                },                                {
                                     "Name":"BIL",
                                     "Key":"kOutputFormatImageBIL",
                                     "Value":false,
                                     "Type":"RadioButton",
                                     "ValueType":"Boolean",
-                                    "DefaultValue":false                                
-}],
-                                "GroupType":"HorizontalGroup"                            
-}],
-                            "GroupType":"HorizontalGroup"                        
-},                        {
+                                    "DefaultValue":false
+                                }],
+                                "GroupType":"HorizontalGroup"
+                            }],
+                            "GroupType":"HorizontalGroup"
+                        },                        {
                             "Name":"Fichier de georeferencement",
                             "Type":"Group",
                             "content":[                            {
@@ -696,166 +696,166 @@
                                 "Value":true,
                                 "Type":"CheckBox",
                                 "ValueType":"Boolean",
-                                "DefaultValue":true                            
-},                            {
+                                "DefaultValue":true
+                            },                            {
                                 "Name":"TFW",
                                 "Key":"kOutputFormatGeorefTFW",
                                 "Value":false,
                                 "Type":"CheckBox",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-},                            {
+                                "DefaultValue":false
+                            },                            {
                                 "Name":"GRF",
                                 "Key":"kOutputFormatGeorefGRF",
                                 "Value":true,
                                 "Type":"CheckBox",
                                 "ValueType":"Boolean",
-                                "DefaultValue":true                            
-},                            {
+                                "DefaultValue":true
+                            },                            {
                                 "Name":"GXT",
                                 "Key":"kOutputFormatGeorefGXT",
                                 "Value":false,
                                 "Type":"CheckBox",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-},                            {
+                                "DefaultValue":false
+                            },                            {
                                 "Name":"TAB",
                                 "Key":"kOutputFormatGeorefTAB",
                                 "Value":false,
                                 "Type":"CheckBox",
                                 "ValueType":"Boolean",
-                                "DefaultValue":false                            
-}],
-                            "GroupType":"HorizontalGroup"                        
-}],
-                        "GroupType":"HorizontalGroup"                    
-}],
-                    "GroupType":"VerticalGroup"                
-},                {
+                                "DefaultValue":false
+                            }],
+                            "GroupType":"HorizontalGroup"
+                        }],
+                        "GroupType":"HorizontalGroup"
+                    }],
+                    "GroupType":"VerticalGroup"
+                },                {
                     "Name":"                                          ",
                     "Type":"Group",
                     "content":[],
-                    "GroupType":"VerticalGroup"                
-}],
-                "GroupType":"HorizontalGroup"            
-}]        
-}],
+                    "GroupType":"VerticalGroup"
+                }],
+                "GroupType":"HorizontalGroup"
+            }]
+        }],
         "dependencies":[        {
             "Master":"kEmpriseImage",
             "Slave":"kEmpriseBBoxGroup",
             "Type":"Dependency",
-            "Inverse":true        
-},        {
+            "Inverse":true
+        },        {
             "Master":"kEmpriseBBox",
             "Slave":"kEmpriseBBoxGroup",
             "Type":"Dependency",
-            "Inverse":false        
-},        {
+            "Inverse":false
+        },        {
             "Master":"kEmpriseZone",
             "Slave":"kEmpriseBBoxGroup",
             "Type":"Dependency",
-            "Inverse":true        
-},        {
+            "Inverse":true
+        },        {
             "Master":"kEmpriseImage",
             "Slave":"kEmpriseSHP",
             "Type":"Dependency",
-            "Inverse":true        
-},        {
+            "Inverse":true
+        },        {
             "Master":"kEmpriseBBox",
             "Slave":"kEmpriseSHP",
             "Type":"Dependency",
-            "Inverse":true        
-},        {
+            "Inverse":true
+        },        {
             "Master":"kEmpriseZone",
             "Slave":"kEmpriseSHP",
             "Type":"Dependency",
-            "Inverse":false        
-},        {
+            "Inverse":false
+        },        {
             "Master":"kNoDataNeutral",
             "Slave":"kNoDataValue",
             "Type":"Dependency",
-            "Inverse":false        
-},        {
+            "Inverse":false
+        },        {
             "Master":"kNoDataKeepZ",
             "Slave":"kNoDataValue",
             "Type":"Dependency",
-            "Inverse":true        
-},        {
+            "Inverse":true
+        },        {
             "Master":"kNoDataDTM",
             "Slave":"kNoDataValue",
             "Type":"Dependency",
-            "Inverse":true        
-},        {
+            "Inverse":true
+        },        {
             "Master":"kUseMalt",
             "Slave":"kParamMalt",
             "Type":"Dependency",
-            "Inverse":false        
-},        {
+            "Inverse":false
+        },        {
             "Master":"kUseMalt",
             "Slave":"kModeTemplateMicMac",
             "Type":"Dependency",
-            "Inverse":true        
-},        {
+            "Inverse":true
+        },        {
             "Master":"kUseMalt",
             "Slave":"kModeImage",
             "Type":"Dependency",
-            "Inverse":false        
-},        {
+            "Inverse":false
+        },        {
             "Master":"kModeTemplateMicMac",
             "Slave":"kParamMicMac",
             "Type":"Dependency",
-            "Inverse":false        
-},        {
+            "Inverse":false
+        },        {
             "Master":"kModeImage",
             "Slave":"kParamMicMac",
             "Type":"Dependency",
-            "Inverse":true        
-},        {
+            "Inverse":true
+        },        {
             "Master":"kModeTerrain",
             "Slave":"kParamMicMac",
             "Type":"Dependency",
-            "Inverse":true        
-},        {
+            "Inverse":true
+        },        {
             "Master":"kModeImage",
             "Slave":"kOptionGroup",
             "Type":"Dependency",
-            "Inverse":false        
-},        {
+            "Inverse":false
+        },        {
             "Master":"kModeTerrain",
             "Slave":"kOptionGroup",
             "Type":"Dependency",
-            "Inverse":false        
-},        {
+            "Inverse":false
+        },        {
             "Master":"kModeTemplateMicMac",
             "Slave":"kOptionGroup",
             "Type":"Dependency",
-            "Inverse":false        
-},        {
+            "Inverse":false
+        },        {
             "Master":"kUseMalt",
             "Slave":"kParamMalt",
             "Type":"Dependency",
-            "Inverse":false        
-},        {
+            "Inverse":false
+        },        {
             "Master":"kUseMalt",
             "Slave":"kSousEch",
             "Type":"Dependency",
-            "Inverse":false        
-},        {
+            "Inverse":false
+        },        {
             "Master":"kModeTemplateMicMac",
             "Slave":"kSousEch",
             "Type":"Dependency",
-            "Inverse":true        
-},        {
+            "Inverse":true
+        },        {
             "Master":"kModeTerrain",
             "Slave":"kUseMalt",
             "Type":"Dependency",
-            "Inverse":false        
-},        {
+            "Inverse":false
+        },        {
             "Master":"kModeImage",
             "Slave":"kUseMalt",
             "Type":"Dependency",
-            "Inverse":false        
-}],
+            "Inverse":false
+        }],
         "oncreate":{
             "prerequisite": {
             "environment":[
