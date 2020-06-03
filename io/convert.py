@@ -2,6 +2,7 @@ import json
 import sys
 import os
 import string
+from sys import platform
 
 
 ###
@@ -18,9 +19,22 @@ def readfile(filename):
 ###
 
 def resolve(my_chantier):
+    tmpdir = os.getcwd()
+    for param in my_chantier['params']:
+        if param['cle'] == 'TEMP':
+            tmpdir = param['valeur']
+        
     for job in my_chantier['jobs']:
         for param in my_chantier['params']:
             job['commande'] = job['commande'].replace('$'+param['cle']+'$', param['valeur'])
+            key ='$RELPATH('+param['cle']+')$'
+            #relative_path = os.path.relpath(param['valeur'], tmpdir)
+            relative_path = os.path.relpath(tmpdir, param['valeur'])
+            cmd = job['commande'].replace(key, relative_path)
+            if cmd != job['commande']:
+                if int(verbose) > 0: print('replacing ', key, 'with ',relative_path, 'value is ', param['valeur'])
+                job['commande'] = cmd
+                
     return my_chantier
 ###
 ###
@@ -186,9 +200,10 @@ def convertwithmerge(my_chantier):
         id_pretraitements = 0
 
         for project in my_projects:
-            my_dep = {}
-            my_dep['id'] = id_pretraitements
-            project['deps'].append(my_dep)
+            if project['name'] != "pretraitements":
+                my_dep = {}
+                my_dep['id'] = id_pretraitements
+                project['deps'].append(my_dep)
 
     # maintenant qu'on a une pile de projects ordonnee, on peut reconstruire les dependances de projects
     # avec les identifiants de la nouvelle pile
@@ -278,12 +293,25 @@ def convertwithscript(my_chantier, directory):
             
             script_file = open(script_filename,"w")
             newcommand = ""
+
+            for key in environment:
+                if newcommand != "":  newcommand += " && "
+                
+                if platform == "linux" or platform == "linux2" or platform == "darwin":
+                    # linux & macos
+                    newcommand += "export " + key + "=" + environment[key]
+                elif platform == "win32":
+                    # Windows...
+                    newcommand += "set " + key + "=" + environment[key]
+                
             for subjob in job:
                 if newcommand == "":
                     newcommand = subjob['command']
                 else :
-                     newcommand = newcommand + " && " + subjob['command']
+                    newcommand += " && " + subjob['command']
            
+            newcommand += " && echo fin du lot " + nomlot + " && echo $?"
+
             script_file.write(newcommand)
                 
         if int(verbose) > 1: print ('adding ', len(my_newjobs), ' jobs in project')
@@ -304,9 +332,10 @@ def convertwithscript(my_chantier, directory):
         id_pretraitements = 0
 
         for project in my_projects:
-            my_dep = {}
-            my_dep['id'] = id_pretraitements
-            project['deps'].append(my_dep)
+            if project['name'] != "pretraitements":
+                my_dep = {}
+                my_dep['id'] = id_pretraitements
+                project['deps'].append(my_dep)
 
 
     # maintenant qu'on a une pile de projects ordonnee, on peut reconstruire les dependances de projects
@@ -353,6 +382,7 @@ count = 0
 exedir = ""
 gpaoname = ""
 resolvekeys = False
+environment = {}
 
 for eachArg in sys.argv:
     eachArg = eachArg.lower()
@@ -370,10 +400,14 @@ for eachArg in sys.argv:
         verbose=sys.argv[count + 1]
     elif eachArg == "--exedir":
         exedir=sys.argv[count + 1]
+    elif eachArg == "--env":
+        key=sys.argv[count + 1]
+        value=sys.argv[count + 2]
+        environment[key] = value
     elif eachArg == "--resolvekeys":
         resolvekeys=True
     elif eachArg == "--help":
-        print ("usage: python convert.py\n --input inputfile\n --output outputfilename\n  --gpaoname name\n [--strategy simple|mergejoblot|script]\n [--directory script_dir]\n [--resolvekeys]\n [--verbose verbosity_level]\n [--exedir exedir]")
+        print ("usage: python convert.py\n --input inputfile\n --output outputfilename\n  --gpaoname name\n [--strategy simple|mergejoblot|script]\n [--directory script_dir]\n [--resolvekeys]\n [--verbose verbosity_level]\n [--exedir exedir]\n [--env key value]")
         exit(1)
     elif "--" in eachArg:
         print ("unrecognized option: ", eachArg)
