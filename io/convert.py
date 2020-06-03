@@ -308,8 +308,10 @@ def convertwithscript(my_chantier, directory):
                 if newcommand == "":
                     newcommand = subjob['command']
                 else :
-                     newcommand = newcommand + " && " + subjob['command']
+                    newcommand += " && " + subjob['command']
            
+            newcommand += " && echo fin du lot " + nomlot + " && echo $?"
+
             script_file.write(newcommand)
                 
         if int(verbose) > 1: print ('adding ', len(my_newjobs), ' jobs in project')

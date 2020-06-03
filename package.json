@@ -19,7 +19,8 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^8.3.1",
-    "electron-react-devtools": "^0.5.3"
+    "electron-react-devtools": "^0.5.3",
+    "eslint": "^7.1.0"
   },
   "dependencies": {
     "console-log-html": "^2.0.2",
