@@ -134,7 +134,7 @@
                             "Key":"kImageFormat",
                             "content":[                            {
                                 "Name":"TIF",
-                                "Key":"kImageFormatTIF",
+                                "Kzey":"kImageFormatTIF",
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
@@ -861,6 +861,7 @@
                 "environment":[
                     "IGN_DATA",
                     "PROJ_LIB",
+                    "GDAL_DATA",
                     "APPLICATION_DIR",
                     "GPAO_CLIENT_DIR",
                     "DIRECTORY"
@@ -869,7 +870,8 @@
                 "resources":[
                     "$APPLICATION_DIR$/MicMacMgrV2",
                     "$GPAO_CLIENT_DIR$/io/convert.py",
-                    "$GPAO_CLIENT_DIR$/io/insert_project.py"
+                    "$GPAO_CLIENT_DIR$/io/insert_project.py",
+                    "GDAL_DATA"
                 ]
             },
             "commands":[
