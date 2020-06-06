@@ -21,13 +21,13 @@
   "devDependencies": {
     "electron": "^8.3.1",
     "electron-react-devtools": "^0.5.3",
-    "eslint": "^7.1.0",
+    "eslint": "^7.2.0",
     "lint": "^0.7.0"
   },
   "dependencies": {
     "console-log-html": "^2.0.2",
     "ejs-electron": "^2.0.3",
-    "ejs-electron-ign-gpao": "^1.4.0",
+    "ejs-electron-ign-gpao": "^1.4.3",
     "express": "^4.6.1",
     "minimist": "^1.2.5",
     "request": "^2.88.2",
