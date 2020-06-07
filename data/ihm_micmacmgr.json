@@ -134,7 +134,7 @@
                             "Key":"kImageFormat",
                             "content":[                            {
                                 "Name":"TIF",
-                                "Kzey":"kImageFormatTIF",
+                                "Key":"kImageFormatTIF",
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
