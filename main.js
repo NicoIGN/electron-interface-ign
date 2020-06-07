@@ -1,4 +1,5 @@
 const { BrowserWindow, app } = require('electron');
+const ignGpao = require('ejs-electron-ign-gpao');
 
 require('./app.js');
 const ejse = require('ejs-electron');
@@ -15,16 +16,16 @@ function main() {
     },
   });
 
-  const jsonfile = './data/ihm.json';
+  const jsonfile = './data/ihm_micmacmgr.json';
   // eslint-disable-next-line import/no-dynamic-require
   const ihmData = require(jsonfile).ihm;
   ejse.data('no_header', 'on');
   ejse.data('js_folder', '../../js');
   ejse.data('ihm_data', ihmData);
-  mainWindow.loadURL('file:///Temp/express-useragent/test/client_test.html');
 
-  // mainWindow.loadURL('file://' + ignGpao.view_folder() + '/pages/creation.ejs');
-  // eslint-disable-next-line  no-unused-vars
+  mainWindow.loadURL('file://' + ignGpao.viewFolder() + '/pages/creation.ejs');
+ 
+    // eslint-disable-next-line  no-unused-vars
   mainWindow.on('close', (event) => {
     mainWindow = null;
   });
