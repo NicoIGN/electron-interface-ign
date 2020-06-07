@@ -25,11 +25,11 @@
     "lint": "^0.7.0"
   },
   "dependencies": {
-      "electron": "^8.3.1",
     "console-log-html": "^2.0.2",
     "ejs-electron": "^2.0.3",
     "ejs-electron-ign-gpao": "^1.4.3",
-    "express": "^4.6.1",
+    "electron": "^8.3.1",
+    "express": "^4.17.1",
     "minimist": "^1.2.5",
     "request": "^2.88.2",
     "yamlparser": "0.0.2"
