@@ -25,7 +25,7 @@ function main() {
     const rawdata = fs.readFileSync(args.ihm);
     ihmData = JSON.parse(rawdata);
 
-    ihmData.jsFolder = '../../js';
+    ihmData.js_folder = '../../js';
     ihmData.page = `${ignGpao.viewFolder()}/pages/creation`;
 
     if ({}.hasOwnProperty.call(ihmData, 'ihm')) {
