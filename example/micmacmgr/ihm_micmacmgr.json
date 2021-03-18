@@ -861,7 +861,7 @@
                     "$APPLICATION_DIR$/MicMacMgrV2",
                     "$GPAO_CLIENT_DIR$/io/convert.py",
                     "$GPAO_CLIENT_DIR$/io/insert_project.py",
-                    "GDAL_DATA"
+                    "$GDAL_DATA$"
                 ]
             },
             "commands":[
