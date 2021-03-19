@@ -14,4 +14,4 @@ Le fichier interface.json decrit
 - les commandes a lancer une fois le formulaire rempli
 
 Example: 
-- bash example/micmacmgr/macosx-clang/launch.sh
+- bash examples/micmacmgr/macosx-clang/launch.sh
