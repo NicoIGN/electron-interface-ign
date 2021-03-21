@@ -23,6 +23,8 @@ function main() {
   if ({}.hasOwnProperty.call(args, 'ihm')) {
     const fs = require('fs');
     const rawdata = fs.readFileSync(args.ihm);
+    console.log('parsing ihm json file', args.ihm);
+
     ihmData = JSON.parse(rawdata);
 
     ihmData.js_folder = '../../js';
