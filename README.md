@@ -3,9 +3,9 @@ outil s'appuyant sur electronjs permettant d'interpreter une description d'inter
 Utilisable pour la creation de chantiers de gpao IGN.
 
 Usage:
-- installer electronjs
+- installer npm: https://www.npmjs.com/get-npm
 - installer l'application: bash install.sh
-- electron main.js --ihm interface.json
+- electron main.js --ihm interface.json 
 
 Le fichier interface.json decrit 
 - l'ensemble des champs a remplir par l'utilisateur
