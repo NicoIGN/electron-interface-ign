@@ -17,12 +17,12 @@ function main() {
     },
   });
 
-
   const args = require('minimist')(process.argv);
 
   if ({}.hasOwnProperty.call(args, 'ihm')) {
     const fs = require('fs');
     const rawdata = fs.readFileSync(args.ihm);
+    // eslint-disable-next-line  no-console
     console.log('parsing ihm json file', args.ihm);
 
     ihmData = JSON.parse(rawdata);
@@ -66,13 +66,11 @@ function main() {
     process.env.PARAMETERS = args.parameters;
   }
 
-
   // eslint-disable-next-line  no-unused-vars
   mainWindow.on('close', (event) => {
     mainWindow = null;
     process.exit(0);
   });
-
 
   mainWindow.webContents.on('did-finish-load', () => {
     if (process.env.PARAMETERS) {
