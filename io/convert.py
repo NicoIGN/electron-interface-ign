@@ -209,19 +209,20 @@ def convertwithmerge(my_chantier):
     # avec les identifiants de la nouvelle pile
     if int(verbose) > 0: print('building project dependencies')
     
-    for depbloc in my_chantier['dependanceblocs']:
-        
-        idbloc = depbloc['idbloc']
-        idblocdependant = depbloc['idblocdependant']
-        blocname = my_chantier['blocs'][idbloc]['name']
-        newid = getIdFromName(my_projects, blocname)
-        if newid >= 0:
-            blocnamedependant = my_chantier['blocs'][idblocdependant]['name']
-            newiddependant =  getIdFromName(my_projects, blocnamedependant)
-            if newiddependant >= 0:
-                my_dep = {}
-                my_dep['id'] = newiddependant
-                my_projects[newid]['deps'].append(my_dep)
+    if 'dependanceblocs' in my_chantier:
+        for depbloc in my_chantier['dependanceblocs']:
+            
+            idbloc = depbloc['idbloc']
+            idblocdependant = depbloc['idblocdependant']
+            blocname = my_chantier['blocs'][idbloc]['name']
+            newid = getIdFromName(my_projects, blocname)
+            if newid >= 0:
+                blocnamedependant = my_chantier['blocs'][idblocdependant]['name']
+                newiddependant =  getIdFromName(my_projects, blocnamedependant)
+                if newiddependant >= 0:
+                    my_dep = {}
+                    my_dep['id'] = newiddependant
+                    my_projects[newid]['deps'].append(my_dep)
 
     print ('conversion succeeded')
     outputjsonData = {}
@@ -342,18 +343,19 @@ def convertwithscript(my_chantier, directory):
     # avec les identifiants de la nouvelle pile
     if int(verbose) > 0: print('building project dependencies')
     
-    for depbloc in my_chantier['dependanceblocs']:
-        idbloc = depbloc['idbloc']
-        idblocdependant = depbloc['idblocdependant']
-        blocname = my_chantier['blocs'][idbloc]['name']
-        newid = getIdFromName(my_projects, blocname)
-        if newid >= 0:
-            blocnamedependant = my_chantier['blocs'][idblocdependant]['name']
-            newiddependant =  getIdFromName(my_projects, blocnamedependant)
-            if newiddependant >= 0:
-                my_dep = {}
-                my_dep['id'] = newiddependant
-                my_projects[newid]['deps'].append(my_dep)
+    if 'dependanceblocs' in my_chantier:
+        for depbloc in my_chantier['dependanceblocs']:
+            idbloc = depbloc['idbloc']
+            idblocdependant = depbloc['idblocdependant']
+            blocname = my_chantier['blocs'][idbloc]['name']
+            newid = getIdFromName(my_projects, blocname)
+            if newid >= 0:
+                blocnamedependant = my_chantier['blocs'][idblocdependant]['name']
+                newiddependant =  getIdFromName(my_projects, blocnamedependant)
+                if newiddependant >= 0:
+                    my_dep = {}
+                    my_dep['id'] = newiddependant
+                    my_projects[newid]['deps'].append(my_dep)
 
     print ('conversion succeeded')
     outputjsonData = {}
