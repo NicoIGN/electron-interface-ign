@@ -2,7 +2,7 @@
    "ihm":{
       "content":[
           {
-             "Name":"Page2",
+             "Name":"Page1",
              "Type":"Page",
              "content":[
                 {
@@ -12,7 +12,7 @@
              ]
           },
          {
-            "Name":"Page1",
+            "Name":"Page2",
             "Type":"Page",
             "content":[
                {
