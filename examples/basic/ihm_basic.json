@@ -1,0 +1,175 @@
+{
+   "ihm":{
+      "content":[
+          {
+             "Name":"Page1",
+             "Type":"Page",
+             "content":[
+                {
+                   "Name":"Some simple static text",
+                   "Type":"Label"
+                }
+             ]
+          },
+         {
+            "Name":"Page2",
+            "Type":"Page",
+            "content":[
+               {
+                  "Name":"Some simple line edit",
+                  "Key":"kSomeSimpleLineEdit",
+                  "Value":"simple text",
+                  "Type":"LineEdit",
+                  "ValueType":"String",
+                  "DefaultValue":"Chantier"
+               },
+               {
+                  "Type":"Group",
+                  "Name":"a vertical group to organize fields",
+                  "GroupType":"VerticalGroup",
+                  "content":[
+                     {
+                        "Name":"some integer number field ",
+                        "Key":"kSomeIntegerNumberField",
+                        "Value":"0",
+                        "Type":"LineEdit",
+                        "ValueType":"Integer"
+                     },
+                     {
+                        "Name":"some floating number field ",
+                        "Key":"kSomeFloatingNumberField",
+                        "Value":"0.0",
+                        "Type":"LineEdit",
+                        "ValueType":"Double",
+                        "DefaultValue":"0.0",
+                        "ToolTip":"info bubble to help the user explaining what to enter in this field"
+                     },
+                     {
+                        "Name":"Some file selector",
+                        "Key":"kSomeFileSelector",
+                        "Value":"",
+                        "Type":"FileSelector",
+                        "ValueType":"FilePath",
+                        "DefaultValue":""
+                     },
+                     {
+                        "Name":"Some folder selector",
+                        "Key":"kSomeFolderSelector",
+                        "Value":"",
+                        "Type":"FolderSelector",
+                        "ValueType":"Path",
+                        "DefaultValue":""
+                     },
+                     {
+                        "Type":"Group",
+                        "Name":"a horizontal subgroup to organize fields",
+                        "GroupType":"HorizontalGroup",
+                        "content":[
+                           {
+                              "Name":"one checkbox",
+                              "Key":"kSomeCheckBox1",
+                              "Value":false,
+                              "Type":"CheckBox",
+                              "ValueType":"Boolean",
+                              "DefaultValue":false,
+                              "ToolTip":"this is a checkbox"
+                           },
+                           {
+                              "Name":"a second checkbox",
+                              "Key":"kSomeCheckBox2",
+                              "Value":false,
+                              "Type":"CheckBox",
+                              "ValueType":"Boolean",
+                              "DefaultValue":false
+                           },
+                           {
+                              "Name":"a third checkbox",
+                              "Key":"kSomeCheckBox3",
+                              "Value":true,
+                              "Type":"CheckBox",
+                              "ValueType":"Boolean",
+                              "DefaultValue":false
+                           }
+                        ]
+                     },
+                     {
+                        "Name":"a horizontal radiobutton group",
+                        "Type":"ButtonGroup",
+                        "GroupType":"HorizontalGroup",
+                        "Key":"kSomeRadioButtonGroup",
+                        "content":[
+                           {
+                              "Name":"button1",
+                              "Key":"kRadioButton1",
+                              "Value":false,
+                              "Type":"RadioButton",
+                              "ValueType":"Boolean",
+                              "DefaultValue":false
+                           },
+                           {
+                              "Name":"button2",
+                              "Key":"kRadioButton1",
+                              "Value":false,
+                              "Type":"RadioButton",
+                              "ValueType":"Boolean",
+                              "DefaultValue":true
+                           },
+                           {
+                              "Name":"button3",
+                              "Key":"kRadioButton3",
+                              "Value":false,
+                              "Type":"RadioButton",
+                              "ValueType":"Boolean",
+                              "DefaultValue":false
+                           }
+                        ]
+                     }
+                  ]
+               }
+            ]
+         }
+      ],
+      "dependencies":[
+         {
+            "Master":"kSomeCheckBox1",
+            "Slave":"kSomeFileSelector",
+            "Type":"Dependency",
+            "Inverse":false
+         },
+         {
+            "Master":"kSomeCheckBox2",
+            "Slave":"kSomeLineEdit",
+            "Type":"Dependency",
+            "Inverse":false
+         },
+         {
+            "Master":"kSomeCheckBox2",
+            "Slave":"kSomeRadioButtonGroup",
+            "Type":"Dependency",
+            "Inverse":false
+         }
+      ],
+      "oncreate":{
+         "prerequisite":{
+            "environment":[
+               "SOME_REQUIRED_ENVIRONMENT_VARIABLE",
+               "SOME_REQUIRED_ENVIRONMENT_VARIABLE2"
+            ],
+            "directory":"SOME_REQUIRED_ENVIRONMENT_VARIABLE",
+            "resources":[
+               "$SOME_REQUIRED_ENVIRONMENT_VARIABLE2$",
+               "$SOME_REQUIRED_ENVIRONMENT_VARIABLE$/launch.bat",
+               "$SOME_REQUIRED_ENVIRONMENT_VARIABLE$/launch.sh"
+            ]
+         },
+         "commands":[
+            {
+               "execute":"mkdir -p $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/test"
+            },
+            {
+               "execute":"python3 $SOME_REQUIRED_ENVIRONMENT_VARIABLE2$/simpletest.py $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/parameters.json $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/test/simpletest.txt"
+            }
+         ]
+      }
+   }
+}

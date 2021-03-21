@@ -1,0 +1,13 @@
+{
+	"param": {
+		"kSomeSimpleLineEdit": "truc",
+		"kSomeIntegerNumberField": "5",
+		"kSomeFloatingNumberField": "0.03",
+		"kSomeFileSelector": "/Users/nbellaiche/dev/tempo/MICMACMGRV2_TNR1/MICMACMGRV2_parameters.json",
+		"kSomeFolderSelector": "/Users/nbellaiche/dev/tempo/MICMACMGRV2_TNR1/reference",
+		"kSomeCheckBox1": true,
+		"kSomeCheckBox2": false,
+		"kSomeCheckBox3": true,
+		"kSomeRadioButtonGroup": "kRadioButton3"
+	}
+}

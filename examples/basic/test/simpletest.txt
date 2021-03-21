@@ -1,0 +1,10 @@
+this is a simple test:
+value of (kSomeSimpleLineEdit) is: "truc"
+value of (kSomeIntegerNumberField) is: "5"
+value of (kSomeFloatingNumberField) is: "0.03"
+value of (kSomeFileSelector) is: "/Users/nbellaiche/dev/tempo/MICMACMGRV2_TNR1/MICMACMGRV2_parameters.json"
+value of (kSomeFolderSelector) is: "/Users/nbellaiche/dev/tempo/MICMACMGRV2_TNR1/reference"
+value of (kSomeCheckBox1) is: true
+value of (kSomeCheckBox2) is: false
+value of (kSomeCheckBox3) is: true
+value of (kSomeRadioButtonGroup) is: "kRadioButton3"
