@@ -790,37 +790,7 @@
             "Slave":"kModeImage",
             "Type":"Dependency",
             "Inverse":false
-        },        {
-            "Master":"kModeTemplateMicMac",
-            "Slave":"kParamMicMac",
-            "Type":"Dependency",
-            "Inverse":false
-        },        {
-            "Master":"kModeImage",
-            "Slave":"kParamMicMac",
-            "Type":"Dependency",
-            "Inverse":true
-        },        {
-            "Master":"kModeTerrain",
-            "Slave":"kParamMicMac",
-            "Type":"Dependency",
-            "Inverse":true
-        },        {
-            "Master":"kModeImage",
-            "Slave":"kOptionGroup",
-            "Type":"Dependency",
-            "Inverse":false
-        },        {
-            "Master":"kModeTerrain",
-            "Slave":"kOptionGroup",
-            "Type":"Dependency",
-            "Inverse":false
-        },        {
-            "Master":"kModeTemplateMicMac",
-            "Slave":"kOptionGroup",
-            "Type":"Dependency",
-            "Inverse":false
-        },        {
+        },         {
             "Master":"kUseMalt",
             "Slave":"kParamMalt",
             "Type":"Dependency",
