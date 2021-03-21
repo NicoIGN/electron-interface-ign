@@ -5,7 +5,6 @@ Utilisable pour la creation de chantiers de gpao IGN.
 Usage:
 - installer npm: https://www.npmjs.com/get-npm
 - installer l'application: bash install.sh
-- electron main.js --ihm interface.json 
 
 Le fichier interface.json decrit 
 - l'ensemble des champs a remplir par l'utilisateur
@@ -14,12 +13,20 @@ Le fichier interface.json decrit
 - les variables d'environnement requises
 - les commandes a lancer une fois le formulaire rempli
 
-Un fichier de nom fixé 'parameters.json' est ecrit dans le dossier 'DIRECTORY'
-Puis toutes les commandes 'execute' sont lancees
+La commande a lancer est: electron main.js --ihm interface.json 
+
+Lorsque les champs sont remplis, l'utilisateur peut lnancer la commande 'Executer'. Un fichier de nom fixé 'parameters.json' est ecrit dans le dossier 'DIRECTORY' défini dans le fichier .json
+Puis toutes les commandes 'execute' de post-traitement sont lancees
 
 La syntaxe pour les variables d'environnement dans les lignes de commande est: $VAR$
 
 
-Exemple: 
-- ajuster les PATH dans  examples/micmacmgr/macosx-clang/setenv.sh
-- lancer dans un terminal bash examples/micmacmgr/macosx-clang/launch.sh 
+Exemples: 
+    Exemple simple:
+         bash examples/basic/launch.sh
+         
+    MicMacMgr:
+      - ajuster les PATH dans  examples/micmacmgr/macosx-clang/setenv.sh
+      - lancer dans un terminal bash examples/micmacmgr/macosx-clang/launch.sh 
+         
+    
