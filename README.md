@@ -10,8 +10,16 @@ Usage:
 Le fichier interface.json decrit 
 - l'ensemble des champs a remplir par l'utilisateur
 - les ressources qui doivent exister
+- le dossier 'DIRECTORY' dans lequel ecrire le formulaire utilisateur
 - les variables d'environnement requises
 - les commandes a lancer une fois le formulaire rempli
 
+Un fichier de nom fixé 'parameters.json' est ecrit dans le dossier 'DIRECTORY'
+Puis toutes les commandes 'execute' sont lancees
+
+La syntaxe pour les variables d'environnement dans les lignes de commande est: $VAR$
+
+
 Example: 
-- bash examples/micmacmgr/macosx-clang/launch.sh
+- ajuster les PATH dans  examples/micmacmgr/macosx-clang/setenv.sh
+- lancer dans un terminal bash examples/micmacmgr/macosx-clang/launch.sh 
