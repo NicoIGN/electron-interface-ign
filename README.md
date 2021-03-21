@@ -20,6 +20,6 @@ Puis toutes les commandes 'execute' sont lancees
 La syntaxe pour les variables d'environnement dans les lignes de commande est: $VAR$
 
 
-Example: 
+Exemple: 
 - ajuster les PATH dans  examples/micmacmgr/macosx-clang/setenv.sh
 - lancer dans un terminal bash examples/micmacmgr/macosx-clang/launch.sh 
