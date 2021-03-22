@@ -24,13 +24,17 @@ La syntaxe pour les variables d'environnement dans les lignes de commande est: $
 Exemples: 
 
     Exemple minimal:
-     bash examples/minimal/launch.sh
+        bash examples/minimal/launch.sh
      
     Exemple plus complet avec differents types et des dependances:
          bash examples/basic/launch.sh
          
     MicMacMgr:
       - ajuster les PATH dans  examples/micmacmgr/macosx-clang/setenv.sh
-      - lancer dans un terminal bash examples/micmacmgr/macosx-clang/launch.sh 
+      - bash examples/micmacmgr/macosx-clang/launch.sh 
+         
+    Solveg (interface uniquement):
+      - bash examples/solveg/macosx-clang/launch.sh 
          
     
+
