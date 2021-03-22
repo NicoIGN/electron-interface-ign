@@ -1,22 +1,22 @@
 # ign-gpao-client
-outil s'appuyant sur electronjs permettant d'interpreter une description d'interface en json pour en deduire un formulaire de parametres utilisateur puis de lancer des commandes 
-Utilisable pour la creation de chantiers de gpao IGN.
+outil s'appuyant sur electronjs permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de parametres utilisateur puis de lancer des commandes.
+Initialement conçu et donc utilisable pour la création de chantiers de gpao IGN.
 
 Usage:
 - installer npm: https://www.npmjs.com/get-npm
 - installer l'application: bash install.sh
 
-Le fichier interface.json decrit 
-- l'ensemble des champs a remplir par l'utilisateur
+Le fichier interface en json décrit 
+- l'ensemble des champs à remplir par l'utilisateur
 - les ressources qui doivent exister
-- le dossier 'DIRECTORY' dans lequel ecrire le formulaire utilisateur
+- le dossier 'DIRECTORY' dans lequel écrire le formulaire utilisateur sous la forme d'un fichier 'parameters.json'
 - les variables d'environnement requises
-- les commandes a lancer une fois le formulaire rempli
+- les commandes à lancer une fois le formulaire rempli
 
-La commande a lancer est: electron main.js --ihm interface.json 
+La commande à lancer est: electron main.js --ihm interface.json 
 
-Lorsque les champs sont remplis, l'utilisateur peut lnancer la commande 'Executer'. Un fichier de nom fixé 'parameters.json' est ecrit dans le dossier 'DIRECTORY' défini dans le fichier .json
-Puis toutes les commandes 'execute' de post-traitement sont lancees sequentiellement
+Lorsque les champs sont remplis, l'utilisateur peut lancer la commande 'Executer'. Un fichier de nom fixé 'parameters.json' est ecrit dans le dossier 'DIRECTORY' défini dans le fichier .json
+Puis toutes les commandes 'execute' de post-traitements sont lancées séquentiellement
 
 La syntaxe pour les variables d'environnement dans les lignes de commande est: $VAR$
 
@@ -75,6 +75,7 @@ Formalisme du json de description d'interface
   
   Le vecteur des 'dependencies' est optionnel. Il contient N entrées de 'Type' Dependency' avec un 'Master' qui contient la clef de l'objet maître et un 'Slave' qui contient la clef de l'objet dependant. L'objet maître doit répondre de manière booleenne, donc être de type CheckBox ou RadioButton. L'objet esclave est de nature quelconque du moment qu'il possede une clef 'Key'. Lorsque l'utilisateur change l'état du Master, l'objet esclave est activé ou désactivé dynamiquement selon le champ 'Inverse'.
 
+
 L'entrée 'oncreate' décrit les operations à effectuer une fois que l'utilisateur a cliqué sur le bouton 'Executer'.
 Il comporte 2 entrées:
     - prerequisite contient les informations necessaires à exécuter les commandes
@@ -84,8 +85,8 @@ Il comporte 2 entrées:
     - environment: un vecteur de chaines de caractères correspondant aux variables d'environnement qui doivent être initialisées au moment de l'exécution
     - directory: le dossier dans lequel on écrit le fichier 'parameters.json'
     - resources: un vecteur de path correspondant à des dossiers et fichiers devant exister sur le disque au moment de l'exécution. Il est possible d'utiliser les variables d'environnement pour valider l'existence de ces ressources, en embrassant les variables d'environnement par le caractère '$'.
-    
+
     'commands' contient un vecteur d'objets 'execute' qui sont les commandes à exécuter. Toute commande exécutable dans un terminal peut être utilisée. Les variables d'environnement sont également interprétées dans la commande en les embrassant apr le caractère '$'.
-    
-    
-    
+
+
+
