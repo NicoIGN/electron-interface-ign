@@ -16,13 +16,17 @@ Le fichier interface.json decrit
 La commande a lancer est: electron main.js --ihm interface.json 
 
 Lorsque les champs sont remplis, l'utilisateur peut lnancer la commande 'Executer'. Un fichier de nom fixé 'parameters.json' est ecrit dans le dossier 'DIRECTORY' défini dans le fichier .json
-Puis toutes les commandes 'execute' de post-traitement sont lancees
+Puis toutes les commandes 'execute' de post-traitement sont lancees sequentiellement
 
 La syntaxe pour les variables d'environnement dans les lignes de commande est: $VAR$
 
 
 Exemples: 
-    Exemple simple:
+
+    Exemple minimal:
+     bash examples/minimal/launch.sh
+     
+    Exemple plus complet avec differents types et des dependances:
          bash examples/basic/launch.sh
          
     MicMacMgr:
