@@ -1,0 +1,35 @@
+{
+   "ihm":{
+      "content":[
+          {
+             "Name":"Page1",
+             "Type":"Page",
+             "content":[
+                                {
+                   "Name":"Some simple static text",
+                   "Type":"Label"
+                },
+                {
+                   "Name":"Some simple line edit",
+                   "Key":"kSomeSimpleLineEdit",
+                   "Value":"simple text",
+                   "Type":"LineEdit"
+                }
+             ]
+          }
+      ],
+      "oncreate":{
+         "prerequisite":{
+            "environment":[
+               "SOME_REQUIRED_ENVIRONMENT_VARIABLE"
+            ],
+            "directory":"SOME_REQUIRED_ENVIRONMENT_VARIABLE"
+         },
+         "commands":[
+            {
+               "execute":"open $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/parameters.json"
+            }
+         ]
+      }
+   }
+}
