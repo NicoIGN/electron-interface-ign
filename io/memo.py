@@ -20,10 +20,17 @@ def readfile(filename):
 inputjsondata = readfile(sys.argv[1])
 param = inputjsondata['param']
 
+InputParamJson = param['kParameterFile']
+InputFileTxt = param['kMeshListIn']
 OutputFileTxt = param['kMeshListOut'] + '/' + 'meshlist_out.txt'
 OutputFilePly = param['kMeshListOut'] + '/' + 'meshlist_out.ply'
 
-os.system('MeshChange' + ' ' + 'mode1' + ' ' + param['kParameterFile'] + ' ' + OutputFileTxt)
-os.system('MeshMosaic' + ' ' + 'mode1' + OutputFileTxt + ' ' + OutputFilePly)
+cmd = 'MeshChange' + ' ' + 'mode1' + ' ' + InputParamJson + ' ' + InputFileTxt + ' ' + OutputFileTxt
+print ('cmd:', cmd)
+os.system(cmd)
+
+cmd = 'MeshMosaic' + ' ' + 'mode1' + ' ' + InputParamJson + ' ' + InputFileTxt + ' ' + OutputFileTxt
+print ('cmd:', cmd)
+os.system(cmd)
 
 

@@ -61,6 +61,14 @@
                         "DefaultValue":""
                      },
                      {
+                         "Name":"Some combo box",
+                         "Key":"kSomeComboBox",
+                         "Value":"1;2;3;4",
+                         "Type":"ComboBox",
+                         "ValueType":"String",
+                         "DefaultValue":0
+                     },
+                     {
                         "Type":"Group",
                         "Name":"a horizontal subgroup to organize fields",
                         "GroupType":"HorizontalGroup",
