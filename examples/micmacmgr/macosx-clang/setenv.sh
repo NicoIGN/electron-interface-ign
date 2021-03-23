@@ -10,5 +10,7 @@ export GDAL_DATA=$IGN_DATA/geodesy/gdal
 export PROJ_LIB=$IGN_DATA/geodesy//nad
 
 export GPAO_CLIENT_DIR=/Users/nbellaiche/dev/ign-gpao-client
+export SCRIPT_ROOT=$GPAO_CLIENT_DIR/scripts
+
 export DIRECTORY=/Users/nbellaiche/dev/tempo
 
