@@ -1,5 +1,5 @@
 # ign-gpao-client
-outil s'appuyant sur electronjs permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de parametres utilisateur puis de lancer des commandes.
+outil s'appuyant sur electronjs permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de paramètres utilisateur puis de lancer des commandes.
 Initialement conçu et donc utilisable pour la création de chantiers de gpao IGN.
 
 Usage:
