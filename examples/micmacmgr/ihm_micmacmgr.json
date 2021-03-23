@@ -824,21 +824,22 @@
                     "GDAL_DATA",
                     "APPLICATION_DIR",
                     "GPAO_CLIENT_DIR",
+                    "SCRIPT_ROOT",
                     "DIRECTORY"
                 ],
                 "directory":"DIRECTORY",
                 "resources":[
                     "$APPLICATION_DIR$/MicMacMgrV2",
-                    "$GPAO_CLIENT_DIR$/io/convert.py",
-                    "$GPAO_CLIENT_DIR$/io/insert_project.py",
+                    "$SCRIPT_ROOT$/convert.py",
+                    "$SCRIPT_ROOT$/insert_project.py",
                     "$GDAL_DATA$"
                 ]
             },
             "commands":[
                 {"execute":"$APPLICATION_DIR$/MicMacMgrV2 --make -i $PARAM$ -o $DIRECTORY$/gpao.json"},
                 {"execute":"mkdir -p $DIRECTORY$/gpao_scripts"},
-                {"execute":"python3 $GPAO_CLIENT_DIR$/io/convert.py --gpaoname MicMacMgrV2 --exedir $APPLICATION_DIR$ --input $DIRECTORY$/gpao.json --strategy script --directory $DIRECTORY$/gpao_scripts --resolvekeys --output $DIRECTORY$/gpaonew.json"},
-                {"execute":"python3 $GPAO_CLIENT_DIR$/io/insert_project.py --input $DIRECTORY$/gpaonew.json --url http://localhost:8080"}
+                {"execute":"python3 $SCRIPT_ROOT$/convert.py --gpaoname MicMacMgrV2 --exedir $APPLICATION_DIR$ --input $DIRECTORY$/gpao.json --strategy script --directory $DIRECTORY$/gpao_scripts --resolvekeys --output $DIRECTORY$/gpaonew.json"},
+                {"execute":"python3 $SCRIPT_ROOT$/insert_project.py --input $DIRECTORY$/gpaonew.json --url http://localhost:8080"}
             ]
         }
     }

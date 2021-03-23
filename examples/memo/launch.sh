@@ -9,7 +9,7 @@ cd ..
 ROOT=`pwd`
 
 #defining requirements
-export SCRIPT_ROOT=$ROOT/io
+export SCRIPT_ROOT=$ROOT/scripts
 export MEMO_ROOT=/Users/nbellaiche/dev/platinum_code
 export PATH=$MEMO_ROOT:$PATH
 export TEMP=/Users/nbellaiche/DONNEES/DATA/AI4GEO/donnees/robotcar/out
