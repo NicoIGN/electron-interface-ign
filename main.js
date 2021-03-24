@@ -1,5 +1,5 @@
 const { BrowserWindow, app, dialog } = require('electron');
-const ignGpao = require('ejs-electron-ign-gpao');
+const ignGpao = require('ejs-ign');
 
 require('./app.js');
 const ejse = require('ejs-electron');

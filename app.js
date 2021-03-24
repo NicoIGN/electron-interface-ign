@@ -1,5 +1,5 @@
 const express = require('express');
-const ignGpao = require('ejs-electron-ign-gpao');
+const ignGpao = require('ejs-ign');
 
 const app = express();
 
