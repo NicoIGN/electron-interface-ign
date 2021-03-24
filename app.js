@@ -1,4 +1,5 @@
 const express = require('express');
+// eslint-disable-next-line  import/no-unresolved
 const ignGpao = require('ejs-ign');
 
 const app = express();
