@@ -1,4 +1,5 @@
 const { BrowserWindow, app, dialog } = require('electron');
+// eslint-disable-next-line  import/no-unresolved
 const ignGpao = require('ejs-ign');
 
 require('./app.js');
