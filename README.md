@@ -1,6 +1,8 @@
-# ign-gpao-client
-outil s'appuyant sur electronjs permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de paramètres utilisateur puis de lancer des commandes.
+# eletron-interface-ign
+
+petit outil s'appuyant sur electronjs permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de paramètres utilisateur puis de lancer des commandes.
 Initialement conçu et donc utilisable pour la création de chantiers de gpao IGN.
+Il s'appuie sur la technologie npmjs et le framework electronjs qui permet de développer des applications multi-plateformes de bureau avec des technologies web. Il est basé sur la partie Chromium, la partie open source de Google Chrome. Electron est un logiciel libre open source développé par GitHub sous licence MIT.
 
 Usage:
 - installer npm: https://www.npmjs.com/get-npm
@@ -73,7 +75,7 @@ Formalisme du json de description d'interface
    Le champ 'ToolTip', optionnel, permet de générer une info-bulle qui s'affiche quand on reste suffisamment longtemps sur le champs afin de décrire plus précisement ce que l'utilisateur doit rentrer 
    
   
-  Le vecteur des 'dependencies' est optionnel. Il contient N entrées de 'Type' Dependency' avec un 'Master' qui contient la clef de l'objet maître et un 'Slave' qui contient la clef de l'objet dependant. L'objet maître doit répondre de manière booleenne, donc être de type CheckBox ou RadioButton. L'objet esclave est de nature quelconque du moment qu'il possede une clef 'Key'. Lorsque l'utilisateur change l'état du Master, l'objet esclave est activé ou désactivé dynamiquement selon le champ 'Inverse'.
+  Le vecteur des 'dependencies' est optionnel. Il contient N entrées de 'Type' Dependency' avec un 'Master' qui contient la clef de l'objet maître et un 'Slave' qui contient la clef de l'objet dependant. L'objet maître doit répondre de manière booleenne, donc être de type CheckBox ou RadioButton. L'objet esclave est de nature quelconque du moment qu'il possede une clef 'Key'. Lorsque l'utilisateur change l'état du Master, l'objet esclave est activé ou désactivé dynamiquement selon le champ 'Inverse'. Un champ inactif n'est pas exporté dans le fichier parameters.json meme si une valeur y a été rentrée.
 
 
 L'entrée 'oncreate' décrit les operations à effectuer une fois que l'utilisateur a cliqué sur le bouton 'Executer'.
@@ -83,7 +85,7 @@ Il comporte 2 entrées:
     
     'prerequisite' contient 3 entrées:
     - environment: un vecteur de chaines de caractères correspondant aux variables d'environnement qui doivent être initialisées au moment de l'exécution
-    - directory: le dossier dans lequel on écrit le fichier 'parameters.json'
+    - directory (required): le dossier dans lequel on écrit le fichier 'parameters.json'
     - resources: un vecteur de path correspondant à des dossiers et fichiers devant exister sur le disque au moment de l'exécution. Il est possible d'utiliser les variables d'environnement pour valider l'existence de ces ressources, en embrassant les variables d'environnement par le caractère '$'.
 
     'commands' contient un vecteur d'objets 'execute' qui sont les commandes à exécuter. Toute commande exécutable dans un terminal peut être utilisée. Les variables d'environnement sont également interprétées dans la commande en les embrassant apr le caractère '$'.
