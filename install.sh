@@ -3,4 +3,4 @@
 BASEDIR=$(dirname "$0")
 cd $BASEDIR
 
-npm install
+npm install --tag=lastest
