@@ -5,7 +5,7 @@ Il a  été initialement conçu (et est donc utilisable) pour la création de ch
 
 Il s'appuie sur la technologie npmjs et le framework electronjs qui permet de développer des applications multi-plateformes de bureau avec des technologies web. Il est basé sur Chromium, la partie open source de Google Chrome. Electron est un logiciel libre open source développé par GitHub sous licence MIT.
 
-electron-interface-ign s'appuie sur un formalisme de description d'IHM en json dont les spécifications sont décrites ci-dessous. Il n'a pas vocation a proposer une interface à façon esthétique, mais permet de proposer une interface basique afin de rendre plus user-friendly un pipeline en lignes de commande avec un effort minimal de développement. 
+electron-interface-ign s'appuie sur un formalisme de description d'IHM en json dont les spécifications sont décrites ci-dessous. Il n'a pas vocation a proposer une interface esthétique à façon, mais permet de proposer une interface basique afin de rendre plus user-friendly un pipeline en lignes de commande avec un effort minimal de développement. 
 
 Pour démarrer une nouvelle interface, il est recommandé de se reporter aux exemples ci-dessous.
 
@@ -21,8 +21,9 @@ Le fichier interface en json décrit :
 - les commandes à lancer une fois le formulaire rempli
 
 La commande à lancer est: electron main.js --ihm (moninterface).json 
+Il est possible d'initialiser l'interface avec un fichier de paramètres préexistant en ajoutant le paramètre optionnel --parameters (mesparametres.json)
 
-Lorsque les champs sont remplis, l'utilisateur peut lancer la commande 'Executer'. Un fichier de nom fixé 'parameters.json' est généré dans le dossier 'DIRECTORY' défini dans le fichier (moninterface).json
+Lorsque les champs sont remplis, l'utilisateur peut lancer la commande 'Exécuter'. Un fichier de nom fixé 'parameters.json' est généré dans le dossier 'DIRECTORY' défini dans le fichier (moninterface).json
 Puis toutes les commandes 'execute' de post-traitements sont lancées séquentiellement
 
 
