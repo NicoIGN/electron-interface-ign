@@ -1,26 +1,29 @@
 # eletron-interface-ign
 
-petit outil s'appuyant sur electronjs permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de paramètres utilisateur puis de lancer des commandes.
-Initialement conçu et donc utilisable pour la création de chantiers de gpao IGN.
-Il s'appuie sur la technologie npmjs et le framework electronjs qui permet de développer des applications multi-plateformes de bureau avec des technologies web. Il est basé sur la partie Chromium, la partie open source de Google Chrome. Electron est un logiciel libre open source développé par GitHub sous licence MIT.
+eletron-interface-ign est un petit outil permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de paramètres utilisateur puis de lancer des commandes (cf shema.png)
+Il a  été initialement conçu (et est donc utilisable) pour la création de chantiers de gpao des chaînes de traitement image de l'IGN (MicMacMgr, Solveg, MosAR), mais il peut être utilisé pour tout pipeline en ligne de commandes.
+
+Il s'appuie sur la technologie npmjs et le framework electronjs qui permet de développer des applications multi-plateformes de bureau avec des technologies web. Il est basé sur Chromium, la partie open source de Google Chrome. Electron est un logiciel libre open source développé par GitHub sous licence MIT.
+
+electron-interface-ign s'appuie sur un formalisme de description d'IHM en json dont les spécifications sont décrites ci-dessous. Il n'a pas vocation a proposer une interface à façon esthétique, mais permet de proposer une interface basique afin de rendre plus user-friendly un pipeline en lignes de commande avec un effort minimal de développement. 
+
+Pour démarrer une nouvelle interface, il est recommandé de se reporter aux exemples ci-dessous.
 
 Usage:
 - installer npm: https://www.npmjs.com/get-npm
 - installer l'application: bash install.sh
 
-Le fichier interface en json décrit 
+Le fichier interface en json décrit :
 - l'ensemble des champs à remplir par l'utilisateur
 - les ressources qui doivent exister
-- le dossier 'DIRECTORY' dans lequel écrire le formulaire utilisateur sous la forme d'un fichier 'parameters.json'
 - les variables d'environnement requises
+- le dossier 'DIRECTORY' dans lequel écrire le formulaire utilisateur sous la forme d'un fichier 'parameters.json'
 - les commandes à lancer une fois le formulaire rempli
 
-La commande à lancer est: electron main.js --ihm interface.json 
+La commande à lancer est: electron main.js --ihm (moninterface).json 
 
-Lorsque les champs sont remplis, l'utilisateur peut lancer la commande 'Executer'. Un fichier de nom fixé 'parameters.json' est ecrit dans le dossier 'DIRECTORY' défini dans le fichier .json
+Lorsque les champs sont remplis, l'utilisateur peut lancer la commande 'Executer'. Un fichier de nom fixé 'parameters.json' est généré dans le dossier 'DIRECTORY' défini dans le fichier (moninterface).json
 Puis toutes les commandes 'execute' de post-traitements sont lancées séquentiellement
-
-La syntaxe pour les variables d'environnement dans les lignes de commande est: $VAR$
 
 
 Exemples: 
@@ -88,7 +91,7 @@ Il comporte 2 entrées:
     - directory (required): le dossier dans lequel on écrit le fichier 'parameters.json'
     - resources: un vecteur de path correspondant à des dossiers et fichiers devant exister sur le disque au moment de l'exécution. Il est possible d'utiliser les variables d'environnement pour valider l'existence de ces ressources, en embrassant les variables d'environnement par le caractère '$'.
 
-    'commands' contient un vecteur d'objets 'execute' qui sont les commandes à exécuter. Toute commande exécutable dans un terminal peut être utilisée. Les variables d'environnement sont également interprétées dans la commande en les embrassant apr le caractère '$'.
+    'commands' contient un vecteur d'objets 'execute' qui sont les commandes à exécuter. Toute commande exécutable dans un terminal peut être utilisée. Les variables d'environnement sont également interprétées dans la commande en les embrassant par le caractère '$'.
 
 
 
