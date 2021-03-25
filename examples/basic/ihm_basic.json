@@ -116,7 +116,7 @@
                            },
                            {
                               "Name":"button2",
-                              "Key":"kRadioButton1",
+                              "Key":"kRadioButton2",
                               "Value":false,
                               "Type":"RadioButton",
                               "ValueType":"Boolean",
