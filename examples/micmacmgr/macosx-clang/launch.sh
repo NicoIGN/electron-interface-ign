@@ -135,6 +135,6 @@ done
 
 cd $SCRIPTPATH
 
-electron $SCRIPTPATH/../../../main.js \
+electron $SCRIPTPATH/../../../index.js \
 --ihm $SCRIPTPATH/../ihm_micmacmgr.json \
 --parameters $GPAO_PARAMETERS_UPDATED_FILE

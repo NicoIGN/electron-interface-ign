@@ -12,5 +12,5 @@ export SOME_REQUIRED_ENVIRONMENT_VARIABLE2=$SCRIPTPATH
 #launching electron
 cd $SCRIPTPATH
 
-electron $SCRIPTPATH/../../main.js \
+electron $SCRIPTPATH/../../index.js \
 --ihm $SCRIPTPATH/ihm_basic.json
