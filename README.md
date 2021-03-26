@@ -1,4 +1,4 @@
-# eletron-interface-ign
+# electron-interface-ign
 
 eletron-interface-ign est un petit outil permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de paramètres utilisateur puis de lancer des commandes (cf shema.png)
 Il a  été initialement conçu (et est donc utilisable) pour la création de chantiers de gpao des chaînes de traitement image de l'IGN (MicMacMgr, Solveg, MosAR), mais il peut être utilisé pour tout pipeline en ligne de commandes.
@@ -12,6 +12,18 @@ Pour démarrer une nouvelle interface, il est recommandé de se reporter aux exe
 Usage:
 - installer npm: https://www.npmjs.com/get-npm
 - installer l'application: bash install.sh
+
+Nota:
+    - en cas de timeout, verifiez que votre proxy est correctement paramétré. Au besoin  (pour l'IGN): 
+    set http_proxy=http://proxy.ign.fr:3128
+    set https_proxy=http://proxy.ign.fr:3128
+    npm config rm proxy &&  npm config set proxy %http_proxy%
+    npm config rm https-proxy && npm config set https-proxy %https_proxy%
+
+ - sous windows, en cas d'erreur du type "Error: Cannot find module '...\npm\node_modules\electron\cli.js' il est possible que npm n'ait pas réussi à installer correctement electron. En ce cas il faut l'installer à la main en le récupérant directement  à cette adresse:
+    https://github.com/electron/electron/releases/download/v12.0.2/electron-v12.0.2-win32-x64.zip
+    Placez le dossier dans votre répertoire d'applications et ajoutez le chemin à votre PATH système. 
+    
 
 Le fichier interface en json décrit :
 - l'ensemble des champs à remplir par l'utilisateur
