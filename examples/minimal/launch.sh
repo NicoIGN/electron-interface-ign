@@ -14,5 +14,5 @@ export SOME_REQUIRED_ENVIRONMENT_VARIABLE=$SCRIPTPATH
 #launching electron
 cd $SCRIPTPATH
 
-electron $ROOT/main.js \
+electron $ROOT/index.js \
 --ihm $SCRIPTPATH/ihm_minimal.json

@@ -10,5 +10,5 @@ SCRIPTPATH="`pwd`"
 
 cd $SCRIPTPATH
 
-electron $SCRIPTPATH/../../main.js \
+electron $SCRIPTPATH/../../index.js \
 --ihm $SCRIPTPATH/ihm_solveg.json

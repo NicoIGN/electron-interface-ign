@@ -16,4 +16,4 @@ export TEMP=/Users/nbellaiche/DONNEES/DATA/AI4GEO/donnees/robotcar/out
 
 #launching electron
 cd $SCRIPTPATH
-electron $ROOT/main.js --ihm $SCRIPTPATH/ihm_memo.json
+electron $ROOT/index.js --ihm $SCRIPTPATH/ihm_memo.json
