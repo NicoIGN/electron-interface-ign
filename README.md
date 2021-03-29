@@ -19,6 +19,7 @@ Nota:
 
  - sous windows, en cas d'erreur du type "Error: Cannot find module '...\npm\node_modules\electron\cli.js' il est possible que npm n'ait pas réussi à installer correctement electron. En ce cas il faut l'installer à la main en le récupérant directement  à cette adresse:
     https://github.com/electron/electron/releases/
+    Cet outil a été développé et validé avec electron 8 sous MacOSX101.5 et Windows10 64b
     Placez le dossier dans votre répertoire d'applications et ajoutez le chemin à votre PATH système. 
     
 
