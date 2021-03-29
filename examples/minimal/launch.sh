@@ -11,7 +11,12 @@ ROOT=`pwd`
 #defining requirements
 export SOME_REQUIRED_ENVIRONMENT_VARIABLE=$SCRIPTPATH
 export IHMFILE=$SCRIPTPATH/ihm_minimal.json
-set OPEN_METHOD=open
+export OPEN_METHOD=open
+
+if [ ! -e $IHMFILE ]; then
+    echo current directory must be where the ihm/json file is located
+    exit 1
+fi
 
 #launching electron
 cd $ROOT && npm start

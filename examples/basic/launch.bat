@@ -30,4 +30,5 @@ if not exist %SCRIPTPATH%\ihm_basic.json (
 
 set IHMFILE=%SCRIPTPATH%\ihm_basic.json
 
-cd %ROOT% && npm start
+REM cd %ROOT% && npm start
+cd %ROOT% && electron .
