@@ -26,10 +26,10 @@
     "lint": "^0.7.0"
   },
   "dependencies": {
-    "console-log-html": "^2.0.2",
     "ejs-electron": "^2.0.3",
-    "ejs-ign": "^2.1.6",
-    "electron": "^12.0.1",
+    "ejs-ign": "^2.1.7",
+    "electron": "^8.5.5",
+    "console-log-html": "^2.0.2",
     "eslint-config-airbnb": "^18.1.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
