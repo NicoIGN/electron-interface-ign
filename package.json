@@ -1,7 +1,7 @@
 {
-  "name": "electron gui for command line tools",
+  "name": "electron-gui-for-command-line-tools",
   "version": "2.1.2",
-  "description": "application cliente de gpao de l'Institut Geographique National",
+  "description": "Electron GUI for command line tools, app developed by the French National Mapping Agency (IGNF / Institut Geographique National) for its specific use. This app builds a simple GUI from a json description file in order to allow a user to fill a form of parameters in order to launch a set of parameterized command lines.",
   "main": "index.js",
   "scripts": {
     "start": "electron .",
