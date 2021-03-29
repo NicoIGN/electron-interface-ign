@@ -162,24 +162,23 @@
             "environment":[
                "SOME_REQUIRED_ENVIRONMENT_VARIABLE",
                "SOME_REQUIRED_ENVIRONMENT_VARIABLE2",
+			   "PYTHON_EXECUTABLE",
+			   "__SLASH__",
                "OPEN_METHOD"
             ],
             "directory":"SOME_REQUIRED_ENVIRONMENT_VARIABLE",
             "resources":[
                "$SOME_REQUIRED_ENVIRONMENT_VARIABLE2$",
-               "$SOME_REQUIRED_ENVIRONMENT_VARIABLE$/launch.bat",
-               "$SOME_REQUIRED_ENVIRONMENT_VARIABLE$/launch.sh"
+               "$SOME_REQUIRED_ENVIRONMENT_VARIABLE$$__SLASH__$launch.bat",
+               "$SOME_REQUIRED_ENVIRONMENT_VARIABLE$$__SLASH__$launch.sh"
             ]
          },
          "commands":[
             {
-               "execute":"cd $SOME_REQUIRED_ENVIRONMENT_VARIABLE$ && mkdir test"
+               "execute":"$PYTHON_EXECUTABLE$ $SOME_REQUIRED_ENVIRONMENT_VARIABLE2$$__SLASH__$simpletest.py $SOME_REQUIRED_ENVIRONMENT_VARIABLE$$__SLASH__$parameters.json $SOME_REQUIRED_ENVIRONMENT_VARIABLE$$__SLASH__$simpletest.txt"
             },
             {
-               "execute":"python3 $SOME_REQUIRED_ENVIRONMENT_VARIABLE2$/simpletest.py $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/parameters.json $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/test/simpletest.txt"
-            },
-            {
-               "execute":"$OPEN_METHOD$ $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/test/simpletest.txt"
+               "execute":"$OPEN_METHOD$ $SOME_REQUIRED_ENVIRONMENT_VARIABLE$$__SLASH__$simpletest.txt"
             }
          ]
       }
