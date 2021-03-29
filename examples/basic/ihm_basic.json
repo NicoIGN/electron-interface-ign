@@ -173,7 +173,7 @@
          },
          "commands":[
             {
-               "execute":"mkdir -p $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/test"
+               "execute":"mkdir $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/test"
             },
             {
                "execute":"python3 $SOME_REQUIRED_ENVIRONMENT_VARIABLE2$/simpletest.py $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/parameters.json $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/test/simpletest.txt"
