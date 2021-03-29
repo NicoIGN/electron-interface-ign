@@ -20,6 +20,7 @@
   "author": "Nicolas Bellaiche",
   "license": "CC0-1.0",
   "devDependencies": {
+    "electron": "^12.0.1",
     "electron-react-devtools": "^0.5.3",
     "eslint": "^7.22.0",
     "eslint-plugin-import": "^2.21.1",
@@ -29,7 +30,6 @@
     "console-log-html": "^2.0.2",
     "ejs-electron": "^2.0.3",
     "ejs-ign": "^2.1.6",
-    "electron": "^12.0.1",
     "eslint-config-airbnb": "^18.1.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
