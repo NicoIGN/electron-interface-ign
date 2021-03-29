@@ -7,7 +7,7 @@ Il s'appuie sur la technologie npmjs et le framework electronjs qui permet de d�
 
 electron-interface-ign s'appuie sur un formalisme de description d'IHM en json dont les spécifications sont décrites ci-dessous. Il n'a pas vocation a proposer une interface esthétique à façon, mais permet de proposer une interface basique afin de rendre plus user-friendly un pipeline en lignes de commande avec un effort minimal de développement. 
 
-Pour démarrer une nouvelle interface, il est recommandé de se reporter aux exemples ci-dessous.
+Pour démarrer une nouvelle interface, il est recommandé de se reporter aux exemples (cf supra).
 
 Usage:
 - installer npm: https://www.npmjs.com/get-npm
