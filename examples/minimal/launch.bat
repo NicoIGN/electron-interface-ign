@@ -28,4 +28,5 @@ if not exist %SCRIPTPATH%\ihm_minimal.json (
 
 set IHMFILE=%SCRIPTPATH%\ihm_minimal.json
 
-cd %ROOT% && npm start
+REM cd %ROOT% && npm start
+cd %ROOT% && electron .
