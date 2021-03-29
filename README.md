@@ -14,14 +14,10 @@ Usage:
 - installer l'application: bash install.sh
 
 Nota:
-    - en cas de timeout, verifiez que votre proxy est correctement paramétré. Au besoin  (pour l'IGN): 
-    set http_proxy=http://proxy.ign.fr:3128
-    set https_proxy=http://proxy.ign.fr:3128
-    npm config rm proxy &&  npm config set proxy %http_proxy%
-    npm config rm https-proxy && npm config set https-proxy %https_proxy%
+ - en cas de timeout, verifiez que votre proxy est correctement paramétré. Au besoin  (pour l'IGN), utiliser le script set-proxy-ign à la racine du projet.
 
  - sous windows, en cas d'erreur du type "Error: Cannot find module '...\npm\node_modules\electron\cli.js' il est possible que npm n'ait pas réussi à installer correctement electron. En ce cas il faut l'installer à la main en le récupérant directement  à cette adresse:
-    https://github.com/electron/electron/releases/download/v12.0.2/electron-v12.0.2-win32-x64.zip
+    https://github.com/electron/electron/releases/
     Placez le dossier dans votre répertoire d'applications et ajoutez le chemin à votre PATH système. 
     
 
