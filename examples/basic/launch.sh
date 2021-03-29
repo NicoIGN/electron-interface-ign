@@ -11,9 +11,9 @@ ROOT=`pwd`
 #defining requirements
 export SOME_REQUIRED_ENVIRONMENT_VARIABLE=$SCRIPTPATH
 export SOME_REQUIRED_ENVIRONMENT_VARIABLE2=$ROOT/scripts
+export IHMFILE=$SCRIPTPATH/ihm_basic.json
+export OPEN_METHOD=open
+
 
 #launching electron
-cd $SCRIPTPATH
-
-electron $ROOT/index.js \
---ihm $SCRIPTPATH/ihm_basic.json
+cd $ROOT && npm start

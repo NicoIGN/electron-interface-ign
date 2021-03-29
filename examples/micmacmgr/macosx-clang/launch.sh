@@ -130,11 +130,9 @@ done
 ##
 #
 
+#parameters
+export IHMFILE=$SCRIPTPATH/../ihm_micmacmgr.json
+export PARAMETERS=$GPAO_PARAMETERS_UPDATED_FILE
 
 #launching electron
-
-cd $SCRIPTPATH
-
-electron $SCRIPTPATH/../../../index.js \
---ihm $SCRIPTPATH/../ihm_micmacmgr.json \
---parameters $GPAO_PARAMETERS_UPDATED_FILE
+cd $SCRIPTPATH/../../.. && npm start
