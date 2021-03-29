@@ -25,10 +25,23 @@ function createWindow () {
     const args = require('minimist')(process.argv);
 
     if ({}.hasOwnProperty.call(args, 'ihm')) {
-      const fs = require('fs');
-      const rawdata = fs.readFileSync(args.ihm);
       // eslint-disable-next-line  no-console
-      console.log('parsing ihm json file', args.ihm);
+      console.log('ihm file: ', args.ihm);
+      process.env.IHMFILE = args.ihm;
+    }
+    
+    if ({}.hasOwnProperty.call(args, 'parameters')) {
+      // eslint-disable-next-line  no-console
+      console.log('parameters file: ', args.parameters);
+      process.env.PARAMETERS = args.parameters;
+    }
+    
+    if(process.env.IHMFILE) {
+       
+      const fs = require('fs');
+      const rawdata = fs.readFileSync(process.env.IHMFILE);
+      // eslint-disable-next-line  no-console
+      console.log('parsing ihm json file', process.env.IHMFILE);
 
       ihmData = JSON.parse(rawdata);
 
@@ -61,15 +74,11 @@ function createWindow () {
       }
     } else {
       // eslint-disable-next-line  no-console
-      console.log('no ihm json in arguments. Use: electron main.js --ihm ihmfile.json');
+      console.log('no json file desccribing ihm found. Set up environment variable IHMFILE');
       process.exit(1);
     }
 
-    if ({}.hasOwnProperty.call(args, 'parameters')) {
-      // eslint-disable-next-line  no-console
-      console.log('parameters file: ', args.parameters);
-      process.env.PARAMETERS = args.parameters;
-    }
+    
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
 
@@ -81,6 +90,7 @@ function createWindow () {
     mainWindow = null
   })
 }
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -100,5 +110,3 @@ app.on('activate', function () {
   if (mainWindow === null) createWindow()
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.

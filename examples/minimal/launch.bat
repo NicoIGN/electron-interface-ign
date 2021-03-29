@@ -21,4 +21,6 @@ if not exist %SCRIPTPATH%\ihm_minimal.json (
     exit 1
 )
 
-electron -r esm %ROOT%\index.js --ihm %SCRIPTPATH%\ihm_minimal.json
+set IHMFILE=%SCRIPTPATH%\ihm_minimal.json
+
+cd %ROOT% && npm start
