@@ -1,5 +1,5 @@
 {
-  "name": "Electron GUI for command line tools",
+  "name": "electron gui for command line tools",
   "version": "2.1.2",
   "description": "application cliente de gpao de l'Institut Geographique National",
   "main": "index.js",
