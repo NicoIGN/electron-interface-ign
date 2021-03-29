@@ -22,7 +22,7 @@
   "devDependencies": {
     "ejs-electron": "^2.0.3",
     "ejs-ign": "^2.1.7",
-    "electron": "^8.5.5",    
+    "electron": "^8.5.5",
     "electron-react-devtools": "^0.5.3",
     "eslint": "^7.22.0",
     "eslint-plugin-import": "^2.21.1",
