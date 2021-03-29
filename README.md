@@ -11,7 +11,7 @@ Il s'appuie sur la technologie npmjs et le framework 'electron' qui permet de d�
 
 Electron GUI for command line tools s'appuie sur un formalisme de description d'IHM en json dont les spécifications sont décrites ci-dessous. Il n'a pas vocation à proposer une interface esthétique à façon, mais permet de disposer d'une interface basique afin de rendre plus user-friendly (clarté du paramétrage, validation de champs, documentation par info-bulle etc...) un pipeline en lignes de commande avec un effort minimal de développement. 
 
-Pour démarrer une nouvelle interface, il est recommandé de se reporter aux exemples (cf supra).
+Pour démarrer une nouvelle interface, il est recommandé de se reporter aux exemples ci-dessous.
 
 ++++++++++++++++++++++++++++++++++++++
 II- Installation
