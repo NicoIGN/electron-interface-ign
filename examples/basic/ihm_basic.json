@@ -161,7 +161,8 @@
          "prerequisite":{
             "environment":[
                "SOME_REQUIRED_ENVIRONMENT_VARIABLE",
-               "SOME_REQUIRED_ENVIRONMENT_VARIABLE2"
+               "SOME_REQUIRED_ENVIRONMENT_VARIABLE2",
+               "OPEN_METHOD"
             ],
             "directory":"SOME_REQUIRED_ENVIRONMENT_VARIABLE",
             "resources":[
@@ -178,7 +179,7 @@
                "execute":"python3 $SOME_REQUIRED_ENVIRONMENT_VARIABLE2$/simpletest.py $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/parameters.json $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/test/simpletest.txt"
             },
             {
-               "execute":"open $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/test/simpletest.txt"
+               "execute":"$OPEN_METHOD$ $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/test/simpletest.txt"
             }
          ]
       }

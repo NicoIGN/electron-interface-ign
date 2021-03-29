@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 #export MICMACMGR_ROOT=/Applications/MicMacMgrV2.app/
 export MICMACMGR_ROOT=/Users/nbellaiche/dev/MicMacMgr/setup/MicMacMgrV2.app/
 

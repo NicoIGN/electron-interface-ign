@@ -21,13 +21,15 @@
         "oncreate":{
             "prerequisite":{
                 "environment":[
-                    "SOME_REQUIRED_ENVIRONMENT_VARIABLE"
+                    "SOME_REQUIRED_ENVIRONMENT_VARIABLE",
+                    "OPEN_METHOD"
+
                 ],
                 "directory":"SOME_REQUIRED_ENVIRONMENT_VARIABLE"
             },
             "commands":[
                 {
-                    "execute":"open $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/parameters.json"
+                    "execute":"$OPEN_METHOD$  $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/parameters.json"
                 }
             ]
         }
