@@ -11,7 +11,7 @@ cd %SCRIPTPATH%
 REM defining requirements
 set SOME_REQUIRED_ENVIRONMENT_VARIABLE=%SCRIPTPATH%
 set SOME_REQUIRED_ENVIRONMENT_VARIABLE2=%SCRIPTPATH%
-
+set OPEN_METHOD=start
 
 REM launching electron
 cd %SCRIPTPATH%
@@ -21,4 +21,6 @@ if not exist %SCRIPTPATH%\ihm_minimal.json (
     exit 1
 )
 
-electron -r esm %ROOT%\index.js --ihm %SCRIPTPATH%\ihm_minimal.json
+set IHMFILE=%SCRIPTPATH%\ihm_minimal.json
+
+cd %ROOT% && npm start

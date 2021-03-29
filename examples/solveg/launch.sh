@@ -6,9 +6,8 @@ SCRIPTPATH="`pwd`"
 . $SCRIPTPATH/setenv.sh
 
 
+#parameters
+export IHMFILE=$SCRIPTPATH/ihm_solveg.json
+
 #launching electron
-
-cd $SCRIPTPATH
-
-electron $SCRIPTPATH/../../index.js \
---ihm $SCRIPTPATH/ihm_solveg.json
+cd $SCRIPTPATH/../.. && npm start

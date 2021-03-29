@@ -13,7 +13,7 @@ export SCRIPT_ROOT=$ROOT/scripts
 export MEMO_ROOT=/Users/nbellaiche/dev/platinum_code
 export PATH=$MEMO_ROOT:$PATH
 export TEMP=/Users/nbellaiche/DONNEES/DATA/AI4GEO/donnees/robotcar/out
+export IHMFILE=$SCRIPTPATH/ihm_memo.json
 
 #launching electron
-cd $SCRIPTPATH
-electron $ROOT/index.js --ihm $SCRIPTPATH/ihm_memo.json
+cd $ROOT && npm start

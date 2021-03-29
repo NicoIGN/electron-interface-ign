@@ -1,18 +1,24 @@
-const { BrowserWindow, app, dialog } = require('electron');
+// Modules to control application life and create native browser window
+
+// eslint-disable-next-line  import/no-unresolved
+import { app, BrowserWindow, dialog } from 'electron';
+
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
+let mainWindow = null;
+
 // eslint-disable-next-line  import/no-unresolved
 const ignGpao = require('ejs-ign');
 
-require('./app.js');
 const ejse = require('ejs-electron');
 
-let mainWindow = null;
 let ihmData = {};
 
-function main() {
-  // Create the new window
+function createWindow() {
+  // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 1200,
+    width: 800,
+    height: 600,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -21,10 +27,22 @@ function main() {
   const args = require('minimist')(process.argv);
 
   if ({}.hasOwnProperty.call(args, 'ihm')) {
-    const fs = require('fs');
-    const rawdata = fs.readFileSync(args.ihm);
     // eslint-disable-next-line  no-console
-    console.log('parsing ihm json file', args.ihm);
+    console.log('ihm file: ', args.ihm);
+    process.env.IHMFILE = args.ihm;
+  }
+
+  if ({}.hasOwnProperty.call(args, 'parameters')) {
+    // eslint-disable-next-line  no-console
+    console.log('parameters file: ', args.parameters);
+    process.env.PARAMETERS = args.parameters;
+  }
+
+  if (process.env.IHMFILE) {
+    const fs = require('fs');
+    const rawdata = fs.readFileSync(process.env.IHMFILE);
+    // eslint-disable-next-line  no-console
+    console.log('parsing ihm json file', process.env.IHMFILE);
 
     ihmData = JSON.parse(rawdata);
 
@@ -57,34 +75,36 @@ function main() {
     }
   } else {
     // eslint-disable-next-line  no-console
-    console.log('no ihm json in arguments. Use: electron main.js --ihm ihmfile.json');
+    console.log('no json file desccribing ihm found. Set up environment variable IHMFILE');
     process.exit(1);
   }
 
-  if ({}.hasOwnProperty.call(args, 'parameters')) {
-    // eslint-disable-next-line  no-console
-    console.log('parameters file: ', args.parameters);
-    process.env.PARAMETERS = args.parameters;
-  }
+  // Open the DevTools.
+  mainWindow.webContents.openDevTools();
 
-  // eslint-disable-next-line  no-unused-vars
-  mainWindow.on('close', (event) => {
+  // Emitted when the window is closed.
+  mainWindow.on('closed', () => {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
     mainWindow = null;
-    process.exit(0);
-  });
-
-  mainWindow.webContents.on('did-finish-load', () => {
-    if (process.env.PARAMETERS) {
-      mainWindow.webContents.send('setparameters', process.env.PARAMETERS);
-    }
-    /* let code = `var promise = Promise.resolve(document.getElementById('name').innerHTML);
-        promise.then(data => data)`;
-
-        mainWindow.webContents.executeJavaScript(code, true)
-        .then((result) => {
-            console.log(result) // will be your innherhtml
-        }) */
   });
 }
 
-app.on('ready', main);
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
+app.on('ready', createWindow);
+
+// Quit when all windows are closed.
+app.on('window-all-closed', () => {
+  // On macOS it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
+  if (process.platform !== 'darwin') app.quit();
+});
+
+app.on('activate', () => {
+  // On macOS it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (mainWindow === null) createWindow();
+});
