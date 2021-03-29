@@ -10,6 +10,7 @@ electron-interface-ign s'appuie sur un formalisme de description d'IHM en json d
 Pour démarrer une nouvelle interface, il est recommandé de se reporter aux exemples (cf supra).
 
 Usage:
+- Assurez-vous que vous avez les doits suffisants pour l'installation.
 - installer npm: https://www.npmjs.com/get-npm
 - installer l'application: bash install.sh
 

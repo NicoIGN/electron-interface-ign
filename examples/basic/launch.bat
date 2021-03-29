@@ -1,5 +1,10 @@
 @echo OFF
 
+set dir=%~dp0
+echo dir: %dir%
+set dir=%dir:~0,-1%
+cd %dir%
+
 set SCRIPTPATH=%CD%
 
 cd ..
