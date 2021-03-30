@@ -50,6 +50,22 @@ Il est possible d'initialiser l'interface avec un fichier de paramètres préexi
 Lorsque les champs sont remplis, l'utilisateur peut lancer la commande 'Exécuter'. Un fichier de nom fixé 'parameters.json' est généré dans le dossier 'DIRECTORY' défini dans le fichier '(moninterface).json'
 Puis toutes les commandes 'execute' de post-traitements sont lancées séquentiellement.
 
+Exemple du contenu d'un fichier parameters.json résultant (provenant de examples/basic, cf. ci dessous):
+{
+    "param": {
+        "kSomeSimpleLineEdit": "simple text",
+        "kSomeIntegerNumberField": "10",
+        "kSomeFloatingNumberField": "0.05",
+        "kSomeFileSelector": "/some/file/on/the/disk.ext",
+        "kSomeFolderSelector": "/some/folder/on/the/disk",
+        "kSomeCheckBox1": false,
+        "kSomeCheckBox2": false,
+        "kSomeCheckBox3": true,
+        "kSomeComboBox": " 1"
+    }
+}
+La clef principale 'param' permet de ne pas le confondre avec des json d'autres natures.
+
 
 ++++++++++++++++++++++++++++++++++++++
 Exemples: 
@@ -113,21 +129,6 @@ Les objets correspondant à un paramètre éditable par l'utilisateur sont les s
 - ButtonGroup / RadioButton: un ensemble d'options parmi lesquelles on ne peut choisir qu'une valeur.
 
 Ces objets doivent comporter un champ 'Key' unique qui permettra d'identifier le champ dans le fichier 'parameters.json' résultant sous la forme d'une paire (key, user value).
-Exemple du contenu d'un fichier parameters.json (examples/basic ci dessous):
-{
-    "param": {
-        "kSomeSimpleLineEdit": "simple text",
-        "kSomeIntegerNumberField": "10",
-        "kSomeFloatingNumberField": "0.05",
-        "kSomeFileSelector": "/some/file/on/the/disk.ext",
-        "kSomeFolderSelector": "/some/folder/on/the/disk",
-        "kSomeCheckBox1": false,
-        "kSomeCheckBox2": false,
-        "kSomeCheckBox3": true,
-        "kSomeComboBox": " 1"
-    }
-}
-La clef principale 'param' permet de ne pas le confondre avec des json d'autres natures.
 
 L'objet 'Group' permet de regrouper des paramètres sous un même intitulé et d'organiser les champs en les alignant soit verticalement soit horizontalement via la clef 'GroupType' ("GroupType":"VerticalGroup" / "HorizontalGroup"). Il contient ensuite une entrée 'content' qui est un vecteur d'objets d'interface, exactement comme l'objet 'Page'. Cette propriété est récursive, c'est-à-dire que le 'content' d'un objet 'Group' peut lui-même contenir un objet 'Group' etc...  Il peut (mais ce n'est pas requis) comporter une entrée 'Key' afin de pouvoir piloter l'activation ou l'inactivation de tout les objets d'un groupe par un objet 'Master' dans le vecteur des dependencies (cf. ci-dessous).
 
