@@ -151,7 +151,6 @@ Le champ 'ToolTip', optionnel, permet de générer une info-bulle qui s'affiche 
   {
      "Master":"kKeyMaster",
      "Slave":"kKeySlave",
-     "Type":"Dependency",
      "Inverse":false
   }
 
