@@ -4,12 +4,12 @@
 Présentation
 ++++++++++++++++++++++++++++++++++++++
 
-electron-interface-ign est un petit outil permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de paramètres puis de lancer des commandes séquentielles (cf shema.png).
+electron-interface-ign est un petit outil permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de paramètres puis de lancer des commandes système (cf shema.png).
 Il a  été initialement conçu (et est donc utilisable) pour la création de chantiers de gpao des chaînes de traitement image de l'IGN (MicMacMgr, Solveg, MosAR), mais il peut être utilisé pour tout pipeline en ligne de commandes.
 
 Il s'appuie sur la technologie npmjs et le framework 'electron' qui permet de développer des applications multi-plateformes de bureau avec des technologies web. Il est basé sur Chromium, la partie open source de Google Chrome. Electron est un logiciel libre open source développé par GitHub sous licence MIT.
 
-electron-interface-ign s'appuie sur un formalisme de description d'IHM en json dont les spécifications sont décrites ci-dessous. Il n'a pas vocation à proposer une interface esthétique à façon, mais permet de disposer d'une interface basique afin de rendre plus user-friendly un pipeline en lignes de commande avec un effort minimal de développement. 
+electron-interface-ign s'appuie sur un formalisme de description d'IHM en json dont les spécifications sont décrites ci-dessous. Il n'a pas vocation à proposer une interface esthétique à façon, mais permet de disposer d'une interface basique afin de rendre plus user-friendly (clarté du paramétrage, validation de champs, documentation par info-bulle etc...) un pipeline en lignes de commande avec un effort minimal de développement. 
 
 Pour démarrer une nouvelle interface, il est recommandé de se reporter aux exemples ci-dessous.
 
@@ -34,7 +34,7 @@ Nota:
 Utilisation
 ++++++++++++++++++++++++++++++++++++++
 
-Pour créer sa propre interface utilisateur, il suffit d'écrire un fichier de description d'interface en json et d'écrire les scripts de relecture dufichier 'parameters.json' résultant afin d'en déduire les commandes à lancer une fois le formulaire rempli par l'utilisateur. Ces scripts peuvent être écrits dans tout langage exécutable via une commande système (DOS bat, bash shell, javascript, python). Dans le cas d'une interface multiOS, il faut cependant faire attention à ce que les commandes soient correctement interprétables sur les différents OS. Voir les exemples ci-dessous. 
+Pour créer sa propre interface utilisateur, il suffit d'écrire un fichier de description d'interface en json et d'écrire les scripts de relecture du fichier 'parameters.json' résultant afin d'en déduire les commandes à lancer une fois le formulaire rempli par l'utilisateur. Ces scripts peuvent être écrits dans tout langage exécutable via une commande système (DOS bat, bash shell, javascript, python). Dans le cas d'une interface multiOS, il faut cependant faire attention à ce que les commandes soient correctement interprétables sur les différents OS ciblés. Voir les exemples ci-dessous. 
     
 Le fichier interface en json décrit :
 - l'ensemble des champs à remplir par l'utilisateur
@@ -43,9 +43,9 @@ Le fichier interface en json décrit :
 - le dossier 'DIRECTORY' dans lequel écrire le formulaire utilisateur sous la forme d'un fichier 'parameters.json'
 - les commandes à lancer une fois le formulaire rempli
 
-La commande à lancer est: electron . ou npm start après avoir initialisé la variable d'environnement IHMFILE avec le fichier json de description d'interface (voir les scripts launch.sh/.bat dans les exemples)
+La commande à lancer est: "electron ." ou "npm start" après avoir initialisé la variable d'environnement 'IHMFILE' avec le fichier json de description d'interface (voir les scripts launch.sh/.bat dans les exemples)
 
-Il est possible d'initialiser l'interface avec un fichier de paramètres préexistant en initialisant la variable d'environnement PARAMETERS
+Il est possible d'initialiser l'interface avec un fichier de paramètres préexistant en initialisant la variable d'environnement 'PARAMETERS'.
 
 Lorsque les champs sont remplis, l'utilisateur peut lancer la commande 'Exécuter'. Un fichier de nom fixé 'parameters.json' est généré dans le dossier 'DIRECTORY' défini dans le fichier '(moninterface).json'
 Puis toutes les commandes 'execute' de post-traitements sont lancées séquentiellement.
