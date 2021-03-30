@@ -35,7 +35,9 @@ Notes sur les problèmes potentiels:
 III- Utilisation
 ++++++++++++++++++++++++++++++++++++++
 
-Pour créer sa propre interface utilisateur, il suffit d'écrire un fichier de description d'interface en json et d'écrire les scripts de relecture du fichier 'parameters.json' résultant afin d'en déduire les commandes à lancer une fois le formulaire rempli par l'utilisateur. Ces scripts peuvent être écrits dans tout langage exécutable via une commande système (DOS bat, bash shell, python etc...). Dans le cas d'une interface multiOS, il faut cependant faire attention à ce que les commandes soient correctement interprétables sur les différents OS ciblés. Voir les exemples ci-dessous. 
+Pour créer sa propre interface utilisateur, il suffit d'écrire un fichier de description d'interface en json et d'écrire les commandes de post-traitement à lancer  une fois le formulaire rempli par l'utilisateur.
+
+Toute commande exécutable via une commande système (DOS bat, bash shell, scripts python etc...) est valide. Dans le cas d'une interface multiOS, il faut cependant faire attention à ce que les commandes soient correctement interprétables sur les différents OS ciblés. Voir les exemples ci-dessous. 
     
 Le fichier interface en json décrit :
 - l'ensemble des champs à remplir par l'utilisateur
@@ -178,4 +180,6 @@ Il comporte 2 entrées:
    - 'directory' (required): le dossier dans lequel on écrit le fichier 'parameters.json'`;
     - 'resources': un vecteur de path correspondant à des dossiers et fichiers devant exister sur le disque au moment de l'exécution. Il est possible d'utiliser les variables d'environnement pour valider l'existence de ces ressources, en embrassant les variables d'environnement par le caractère '$'.
    
-   'commands' contient un vecteur d'objets 'execute' qui sont les commandes à exécuter. Toute commande exécutable dans un terminal peut être utilisée. Les variables d'environnement sont également interprétées dans la commande en les embrassant par le caractère '$'.
+   'commands' contient un vecteur d'objets 'execute' qui sont les commandes à exécuter. Toute commande exécutable dans un terminal peut être utilisée. 
+   Les paramètres de l'interface peuvent être interprétées dans la commande en embrassant la clef du paramètre par le caractère '$'.
+   Les variables d'environnement sont également interprétées dans la commande de la même manière en les embrassant par le caractère '$'.
