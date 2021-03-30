@@ -76,7 +76,7 @@ IV- Exemples:
     Exemple minimal:
         bash examples/minimal/launch.sh
  
-   Exemple plus complet avec differents types et des dependances:
+   Exemple plus complet avec différents types et des dépendances:
        bash examples/basic/launch.sh
      
    MicMacMgr:
@@ -121,7 +121,7 @@ Chaque 'Page' contient ensuite N objets d'interface, dont les types sont les sui
     - Group
     - ButtonGroup
     
-Chaque champ possède un intitulé que l'on peut paramétrer dans le champ 'Name' et qui peut être une chaîne vide.    
+Chaque objet possède un intitulé que l'on peut paramétrer dans le champ 'Name' et qui peut être une chaîne vide.    
     
 Les objets correspondant à un paramètre éditable par l'utilisateur sont les suivants:
 - LineEdit: un champ texte typable en chaîne quelconque, entier ou nombre flottant
@@ -147,7 +147,7 @@ Le champ 'ToolTip', optionnel, permet de générer une info-bulle qui s'affiche 
 .   ================
   B- 'dependencies':
      ================
-  Le vecteur des 'dependencies' est optionnel. Il contient N entrées de 'Type' Dependency' avec un 'Master' qui contient la clef de l'objet maître et un 'Slave' qui contient la clef de l'objet dépendant. L'objet maître doit répondre de manière booléenne, donc être de type CheckBox ou RadioButton. L'objet esclave est de nature quelconque du moment qu'il possède une clef 'Key'. Lorsque l'utilisateur change l'état du Master, l'objet esclave est activé ou désactivé dynamiquement selon le champ 'Inverse'. Un champ inactif n'est pas exporté dans le fichier parameters.json même si une valeur y a été rentrée.
+  Le vecteur des 'dependencies' est optionnel. Il contient N entrées 'dependency' contenant un 'Master' qui correspond à la clef de l'objet maître et un 'Slave' qui correspond à la clef de l'objet dépendant. L'objet maître doit répondre de manière booléenne, donc être de type CheckBox ou RadioButton. L'objet esclave est de nature quelconque du moment qu'il possède une clef 'Key'. Lorsque l'utilisateur change l'état du Master, l'objet esclave est activé ou désactivé dynamiquement selon le champ 'Inverse'. Un champ inactif n'est pas exporté dans le fichier parameters.json même si une valeur y a été rentrée.
  
  Patron d'un item 'dependency':
   {
@@ -166,20 +166,20 @@ Il comporte 2 entrées:
     - 'commands' contient un vecteur de commandes effectuées séquentiellement après l'export du fichier de paramètres utilisateur.
     
  Patron de l'entrée 'oncreate':
-    "oncreate":{
+      "oncreate":{
             "prerequisite":{
                  "environment":[...],
                  "directory":"SOME_DIRECTORY",
                  "resources":[...]
             },
-            "commands":[...]
+      "commands":[...]
     }
    
-   'prerequisite' contient 3 entrées:
-   - 'environment': un vecteur de chaines de caractères correspondant aux variables d'environnement qui doivent être initialisées au moment de l'exécution`.
-   - 'directory' (required): le dossier dans lequel on écrit le fichier 'parameters.json'`;
-    - 'resources': un vecteur de path correspondant à des dossiers et fichiers devant exister sur le disque au moment de l'exécution. Il est possible d'utiliser les variables d'environnement pour valider l'existence de ces ressources, en embrassant les variables d'environnement par le caractère '$'.
+  + 'prerequisite' contient 3 entrées:
+     - 'environment': un vecteur de chaines de caractères correspondant aux variables d'environnement qui doivent être initialisées au moment de l'exécution`.
+     - 'directory' (required): le dossier dans lequel on écrit le fichier 'parameters.json'`;
+     - 'resources': un vecteur de path correspondant à des dossiers et fichiers devant exister sur le disque au moment de l'exécution. Il est possible d'utiliser les variables d'environnement pour valider l'existence de ces ressources, en embrassant les variables d'environnement par le caractère '$'.
    
-   'commands' contient un vecteur d'objets 'execute' qui sont les commandes à exécuter. Toute commande exécutable dans un terminal peut être utilisée. 
+  + 'commands' contient un vecteur d'objets 'execute' qui sont les commandes à exécuter. Toute commande exécutable dans un terminal peut être utilisée. 
    Les paramètres de l'interface peuvent être interprétées dans la commande en embrassant la clef du paramètre par le caractère '$'.
    Les variables d'environnement sont également interprétées dans la commande de la même manière en les embrassant par le caractère '$'.
