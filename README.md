@@ -1,5 +1,9 @@
 # electron-interface-ign
 
+++++++++++++++++++++++++++++++++++++++
+Présentation
+++++++++++++++++++++++++++++++++++++++
+
 electron-interface-ign est un petit outil permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de paramètres puis de lancer des commandes séquentielles (cf shema.png).
 Il a  été initialement conçu (et est donc utilisable) pour la création de chantiers de gpao des chaînes de traitement image de l'IGN (MicMacMgr, Solveg, MosAR), mais il peut être utilisé pour tout pipeline en ligne de commandes.
 
@@ -9,7 +13,10 @@ electron-interface-ign s'appuie sur un formalisme de description d'IHM en json d
 
 Pour démarrer une nouvelle interface, il est recommandé de se reporter aux exemples ci-dessous.
 
-Usage:
+++++++++++++++++++++++++++++++++++++++
+Installation
+++++++++++++++++++++++++++++++++++++++
+
 - Assurez-vous que vous avez les droits suffisants pour l'installation.
 - installer npm: https://www.npmjs.com/get-npm
 - installer l'application: bash install.sh
@@ -23,7 +30,12 @@ Nota:
     
     Placez le dossier dans votre répertoire d'applications et ajoutez le chemin à votre PATH système. 
     
+++++++++++++++++++++++++++++++++++++++
+Utilisation
+++++++++++++++++++++++++++++++++++++++
 
+Pour créer sa propre interface utilisateur, il suffit d'écrire un fichier de description d'interface en json et d'écrire les scripts de relecture du json afin d'en déduire les commandes à lancer une fois le formulaire rempli par l'utilisateur. Ces scripts peuvent être écrits en DOS bat, en shell ou en python comme dans les exemples ci-dessous.
+    
 Le fichier interface en json décrit :
 - l'ensemble des champs à remplir par l'utilisateur
 - les ressources qui doivent exister (fichiers, dossiers, exécutables, etc...)
@@ -39,24 +51,26 @@ Lorsque les champs sont remplis, l'utilisateur peut lancer la commande 'Exécute
 Puis toutes les commandes 'execute' de post-traitements sont lancées séquentiellement.
 
 
+++++++++++++++++++++++++++++++++++++++
 Exemples: 
-
+++++++++++++++++++++++++++++++++++++++
     Exemple minimal:
         bash examples/minimal/launch.sh
+ 
+   Exemple plus complet avec differents types et des dependances:
+       bash examples/basic/launch.sh
      
-    Exemple plus complet avec differents types et des dependances:
-         bash examples/basic/launch.sh
-         
-    MicMacMgr:
+   MicMacMgr:
       - ajuster les PATH dans  examples/micmacmgr/macosx-clang/setenv.sh
       - bash examples/micmacmgr/macosx-clang/launch.sh 
-         
-    Solveg (interface uniquement):
+     
+  Solveg (interface uniquement):
       - bash examples/solveg/macosx-clang/launch.sh 
-         
-    
+     
 
+++++++++++++++++++++++++++++++++++++++
 Formalisme du json de description d'interface:
+++++++++++++++++++++++++++++++++++++++
 
 - L'objet racine est unique et sa clef doit être le mot clef 'ihm'. Ceci permet de ne pas le confondre avec des json d'autres natures
 - Il contient 3 entrées:
@@ -72,61 +86,70 @@ Formalisme du json de description d'interface:
             }
     }
 
+.   ================
+     A- 'content':  
+     ================
+'content' contient obligatoirement un vecteur de N objets de type 'Page', qui correspondront à des onglets dans l'interface. Pour des pipelines un peu complexes, on peut ainsi organiser les paramètres par grands ensembles: données en entrée, paramétrage et données en sortie, par exemple.
     
-    'content' contient obligatoirement un vecteur de N objets de type 'Page', qui correspondront à des onglets dans l'interface. Pour des pipelines un peu complexes, on peut ainsi organiser les paramètres par grands ensembles: données en entrée, paramétrage et données en sortie, par exemple.
+Chaque 'Page' contient ensuite N objets d'interface, dont les types sont les suivants:
+    - Label
+    - LineEdit
+    - CheckBox
+    - FileSelector
+    - FolderSelector
+    - ComboBox
+    - RadioButton
+    - Group
+    - ButtonGroup
     
-    Chaque 'Page' contient ensuite N objets d'interface, dont les types sont les suivants:
-        - Label
-        - LineEdit
-        - CheckBox
-        - FileSelector
-        - FolderSelector
-        - ComboBox
-        - RadioButton
-        - Group
-        - ButtonGroup
-        
-    Chaque champ possède un intitulé que l'on peut paramétrer dans le champ 'Name' et qui peut être une chaîne vide.    
-        
-    Les objets correspondant à un paramètre éditable par l'utilisateur sont les suivants:
-    - LineEdit: un champ texte typable en chaîne quelconque, entier ou nombre flottant
-    - CheckBox: une case à cocher qui renvoie donc 'true' ou 'false'
-    - FileSelector: un sélecteur de fichier
-    - FolderSelector: un sélecteur de dossier
-    - ComboBox: un menu déroulant avec sélection d'un item
-    - ButtonGroup / RadioButton: un ensemble d'options parmi lesquelles on ne peut choisir qu'une valeur.
+Chaque champ possède un intitulé que l'on peut paramétrer dans le champ 'Name' et qui peut être une chaîne vide.    
     
-    Ces objets doivent comporter un champ 'Key' unique qui permettra d'identifier le champ dans le fichier 'parameters.json' résultant sous la forme d'une paire (key, user value).
-    Exemple du contenu d'un fichier parameters.json (examples/basic ci dessous):
-    {
-        "param": {
-            "kSomeSimpleLineEdit": "simple text",
-            "kSomeIntegerNumberField": "10",
-            "kSomeFloatingNumberField": "0.05",
-            "kSomeFileSelector": "/some/file/on/the/disk.ext",
-            "kSomeFolderSelector": "/some/folder/on/the/disk",
-            "kSomeCheckBox1": false,
-            "kSomeCheckBox2": false,
-            "kSomeCheckBox3": true,
-            "kSomeComboBox": " 1"
-        }
-    }
-    La clef principale 'param' permet de ne pas le confondre avec des json d'autres natures.
-    
-    L'objet 'Group' permet de regrouper des paramètres sous un même intitulé et d'organiser les champs en les alignant soit verticalement soit horizontalement via la clef 'GroupType' ("GroupType":"VerticalGroup" / "HorizontalGroup"). Il contient ensuite une entrée 'content' qui est un vecteur d'objets d'interface, exactement comme l'objet 'Page'. Cette propriété est récursive, c'est-à-dire que le 'content' d'un objet 'Group' peut lui-même contenir un objet 'Group' etc...  Il peut (mais ce n'est pas requis) comporter une entrée 'Key' afin de pouvoir piloter l'activation ou l'inactivation de tout les objets d'un groupe par un objet 'Master' dans le vecteur des dependencies (cf. ci-dessous).
-    
-    L'objet ButtonGroup a la même fonction mais ne fonctionne que pour les RadioButton. En outre il DOIT comporter l'entrée 'Key' car c'est cet objet qui identifie l'item selectionné par l'utilisateur. Il comporte une entrée 'content' qui est un vecteur de N objets de type 'RadioButton'.
-    
-    Pour chaque champ éditable, le champ 'Value' définit la valeur initiale du champ. (remarque: Un champ DefaultValue a été prévu pour réinitialiser les paramètres mais il n'est pas opérationnel dans l'interface pour le moment.)
-    
-    Le champ 'ValueType' definit la nature du champ 'Boolean', 'Double', 'Integer', 'String', 'Path', 'FilePath'. Le typage du champ permet de valider que l'utilisateur rentre une valeur correcte dans l'interface.
-    
-    Le champ 'ToolTip', optionnel, permet de générer une info-bulle qui s'affiche quand on reste suffisamment longtemps sur le champ afin de décrire plus précisement ce que l'utilisateur doit rentrer. Par défaut, il affiche simplement la clef du paramètre.
+Les objets correspondant à un paramètre éditable par l'utilisateur sont les suivants:
+- LineEdit: un champ texte typable en chaîne quelconque, entier ou nombre flottant
+- CheckBox: une case à cocher qui renvoie donc 'true' ou 'false'
+- FileSelector: un sélecteur de fichier
+- FolderSelector: un sélecteur de dossier
+- ComboBox: un menu déroulant avec sélection d'un item
+- ButtonGroup / RadioButton: un ensemble d'options parmi lesquelles on ne peut choisir qu'une valeur.
 
-  
+Ces objets doivent comporter un champ 'Key' unique qui permettra d'identifier le champ dans le fichier 'parameters.json' résultant sous la forme d'une paire (key, user value).
+Exemple du contenu d'un fichier parameters.json (examples/basic ci dessous):
+{
+    "param": {
+        "kSomeSimpleLineEdit": "simple text",
+        "kSomeIntegerNumberField": "10",
+        "kSomeFloatingNumberField": "0.05",
+        "kSomeFileSelector": "/some/file/on/the/disk.ext",
+        "kSomeFolderSelector": "/some/folder/on/the/disk",
+        "kSomeCheckBox1": false,
+        "kSomeCheckBox2": false,
+        "kSomeCheckBox3": true,
+        "kSomeComboBox": " 1"
+    }
+}
+La clef principale 'param' permet de ne pas le confondre avec des json d'autres natures.
+
+L'objet 'Group' permet de regrouper des paramètres sous un même intitulé et d'organiser les champs en les alignant soit verticalement soit horizontalement via la clef 'GroupType' ("GroupType":"VerticalGroup" / "HorizontalGroup"). Il contient ensuite une entrée 'content' qui est un vecteur d'objets d'interface, exactement comme l'objet 'Page'. Cette propriété est récursive, c'est-à-dire que le 'content' d'un objet 'Group' peut lui-même contenir un objet 'Group' etc...  Il peut (mais ce n'est pas requis) comporter une entrée 'Key' afin de pouvoir piloter l'activation ou l'inactivation de tout les objets d'un groupe par un objet 'Master' dans le vecteur des dependencies (cf. ci-dessous).
+
+L'objet ButtonGroup a la même fonction mais ne fonctionne que pour les RadioButton. En outre il DOIT comporter l'entrée 'Key' car c'est cet objet qui identifie l'item selectionné par l'utilisateur. Il comporte une entrée 'content' qui est un vecteur de N objets de type 'RadioButton'.
+
+Pour chaque champ éditable, le champ 'Value' définit la valeur initiale du champ. (remarque: Un champ DefaultValue a été prévu pour réinitialiser les paramètres mais il n'est pas opérationnel dans l'interface pour le moment.)
+
+Le champ 'ValueType' definit la nature du champ 'Boolean', 'Double', 'Integer', 'String', 'Path', 'FilePath'. Le typage du champ permet de valider que l'utilisateur rentre une valeur correcte dans l'interface.
+
+Le champ 'ToolTip', optionnel, permet de générer une info-bulle qui s'affiche quand on reste suffisamment longtemps sur le champ afin de décrire plus précisement ce que l'utilisateur doit rentrer. Par défaut, il affiche simplement la clef du paramètre.
+
+
+.   ================
+  B- 'dependencies':
+     ================
   Le vecteur des 'dependencies' est optionnel. Il contient N entrées de 'Type' Dependency' avec un 'Master' qui contient la clef de l'objet maître et un 'Slave' qui contient la clef de l'objet dependant. L'objet maître doit répondre de manière booleenne, donc être de type CheckBox ou RadioButton. L'objet esclave est de nature quelconque du moment qu'il possède une clef 'Key'. Lorsque l'utilisateur change l'état du Master, l'objet esclave est activé ou désactivé dynamiquement selon le champ 'Inverse'. Un champ inactif n'est pas exporté dans le fichier parameters.json même si une valeur y a été rentrée.
 
 
+   ================
+ C- 'oncreate':
+    ================
+     
 L'entrée 'oncreate' décrit les opérations à effectuer une fois que l'utilisateur a cliqué sur le bouton 'Executer'.
 Il comporte 2 entrées:
     - 'prerequisite' contient les informations préalables à valider avant d'exécuter les commandes
