@@ -35,7 +35,7 @@ Notes sur les problèmes potentiels:
 Utilisation
 ++++++++++++++++++++++++++++++++++++++
 
-Pour créer sa propre interface utilisateur, il suffit d'écrire un fichier de description d'interface en json et d'écrire les scripts de relecture du fichier 'parameters.json' résultant afin d'en déduire les commandes à lancer une fois le formulaire rempli par l'utilisateur. Ces scripts peuvent être écrits dans tout langage exécutable via une commande système (DOS bat, bash shell, javascript, python). Dans le cas d'une interface multiOS, il faut cependant faire attention à ce que les commandes soient correctement interprétables sur les différents OS ciblés. Voir les exemples ci-dessous. 
+Pour créer sa propre interface utilisateur, il suffit d'écrire un fichier de description d'interface en json et d'écrire les scripts de relecture du fichier 'parameters.json' résultant afin d'en déduire les commandes à lancer une fois le formulaire rempli par l'utilisateur. Ces scripts peuvent être écrits dans tout langage exécutable via une commande système (DOS bat, bash shell, python etc...). Dans le cas d'une interface multiOS, il faut cependant faire attention à ce que les commandes soient correctement interprétables sur les différents OS ciblés. Voir les exemples ci-dessous. 
     
 Le fichier interface en json décrit :
 - l'ensemble des champs à remplir par l'utilisateur
