@@ -65,8 +65,7 @@
                          "Key":"kSomeComboBox",
                          "Value":"1;2;3;4",
                          "Type":"ComboBox",
-                         "ValueType":"String",
-                         "DefaultValue":0
+                         "ValueType":"String"
                      },
                      {
                         "Type":"Group",
