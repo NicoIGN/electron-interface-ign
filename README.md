@@ -1,15 +1,15 @@
-# electron-interface-ign
+# Electron GUI for command line tools
 
 ++++++++++++++++++++++++++++++++++++++
 Présentation
 ++++++++++++++++++++++++++++++++++++++
 
-electron-interface-ign est un petit outil permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de paramètres puis de lancer des commandes système (cf shema.png).
+electron GUI for command line tools est un petit outil permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de paramètres puis de lancer des commandes système (cf shema.png).
 Il a  été initialement conçu (et est donc utilisable) pour la création de chantiers de gpao des chaînes de traitement image de l'IGN (MicMacMgr, Solveg, MosAR), mais il peut être utilisé pour tout pipeline en ligne de commandes.
 
 Il s'appuie sur la technologie npmjs et le framework 'electron' qui permet de développer des applications multi-plateformes de bureau avec des technologies web. Il est basé sur Chromium, la partie open source de Google Chrome. Electron est un logiciel libre open source développé par GitHub sous licence MIT.
 
-electron-interface-ign s'appuie sur un formalisme de description d'IHM en json dont les spécifications sont décrites ci-dessous. Il n'a pas vocation à proposer une interface esthétique à façon, mais permet de disposer d'une interface basique afin de rendre plus user-friendly (clarté du paramétrage, validation de champs, documentation par info-bulle etc...) un pipeline en lignes de commande avec un effort minimal de développement. 
+Electron GUI for command line tools s'appuie sur un formalisme de description d'IHM en json dont les spécifications sont décrites ci-dessous. Il n'a pas vocation à proposer une interface esthétique à façon, mais permet de disposer d'une interface basique afin de rendre plus user-friendly (clarté du paramétrage, validation de champs, documentation par info-bulle etc...) un pipeline en lignes de commande avec un effort minimal de développement. 
 
 Pour démarrer une nouvelle interface, il est recommandé de se reporter aux exemples ci-dessous.
 
@@ -17,17 +17,18 @@ Pour démarrer une nouvelle interface, il est recommandé de se reporter aux exe
 Installation
 ++++++++++++++++++++++++++++++++++++++
 
+La dépôt git se situe à l'adresse suivante:
+https://github.com/NicoIGN/electron-interface-ign
+
 - Assurez-vous que vous avez les droits suffisants pour l'installation.
 - installer npm: https://www.npmjs.com/get-npm
-- installer l'application: bash install.sh
+- installer l'application: placez-vous à la racine du dépot git et lancez la commande bash install.sh
 
-Nota:
+Notes sur les problèmes potentiels:
  - en cas de timeout, verifiez que votre proxy est correctement paramétré. Au besoin (pour l'IGN), utilisez le script set-proxy-ign à la racine du projet.
 
- - sous windows, en cas d'erreur du type "Error: Cannot find module '...\npm\node_modules\electron\cli.js' il est possible que npm n'ait pas réussi à installer correctement electron. En ce cas il faut l'installer à la main en le récupérant directement  à cette adresse:
-    https://github.com/electron/electron/releases/
+ - sous windows, en cas d'erreur du type "Error: Cannot find module '...\npm\node_modules\electron\cli.js' il est possible que npm n'ait pas réussi à installer correctement electron. En ce cas il faut l'installer à la main en le récupérant directement  à cette adresse:   https://github.com/electron/electron/releases/
     Cet outil a été développé et validé avec electron v8.3 sous MacOSX101.5 et v8.5 sous Windows10 64b. Il est donc recommandé d'installer une version 8.x d'electron.
-    
     Placez le dossier dans votre répertoire d'applications et ajoutez le chemin à votre PATH système. 
     
 ++++++++++++++++++++++++++++++++++++++
