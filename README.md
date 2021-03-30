@@ -62,8 +62,9 @@ Exemple du contenu d'un fichier parameters.json résultant (provenant de example
         "kSomeFileSelector": "/some/file/on/the/disk.ext",
         "kSomeFolderSelector": "/some/folder/on/the/disk",
         "kSomeCheckBox1": false,
-        "kSomeCheckBox2": false,
+        "kSomeCheckBox2": true,
         "kSomeCheckBox3": true,
+        "kSomeRadioButtonGroup": "kRadioButton2",
         "kSomeComboBox": " 1"
     }
 }
