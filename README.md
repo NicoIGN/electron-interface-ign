@@ -144,7 +144,7 @@ Le champ 'ToolTip', optionnel, permet de générer une info-bulle qui s'affiche 
 .   ================
   B- 'dependencies':
      ================
-  Le vecteur des 'dependencies' est optionnel. Il contient N entrées de 'Type' Dependency' avec un 'Master' qui contient la clef de l'objet maître et un 'Slave' qui contient la clef de l'objet dependant. L'objet maître doit répondre de manière booléenne, donc être de type CheckBox ou RadioButton. L'objet esclave est de nature quelconque du moment qu'il possède une clef 'Key'. Lorsque l'utilisateur change l'état du Master, l'objet esclave est activé ou désactivé dynamiquement selon le champ 'Inverse'. Un champ inactif n'est pas exporté dans le fichier parameters.json même si une valeur y a été rentrée.
+  Le vecteur des 'dependencies' est optionnel. Il contient N entrées de 'Type' Dependency' avec un 'Master' qui contient la clef de l'objet maître et un 'Slave' qui contient la clef de l'objet dépendant. L'objet maître doit répondre de manière booléenne, donc être de type CheckBox ou RadioButton. L'objet esclave est de nature quelconque du moment qu'il possède une clef 'Key'. Lorsque l'utilisateur change l'état du Master, l'objet esclave est activé ou désactivé dynamiquement selon le champ 'Inverse'. Un champ inactif n'est pas exporté dans le fichier parameters.json même si une valeur y a été rentrée.
  
  Patron d'un item 'dependency':
   {
@@ -161,7 +161,7 @@ Le champ 'ToolTip', optionnel, permet de générer une info-bulle qui s'affiche 
 L'entrée 'oncreate' décrit les opérations à effectuer une fois que l'utilisateur a cliqué sur le bouton 'Executer'.
 Il comporte 2 entrées:
     - 'prerequisite' contient les informations préalables à valider avant d'exécuter les commandes
-    - 'commands' contient un vecteur de commandes effectuées séquentiellement après l'export du fichier de paramètres utilisateur
+    - 'commands' contient un vecteur de commandes effectuées séquentiellement après l'export du fichier de paramètres utilisateur.
     
  Patron de l'entrée 'oncreate':
     "oncreate":{
@@ -174,8 +174,8 @@ Il comporte 2 entrées:
     }
    
    'prerequisite' contient 3 entrées:
-    - 'environment': un vecteur de chaines de caractères correspondant aux variables d'environnement qui doivent être initialisées au moment de l'exécution
-    - 'directory' (required): le dossier dans lequel on écrit le fichier 'parameters.json'
+   - 'environment': un vecteur de chaines de caractères correspondant aux variables d'environnement qui doivent être initialisées au moment de l'exécution`.
+   - 'directory' (required): le dossier dans lequel on écrit le fichier 'parameters.json'`;
     - 'resources': un vecteur de path correspondant à des dossiers et fichiers devant exister sur le disque au moment de l'exécution. Il est possible d'utiliser les variables d'environnement pour valider l'existence de ces ressources, en embrassant les variables d'environnement par le caractère '$'.
    
    'commands' contient un vecteur d'objets 'execute' qui sont les commandes à exécuter. Toute commande exécutable dans un terminal peut être utilisée. Les variables d'environnement sont également interprétées dans la commande en les embrassant par le caractère '$'.
