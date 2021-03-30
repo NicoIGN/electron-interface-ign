@@ -14,8 +14,7 @@ echo ROOT=%ROOT%
 cd %SCRIPTPATH%
 
 REM defining requirements
-set SOME_REQUIRED_ENVIRONMENT_VARIABLE=%SCRIPTPATH%
-set OPEN_METHOD=start
+set SOME_DIRECTORY=%SCRIPTPATH%
 
 REM launching electron
 cd %SCRIPTPATH%

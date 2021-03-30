@@ -21,15 +21,13 @@
         "oncreate":{
             "prerequisite":{
                 "environment":[
-                    "SOME_REQUIRED_ENVIRONMENT_VARIABLE",
-                    "OPEN_METHOD"
-
+                    "SOME_DIRECTORY"
                 ],
-                "directory":"SOME_REQUIRED_ENVIRONMENT_VARIABLE"
+                "directory":"SOME_DIRECTORY"
             },
             "commands":[
                 {
-                    "execute":"$OPEN_METHOD$  $SOME_REQUIRED_ENVIRONMENT_VARIABLE$/parameters.json"
+                    "execute":"echo  l utilisateur a rentre la valeur $kSomeSimpleLineEdit$ dans le champ kSomeSimpleLineEdit. Le fichier de parametres est ecrit dans le dossier $SOME_DIRECTORY$"
                 }
             ]
         }
