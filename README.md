@@ -1,7 +1,7 @@
 # Electron GUI for command line tools
 
 ++++++++++++++++++++++++++++++++++++++
-Présentation
+I- Présentation
 ++++++++++++++++++++++++++++++++++++++
 
 electron GUI for command line tools est un petit outil permettant d'interpréter une description d'interface en json pour en déduire une interface utilisateur afin de remplir un formulaire de paramètres puis de lancer des commandes système (cf shema.png).
@@ -14,7 +14,7 @@ Electron GUI for command line tools s'appuie sur un formalisme de description d'
 Pour démarrer une nouvelle interface, il est recommandé de se reporter aux exemples ci-dessous.
 
 ++++++++++++++++++++++++++++++++++++++
-Installation
+II- Installation
 ++++++++++++++++++++++++++++++++++++++
 
 La dépôt git se situe à l'adresse suivante:
@@ -32,7 +32,7 @@ Notes sur les problèmes potentiels:
     Placez le dossier dans votre répertoire d'applications et ajoutez le chemin à votre PATH système. 
     
 ++++++++++++++++++++++++++++++++++++++
-Utilisation
+III- Utilisation
 ++++++++++++++++++++++++++++++++++++++
 
 Pour créer sa propre interface utilisateur, il suffit d'écrire un fichier de description d'interface en json et d'écrire les scripts de relecture du fichier 'parameters.json' résultant afin d'en déduire les commandes à lancer une fois le formulaire rempli par l'utilisateur. Ces scripts peuvent être écrits dans tout langage exécutable via une commande système (DOS bat, bash shell, python etc...). Dans le cas d'une interface multiOS, il faut cependant faire attention à ce que les commandes soient correctement interprétables sur les différents OS ciblés. Voir les exemples ci-dessous. 
@@ -69,7 +69,7 @@ La clef principale 'param' permet de ne pas le confondre avec des json d'autres 
 
 
 ++++++++++++++++++++++++++++++++++++++
-Exemples: 
+IV- Exemples: 
 ++++++++++++++++++++++++++++++++++++++
     Exemple minimal:
         bash examples/minimal/launch.sh
@@ -86,7 +86,7 @@ Exemples:
      
 
 ++++++++++++++++++++++++++++++++++++++
-Formalisme du json de description d'interface:
+V- Formalisme du json de description d'interface:
 ++++++++++++++++++++++++++++++++++++++
 
 - L'objet racine est unique et sa clef doit être le mot clef 'ihm'. Ceci permet de ne pas le confondre avec des json d'autres natures
@@ -180,6 +180,3 @@ Il comporte 2 entrées:
     - 'resources': un vecteur de path correspondant à des dossiers et fichiers devant exister sur le disque au moment de l'exécution. Il est possible d'utiliser les variables d'environnement pour valider l'existence de ces ressources, en embrassant les variables d'environnement par le caractère '$'.
    
    'commands' contient un vecteur d'objets 'execute' qui sont les commandes à exécuter. Toute commande exécutable dans un terminal peut être utilisée. Les variables d'environnement sont également interprétées dans la commande en les embrassant par le caractère '$'.
-
-
-
