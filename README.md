@@ -15,7 +15,7 @@ Usage:
 - installer l'application: bash install.sh
 
 Nota:
- - en cas de timeout, verifiez que votre proxy est correctement paramétré. Au besoin  (pour l'IGN), utiliser le script set-proxy-ign à la racine du projet.
+ - en cas de timeout, verifiez que votre proxy est correctement paramétré. Au besoin (pour l'IGN), utilisez le script set-proxy-ign à la racine du projet.
 
  - sous windows, en cas d'erreur du type "Error: Cannot find module '...\npm\node_modules\electron\cli.js' il est possible que npm n'ait pas réussi à installer correctement electron. En ce cas il faut l'installer à la main en le récupérant directement  à cette adresse:
     https://github.com/electron/electron/releases/
@@ -31,7 +31,7 @@ Le fichier interface en json décrit :
 - le dossier 'DIRECTORY' dans lequel écrire le formulaire utilisateur sous la forme d'un fichier 'parameters.json'
 - les commandes à lancer une fois le formulaire rempli
 
-La commande à lancer est: electron . ou npm start après avoir initialiser la variable d'environnement IHMFILE avec le fichier json de description d'interface. 
+La commande à lancer est: electron . ou npm start après avoir initialisé la variable d'environnement IHMFILE avec le fichier json de description d'interface (voir les scripts launch.sh/.bat dans les exemples)
 
 Il est possible d'initialiser l'interface avec un fichier de paramètres préexistant en initialisant la variable d'environnement PARAMETERS
 
@@ -61,8 +61,17 @@ Formalisme du json de description d'interface:
 - L'objet racine est unique et sa clef doit être le mot clef 'ihm'. Ceci permet de ne pas le confondre avec des json d'autres natures
 - Il contient 3 entrées:
     - 'content' un vecteur d'objet d'ihm décrivant l'interface
-    - 'dependencies': un vecteur d'objets décrivant les dépendances dynamiques entre un objet 'Master' booleen (checkbox/radiobutton) et et un objet 'Slave' qui active ou désactive un champ selon qu'on souhaite ou non que l'utilisateur ait accès à ce champ. Un champ inactif n'est pas exporté dans le fichier parameters.json
+    - 'dependencies': un vecteur d'objets décrivant les dépendances dynamiques entre un objet 'Master' booléen (checkbox/radiobutton) et et un objet 'Slave' qui active ou désactive un champ selon qu'on souhaite ou non que l'utilisateur ait accès à ce champ. Un champ inactif n'est pas exporté dans le fichier 'parameters.json'
     - 'oncreate': les tâches à effectuer une fois que l'utilisateur a cliqué sur le bouton 'Executer'
+    
+    Patron d'un fichier 'ihm':
+    { "ihm":{
+            "content":[ ... ],
+            "dependencies":[...],
+            "oncreate":{... }
+            }
+    }
+
     
     'content' contient obligatoirement un vecteur de N objets de type 'Page', qui correspondront à des onglets dans l'interface. Pour des pipelines un peu complexes, on peut ainsi organiser les paramètres par grands ensembles: données en entrée, paramétrage et données en sortie, par exemple.
     
@@ -80,16 +89,31 @@ Formalisme du json de description d'interface:
     Chaque champ possède un intitulé que l'on peut paramétrer dans le champ 'Name' et qui peut être une chaîne vide.    
         
     Les objets correspondant à un paramètre éditable par l'utilisateur sont les suivants:
-    - LineEdit: un champ texte typable en chapine quelconque, entier ou nombre flottant
+    - LineEdit: un champ texte typable en chaîne quelconque, entier ou nombre flottant
     - CheckBox: une case à cocher qui renvoie donc 'true' ou 'false'
     - FileSelector: un sélecteur de fichier
     - FolderSelector: un sélecteur de dossier
     - ComboBox: un menu déroulant avec sélection d'un item
-    - ButtonGroup / RadioButton: un ensemble d'options parmi lesquels on ne peut choisir qu'une valeur.
+    - ButtonGroup / RadioButton: un ensemble d'options parmi lesquelles on ne peut choisir qu'une valeur.
     
-    Ces objets doivent comporter un champ 'Key' unique qui permettra d'identifier le champ dans le fichier 'parameters.json' résultant sous la forme d'une paire (key, user value)
+    Ces objets doivent comporter un champ 'Key' unique qui permettra d'identifier le champ dans le fichier 'parameters.json' résultant sous la forme d'une paire (key, user value).
+    Exemple du contenu d'un fichier parameters.json (examples/basic ci dessous):
+    {
+        "param": {
+            "kSomeSimpleLineEdit": "simple text",
+            "kSomeIntegerNumberField": "10",
+            "kSomeFloatingNumberField": "0.05",
+            "kSomeFileSelector": "/some/file/on/the/disk.ext",
+            "kSomeFolderSelector": "/some/folder/on/the/disk",
+            "kSomeCheckBox1": false,
+            "kSomeCheckBox2": false,
+            "kSomeCheckBox3": true,
+            "kSomeComboBox": " 1"
+        }
+    }
+    La clef principale 'param' permet de ne pas le confondre avec des json d'autres natures.
     
-    L'objet 'Group' permet de regrouper des paramètres sous un même intitulé et d'organiser les champs en les alignant soit verticalement soit horizontalement via la clef 'GroupType' ("GroupType":"VerticalGroup" / "HorizontalGroup"). Il contient ensuite une entrée 'content' qui est un vecteur d'objets d'interface, exactement comme l'objet 'Page'. Cette propriété est récursive, c'est-à-dire qu'un objet 'Group' peut lui-même contenir un objet Group etc...  Il peut (mais ce n'est pas requis) comporter une entrée 'Key' afin de pouvoir piloter l'activation ou l'inactivation de tout un groupe par un objet 'Master' dans le vecteur des dependencies (cf. ci-dessous).
+    L'objet 'Group' permet de regrouper des paramètres sous un même intitulé et d'organiser les champs en les alignant soit verticalement soit horizontalement via la clef 'GroupType' ("GroupType":"VerticalGroup" / "HorizontalGroup"). Il contient ensuite une entrée 'content' qui est un vecteur d'objets d'interface, exactement comme l'objet 'Page'. Cette propriété est récursive, c'est-à-dire que le 'content' d'un objet 'Group' peut lui-même contenir un objet 'Group' etc...  Il peut (mais ce n'est pas requis) comporter une entrée 'Key' afin de pouvoir piloter l'activation ou l'inactivation de tout les objets d'un groupe par un objet 'Master' dans le vecteur des dependencies (cf. ci-dessous).
     
     L'objet ButtonGroup a la même fonction mais ne fonctionne que pour les RadioButton. En outre il DOIT comporter l'entrée 'Key' car c'est cet objet qui identifie l'item selectionné par l'utilisateur. Il comporte une entrée 'content' qui est un vecteur de N objets de type 'RadioButton'.
     
@@ -108,6 +132,15 @@ Il comporte 2 entrées:
     - 'prerequisite' contient les informations préalables à valider avant d'exécuter les commandes
     - 'commands' contient un vecteur de commandes effectuées séquentiellement après l'export du fichier de paramètres utilisateur
     
+ Patron de l'entrée 'oncreate':
+    "oncreate":{
+            "prerequisite":{
+                 "environment":[...],
+                 "directory":"SOME_DIRECTORY",
+                 "resources":[...]
+            },
+            "commands":[...]
+    }
    
    'prerequisite' contient 3 entrées:
     - 'environment': un vecteur de chaines de caractères correspondant aux variables d'environnement qui doivent être initialisées au moment de l'exécution
