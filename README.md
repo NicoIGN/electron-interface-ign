@@ -46,7 +46,7 @@ Le fichier interface en json décrit :
 
 La commande à lancer est: "electron ." ou "npm start" après avoir initialisé la variable d'environnement 'IHMFILE' avec le fichier json de description d'interface (voir les scripts launch.sh/.bat dans les exemples)
 
-Il est possible d'initialiser l'interface avec un fichier de paramètres préexistant en initialisant la variable d'environnement 'PARAMETERS'.
+Il est possible d'initialiser les valeurs de l'interface avec un fichier de paramètres préexistant en initialisant la variable d'environnement 'PARAMETERS'.
 
 Lorsque les champs sont remplis, l'utilisateur peut lancer la commande 'Exécuter'. Un fichier de nom fixé 'parameters.json' est généré dans le dossier 'DIRECTORY' défini dans le fichier '(moninterface).json'
 Puis toutes les commandes 'execute' de post-traitements sont lancées séquentiellement.
