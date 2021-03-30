@@ -733,87 +733,70 @@
         "dependencies":[        {
             "Master":"kEmpriseImage",
             "Slave":"kEmpriseBBoxGroup",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kEmpriseBBox",
             "Slave":"kEmpriseBBoxGroup",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kEmpriseZone",
             "Slave":"kEmpriseBBoxGroup",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kEmpriseImage",
             "Slave":"kEmpriseSHP",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kEmpriseBBox",
             "Slave":"kEmpriseSHP",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kEmpriseZone",
             "Slave":"kEmpriseSHP",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kNoDataNeutral",
             "Slave":"kNoDataValue",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kNoDataKeepZ",
             "Slave":"kNoDataValue",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kNoDataDTM",
             "Slave":"kNoDataValue",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kUseMalt",
             "Slave":"kParamMalt",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kUseMalt",
             "Slave":"kModeTemplateMicMac",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kUseMalt",
             "Slave":"kModeImage",
-            "Type":"Dependency",
             "Inverse":false
         },         {
             "Master":"kUseMalt",
             "Slave":"kParamMalt",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kUseMalt",
             "Slave":"kSousEch",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kModeTemplateMicMac",
             "Slave":"kSousEch",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kModeTerrain",
             "Slave":"kUseMalt",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kModeImage",
             "Slave":"kUseMalt",
-            "Type":"Dependency",
             "Inverse":false
         }],
         "oncreate":{
