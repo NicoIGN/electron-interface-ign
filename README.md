@@ -35,9 +35,9 @@ Notes sur les problèmes potentiels:
 III- Utilisation
 ++++++++++++++++++++++++++++++++++++++
 
-Pour créer sa propre interface utilisateur, il suffit d'écrire un fichier de description d'interface en json et d'écrire les commandes de post-traitement à lancer  une fois le formulaire rempli par l'utilisateur.
+Pour créer sa propre interface utilisateur, il suffit d'écrire un fichier de description d'interface en json et d'écrire les commandes de post-traitement à lancer une fois le formulaire rempli par l'utilisateur, soit directement dans le fichier json (cf examples/minimal), soit en relisant le fichier de paramètres, par exemple dans un script python (cf examples/basic).
 
-Toute commande exécutable via une commande système (DOS bat, bash shell, scripts python etc...) est valide. Dans le cas d'une interface multiOS, il faut cependant faire attention à ce que les commandes soient correctement interprétables sur les différents OS ciblés. Voir les exemples ci-dessous. 
+Toute commande exécutable via une commande système (DOS bat, bash shell, scripts python etc...) est valide. Dans le cas d'une interface multi-OS, il faut cependant faire attention à ce que les commandes soient correctement interprétables sur les différents OS ciblés. Voir les exemples ci-dessous. 
     
 Le fichier interface en json décrit :
 - l'ensemble des champs à remplir par l'utilisateur
@@ -144,11 +144,21 @@ Le champ 'ValueType' definit la nature du champ 'Boolean', 'Double', 'Integer', 
 
 Le champ 'ToolTip', optionnel, permet de générer une info-bulle qui s'affiche quand on reste suffisamment longtemps sur le champ afin de décrire plus précisement ce que l'utilisateur doit rentrer. Par défaut, il affiche simplement la clef du paramètre.
 
+Exemple d'un champ LineEdit typé en nombre flottant (cf examples/basic)
+{
+   "Name":"some floating number field ",
+   "Key":"kSomeFloatingNumberField",
+   "Value":"0.0",
+   "Type":"LineEdit",
+   "ValueType":"Double",
+   "DefaultValue":"0.0",
+   "ToolTip":"info bubble to explain what to enter in this field to the end-user"
+}
 
 .   ================
   B- 'dependencies':
      ================
-  Le vecteur des 'dependencies' est optionnel. Il contient N entrées 'dependency' contenant un 'Master' qui correspond à la clef de l'objet maître et un 'Slave' qui correspond à la clef de l'objet dépendant. L'objet maître doit répondre de manière booléenne, donc être de type CheckBox ou RadioButton. L'objet esclave est de nature quelconque du moment qu'il possède une clef 'Key'. Lorsque l'utilisateur change l'état du Master, l'objet esclave est activé ou désactivé dynamiquement selon le champ 'Inverse'. Un champ inactif n'est pas exporté dans le fichier parameters.json même si une valeur y a été rentrée.
+  Le vecteur des 'dependencies' est optionnel. Il contient N entrées 'dependency' qui ont pour entrée un 'Master' qui correspond à la clef de l'objet maître et un 'Slave' qui correspond à la clef de l'objet dépendant. L'objet maître doit répondre de manière booléenne, donc être de type CheckBox ou RadioButton. L'objet esclave est de nature quelconque du moment qu'il possède une clef 'Key'. Lorsque l'utilisateur change l'état du Master, l'objet esclave est activé ou désactivé dynamiquement selon le champ 'Inverse'. Un champ inactif n'est pas exporté dans le fichier parameters.json même si une valeur y a été rentrée.
  
  Patron d'un item 'dependency':
   {
@@ -184,3 +194,19 @@ Il comporte 2 entrées:
   + 'commands' contient un vecteur d'objets 'execute' qui sont les commandes à exécuter. Toute commande exécutable dans un terminal peut être utilisée. 
    Les paramètres de l'interface peuvent être interprétées dans la commande en embrassant la clef du paramètre par le caractère '$'.
    Les variables d'environnement sont également interprétées dans la commande de la même manière en les embrassant par le caractère '$'.
+
+    exemple de oncreate (cf examples/minimal)
+    
+    "oncreate":{
+        "prerequisite":{
+            "environment":[
+                "SOME_DIRECTORY"
+            ],
+            "directory":"SOME_DIRECTORY"
+        },
+        "commands":[
+            {
+                "execute":"echo  l utilisateur a rentre la valeur $kSomeSimpleLineEdit$ dans le champ kSomeSimpleLineEdit. Le fichier de parametres est ecrit dans le dossier $SOME_DIRECTORY$"
+            }
+        ]
+    }
