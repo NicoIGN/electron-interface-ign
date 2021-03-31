@@ -17,4 +17,4 @@ export OPEN_METHOD=open
 export PYTHON_EXECUTABLE=python3
 
 #launching electron
-cd $ROOT && electron .
+cd $ROOT && npm start
