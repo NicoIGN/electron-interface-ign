@@ -199,9 +199,7 @@ Il comporte 2 entrées:
     
     "oncreate":{
         "prerequisite":{
-            "environment":[
-                "SOME_DIRECTORY"
-            ],
+            "environment":[ "SOME_DIRECTORY" ],
             "directory":"SOME_DIRECTORY"
         },
         "commands":[
