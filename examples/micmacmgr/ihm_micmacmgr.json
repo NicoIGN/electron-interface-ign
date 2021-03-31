@@ -134,7 +134,7 @@
                             "Key":"kImageFormat",
                             "content":[                            {
                                 "Name":"TIF",
-                                "Kzey":"kImageFormatTIF",
+                                "Key":"kImageFormatTIF",
                                 "Value":false,
                                 "Type":"RadioButton",
                                 "ValueType":"Boolean",
@@ -258,32 +258,28 @@
                                 "Value":"0.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
-                                "DefaultValue":"0.0",
-                                "Parent":"kEmpriseBBoxGroup"
+                                "DefaultValue":"0.0"
                             },                            {
                                 "Name":"xmax",
                                 "Key":"kEmpriseXmax",
                                 "Value":"0.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
-                                "DefaultValue":"0.0",
-                                "Parent":"kEmpriseBBoxGroup"
+                                "DefaultValue":"0.0"
                             },                            {
                                 "Name":"ymin",
                                 "Key":"kEmpriseYmin",
                                 "Value":"0.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
-                                "DefaultValue":"0.0",
-                                "Parent":"kEmpriseBBoxGroup"
+                                "DefaultValue":"0.0"
                             },                            {
                                 "Name":"ymax",
                                 "Key":"kEmpriseYmax",
                                 "Value":"0.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
-                                "DefaultValue":"0.0",
-                                "Parent":"kEmpriseBBoxGroup"
+                                "DefaultValue":"0.0"
                             }],
                             "GroupType":"HorizontalGroup",
                             "Key":"kEmpriseBBoxGroup"
@@ -424,8 +420,7 @@
                                     "Value":"0.1",
                                     "Type":"LineEdit",
                                     "ValueType":"Double",
-                                    "DefaultValue":"0.1",
-                                    "Parent":"kOptionGroup"
+                                    "DefaultValue":"0.1"
                                 },                                {
                                     "Name":"Marge (pixel)",
                                     "Key":"kTileMargin",
@@ -433,13 +428,11 @@
                                     "Type":"LineEdit",
                                     "ValueType":"Integer",
                                     "DefaultValue":"10",
-                                    "Parent":"kOptionGroup",
                                     "ValueMin":5,
                                     "ValueMax":100,
                                     "ToolTip":"kTileMargin | marge autour de la tuile de calcul afin d'eviter des effets de bord\nLa dalle exportee sera cropee afin de correspondre a la taille de dalle donnee par l'utilisateur dans les options d'export"
                                 }],
                                 "GroupType":"VerticalGroup",
-                                "Parent":"kOptionGroup",
                                 "Key":"kOptionGroup"
                             },                            {
                                 "Name":"",
@@ -451,7 +444,6 @@
                                     "Type":"LineEdit",
                                     "ValueType":"Integer",
                                     "DefaultValue":"3",
-                                    "Parent":"kOptionGroup",
                                     "ToolTip":"kWindowSize | Taille de la demi-fenêtre de correlation"
                                 },                                {
                                     "Name":"Parametres supplementaires MALT",
@@ -460,11 +452,9 @@
                                     "Type":"LineEdit",
                                     "ValueType":"String",
                                     "DefaultValue":"CorMS=true NbVI=2 DefCor=0.2",
-                                    "Parent":"kOptionGroup",
                                     "ToolTip":"kParamMalt | parametres supplementaires dans la ligne de commande de correlation Malt. Consulter la doc de MicMac pour la liste des parametres valides"
                                 }],
                                 "GroupType":"VerticalGroup",
-                                "Parent":"kOptionGroup",
                                 "Key":"kOptionGroup"
                             }],
                             "GroupType":"HorizontalGroup",
@@ -743,117 +733,70 @@
         "dependencies":[        {
             "Master":"kEmpriseImage",
             "Slave":"kEmpriseBBoxGroup",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kEmpriseBBox",
             "Slave":"kEmpriseBBoxGroup",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kEmpriseZone",
             "Slave":"kEmpriseBBoxGroup",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kEmpriseImage",
             "Slave":"kEmpriseSHP",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kEmpriseBBox",
             "Slave":"kEmpriseSHP",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kEmpriseZone",
             "Slave":"kEmpriseSHP",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kNoDataNeutral",
             "Slave":"kNoDataValue",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kNoDataKeepZ",
             "Slave":"kNoDataValue",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kNoDataDTM",
             "Slave":"kNoDataValue",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kUseMalt",
             "Slave":"kParamMalt",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kUseMalt",
             "Slave":"kModeTemplateMicMac",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kUseMalt",
             "Slave":"kModeImage",
-            "Type":"Dependency",
             "Inverse":false
-        },        {
-            "Master":"kModeTemplateMicMac",
-            "Slave":"kParamMicMac",
-            "Type":"Dependency",
-            "Inverse":false
-        },        {
-            "Master":"kModeImage",
-            "Slave":"kParamMicMac",
-            "Type":"Dependency",
-            "Inverse":true
-        },        {
-            "Master":"kModeTerrain",
-            "Slave":"kParamMicMac",
-            "Type":"Dependency",
-            "Inverse":true
-        },        {
-            "Master":"kModeImage",
-            "Slave":"kOptionGroup",
-            "Type":"Dependency",
-            "Inverse":false
-        },        {
-            "Master":"kModeTerrain",
-            "Slave":"kOptionGroup",
-            "Type":"Dependency",
-            "Inverse":false
-        },        {
-            "Master":"kModeTemplateMicMac",
-            "Slave":"kOptionGroup",
-            "Type":"Dependency",
-            "Inverse":false
-        },        {
+        },         {
             "Master":"kUseMalt",
             "Slave":"kParamMalt",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kUseMalt",
             "Slave":"kSousEch",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kModeTemplateMicMac",
             "Slave":"kSousEch",
-            "Type":"Dependency",
             "Inverse":true
         },        {
             "Master":"kModeTerrain",
             "Slave":"kUseMalt",
-            "Type":"Dependency",
             "Inverse":false
         },        {
             "Master":"kModeImage",
             "Slave":"kUseMalt",
-            "Type":"Dependency",
             "Inverse":false
         }],
         "oncreate":{
@@ -864,21 +807,22 @@
                     "GDAL_DATA",
                     "APPLICATION_DIR",
                     "GPAO_CLIENT_DIR",
+                    "SCRIPT_ROOT",
                     "DIRECTORY"
                 ],
                 "directory":"DIRECTORY",
                 "resources":[
                     "$APPLICATION_DIR$/MicMacMgrV2",
-                    "$GPAO_CLIENT_DIR$/io/convert.py",
-                    "$GPAO_CLIENT_DIR$/io/insert_project.py",
-                    "GDAL_DATA"
+                    "$SCRIPT_ROOT$/convert.py",
+                    "$SCRIPT_ROOT$/insert_project.py",
+                    "$GDAL_DATA$"
                 ]
             },
             "commands":[
                 {"execute":"$APPLICATION_DIR$/MicMacMgrV2 --make -i $PARAM$ -o $DIRECTORY$/gpao.json"},
                 {"execute":"mkdir -p $DIRECTORY$/gpao_scripts"},
-                {"execute":"python3 $GPAO_CLIENT_DIR$/io/convert.py --gpaoname MicMacMgrV2 --exedir $APPLICATION_DIR$ --input $DIRECTORY$/gpao.json --strategy script --directory $DIRECTORY$/gpao_scripts --resolvekeys --output $DIRECTORY$/gpaonew.json"},
-                {"execute":"python3 $GPAO_CLIENT_DIR$/io/insert_project.py --input $DIRECTORY$/gpaonew.json --url http://localhost:8080"}
+                {"execute":"python3 $SCRIPT_ROOT$/convert.py --gpaoname MicMacMgrV2 --exedir $APPLICATION_DIR$ --input $DIRECTORY$/gpao.json --strategy script --directory $DIRECTORY$/gpao_scripts --resolvekeys --output $DIRECTORY$/gpaonew.json"},
+                {"execute":"python3 $SCRIPT_ROOT$/insert_project.py --input $DIRECTORY$/gpaonew.json --url http://localhost:8080"}
             ]
         }
     }

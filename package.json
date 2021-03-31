@@ -1,11 +1,12 @@
 {
   "name": "ign-gpao-client",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "application cliente de gpao de l'Institut Geographique National",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix --ext .js ."
   },
   "repository": "https://github.com/NicoIGN/ign-gpao-client.git",
   "keywords": [
@@ -20,16 +21,18 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron-react-devtools": "^0.5.3",
-    "eslint": "^7.2.0",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint": "^7.22.0",
+    "eslint-plugin-import": "^2.21.1",
     "lint": "^0.7.0"
   },
   "dependencies": {
-      "electron": "^8.3.1",
     "console-log-html": "^2.0.2",
     "ejs-electron": "^2.0.3",
-    "ejs-electron-ign-gpao": "^1.4.3",
-    "express": "^4.6.1",
+    "ejs-ign": "^2.1.7",
+    "electron": "^8.5.5",
+    "eslint-config-airbnb": "^18.1.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
     "minimist": "^1.2.5",
     "request": "^2.88.2",
     "yamlparser": "0.0.2"

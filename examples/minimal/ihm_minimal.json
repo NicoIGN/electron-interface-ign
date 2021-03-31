@@ -1,0 +1,35 @@
+{
+    "ihm":{
+        "content":[
+            {
+                "Type":"Page",
+                "Name":"MaPage",
+                "content":[
+                    {
+                        "Name":"Some simple static text",
+                        "Type":"Label"
+                    },
+                    {
+                        "Name":"Some simple line edit",
+                        "Key":"kSomeSimpleLineEdit",
+                        "Value":"simple text",
+                        "Type":"LineEdit"
+                    }
+                ]
+            }
+        ],
+        "oncreate":{
+            "prerequisite":{
+                "environment":[
+                    "SOME_DIRECTORY"
+                ],
+                "directory":"SOME_DIRECTORY"
+            },
+            "commands":[
+                {
+                    "execute":"echo  l utilisateur a rentre la valeur $kSomeSimpleLineEdit$ dans le champ kSomeSimpleLineEdit. Le fichier de parametres est ecrit dans le dossier $SOME_DIRECTORY$"
+                }
+            ]
+        }
+    }
+}

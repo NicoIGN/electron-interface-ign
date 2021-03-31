@@ -1,5 +1,6 @@
 const express = require('express');
-const ignGpao = require('ejs-electron-ign-gpao');
+// eslint-disable-next-line  import/no-unresolved
+const ignGpao = require('ejs-ign');
 
 const app = express();
 
@@ -7,5 +8,5 @@ const app = express();
 app.set('view engine', 'ejs');
 
 // set the resources folders
-app.set('views', ignGpao.view_folder());
-app.use(express.static(ignGpao.script_folder()));
+app.set('views', ignGpao.viewFolder());
+app.use(express.static(ignGpao.scriptFolder()));

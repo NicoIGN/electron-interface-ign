@@ -241,24 +241,21 @@
                                     "Value":false,
                                     "Type":"RadioButton",
                                     "ValueType":"Boolean",
-                                    "DefaultValue":false,
-                                    "Parent":"kInputFormatRGB"
+                                    "DefaultValue":false
                                 },                                {
                                     "Name":"JP2",
                                     "Key":"kImageFormatJP2",
                                     "Value":true,
                                     "Type":"RadioButton",
                                     "ValueType":"Boolean",
-                                    "DefaultValue":true,
-                                    "Parent":"kInputFormatRGB"
+                                    "DefaultValue":true
                                 },                                {
                                     "Name":"DMR",
                                     "Key":"kImageFormatDMR",
                                     "Value":false,
                                     "Type":"RadioButton",
                                     "ValueType":"Boolean",
-                                    "DefaultValue":false,
-                                    "Parent":"kInputFormatRGB"
+                                    "DefaultValue":false
                                 }],
                                 "GroupType":"HorizontalGroup",
                                 "Key":"kInputFormatRGB"
@@ -314,24 +311,21 @@
                                     "Value":false,
                                     "Type":"RadioButton",
                                     "ValueType":"Boolean",
-                                    "DefaultValue":false,
-                                    "Parent":"kInputFormatPIR"
+                                    "DefaultValue":false
                                 },                                {
                                     "Name":"JP2",
                                     "Key":"kFormatOrthoPIRJP2",
                                     "Value":true,
                                     "Type":"RadioButton",
                                     "ValueType":"Boolean",
-                                    "DefaultValue":true,
-                                    "Parent":"kInputFormatPIR"
+                                    "DefaultValue":true
                                 },                                {
                                     "Name":"DMR",
                                     "Key":"kFormatOrthoPIRDMR",
                                     "Value":false,
                                     "Type":"RadioButton",
                                     "ValueType":"Boolean",
-                                    "DefaultValue":false,
-                                    "Parent":"kInputFormatPIR"
+                                    "DefaultValue":false
                                 }],
                                 "GroupType":"HorizontalGroup",
                                 "Key":"kInputFormatPIR"
@@ -445,32 +439,28 @@
                                 "Value":"0.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
-                                "DefaultValue":"0.0",
-                                "Parent":"kEmpriseBBoxGroup"
+                                "DefaultValue":"0.0"
                             },                            {
                                 "Name":"xmax",
                                 "Key":"kEmpriseXmax",
                                 "Value":"0.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
-                                "DefaultValue":"0.0",
-                                "Parent":"kEmpriseBBoxGroup"
+                                "DefaultValue":"0.0"
                             },                            {
                                 "Name":"ymin",
                                 "Key":"kEmpriseYmin",
                                 "Value":"0.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
-                                "DefaultValue":"0.0",
-                                "Parent":"kEmpriseBBoxGroup"
+                                "DefaultValue":"0.0"
                             },                            {
                                 "Name":"ymax",
                                 "Key":"kEmpriseYmax",
                                 "Value":"0.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
-                                "DefaultValue":"0.0",
-                                "Parent":"kEmpriseBBoxGroup"
+                                "DefaultValue":"0.0"
                             }],
                             "GroupType":"HorizontalGroup",
                             "Key":"kEmpriseBBoxGroup"
@@ -616,54 +606,47 @@
                             "Value":"",
                             "Type":"FileSelector",
                             "ValueType":"FilePath",
-                            "DefaultValue":"",
-                            "Parent":"kClassifySVMOptions"
+                            "DefaultValue":""
                         },                        {
                             "Name":"Zones Non Vegetation",
                             "Key":"kInputZappNVegFile",
                             "Value":"",
                             "Type":"FileSelector",
                             "ValueType":"FilePath",
-                            "DefaultValue":"",
-                            "Parent":"kClassifySVMOptions"
+                            "DefaultValue":""
                         },                        {
                             "Name":"SVM kernel",
                             "Key":"svmKernel",
                             "Value":"RBF;LINEAR;POLY;SIGMOID",
                             "Type":"ComboBox",
-                            "ValueType":"String",
-                            "Parent":"kClassifySVMOptions"
+                            "ValueType":"String"
                         },                        {
                             "Name":"SVM type",
                             "Key":"svmType",
                             "Value":"C_SVC;NU_SVC;ONE_CLASS;EPS_SVR;NU_SVR",
                             "Type":"ComboBox",
-                            "ValueType":"String",
-                            "Parent":"kClassifySVMOptions"
+                            "ValueType":"String"
                         },                        {
                             "Name":"Avec NDVI",
                             "Key":"withNDVI",
                             "Value":false,
                             "Type":"CheckBox",
                             "ValueType":"Boolean",
-                            "DefaultValue":false,
-                            "Parent":"kClassifySVMOptions"
+                            "DefaultValue":false
                         },                        {
                             "Name":"Calculer une LUT",
                             "Key":"makeLUT",
                             "Value":false,
                             "Type":"CheckBox",
                             "ValueType":"Boolean",
-                            "DefaultValue":false,
-                            "Parent":"kClassifySVMOptions"
+                            "DefaultValue":false
                         },                        {
                             "Name":"Avec indice de rugosite",
                             "Key":"withRoughness",
                             "Value":false,
                             "Type":"CheckBox",
                             "ValueType":"Boolean",
-                            "DefaultValue":false,
-                            "Parent":"kClassifySVMOptions"
+                            "DefaultValue":false
                         },                        {
                             "Name":"parametres",
                             "Type":"Group",
@@ -673,52 +656,39 @@
                                 "Value":"2.0",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
-                                "DefaultValue":"2.0",
-                                "Parent":"kRoughnessGroup"
-                            },                            {
-                                "Name":"filtre gaussien",
-                                "Key":"kRoughnessSigMasq",
-                                "Value":"10.0",
-                                "Type":"LineEdit",
-                                "ValueType":"Double",
-                                "DefaultValue":"10.0",
-                                "Parent":"kRoughnessGroup"
-                            }],
-                            "GroupType":"HorizontalGroup",
-                            "Parent":"kClassifySVMOptions",
-                            "Key":"kRoughnessGroup"
+                                "DefaultValue":"2.0"                            },                            {
+                                    "Name":"filtre gaussien",
+                                    "Key":"kRoughnessSigMasq",
+                                    "Value":"10.0",
+                                    "Type":"LineEdit",
+                                    "ValueType":"Double",
+                                    "DefaultValue":"10.0"                            }],
+                            "GroupType":"HorizontalGroup",                            "Key":"kRoughnessGroup"
                         },                        {
                             "Name":"Avec indice de texture",
                             "Key":"withTexture",
                             "Value":false,
                             "Type":"CheckBox",
                             "ValueType":"Boolean",
-                            "DefaultValue":false,
-                            "Parent":"kClassifySVMOptions"
-                        },                        {
-                            "Name":"parametres",
-                            "Type":"Group",
-                            "content":[                            {
-                                "Name":"alpha Deriche",
-                                "Key":"kTextureAlphaDeriche",
-                                "Value":"2.0",
-                                "Type":"LineEdit",
-                                "ValueType":"Double",
-                                "DefaultValue":"2.0",
-                                "Parent":"kTextureGroup"
-                            },                            {
-                                "Name":"filtre gaussien",
-                                "Key":"kTextureSigMasq",
-                                "Value":"10.0",
-                                "Type":"LineEdit",
-                                "ValueType":"Double",
-                                "DefaultValue":"10.0",
-                                "Parent":"kTextureGroup"
+                            "DefaultValue":false                        },                        {
+                                "Name":"parametres",
+                                "Type":"Group",
+                                "content":[                            {
+                                    "Name":"alpha Deriche",
+                                    "Key":"kTextureAlphaDeriche",
+                                    "Value":"2.0",
+                                    "Type":"LineEdit",
+                                    "ValueType":"Double",
+                                    "DefaultValue":"2.0"                            },                            {
+                                        "Name":"filtre gaussien",
+                                        "Key":"kTextureSigMasq",
+                                        "Value":"10.0",
+                                        "Type":"LineEdit",
+                                        "ValueType":"Double",
+                                        "DefaultValue":"10.0"                            }],
+                                "GroupType":"HorizontalGroup",
+                                "Key":"kTextureGroup"
                             }],
-                            "GroupType":"HorizontalGroup",
-                            "Parent":"kClassifySVMOptions",
-                            "Key":"kTextureGroup"
-                        }],
                         "GroupType":"VerticalGroup",
                         "Key":"kClassifySVMOptions"
                     },                    {
@@ -730,55 +700,46 @@
                             "Value":"",
                             "Type":"FileSelector",
                             "ValueType":"FilePath",
-                            "DefaultValue":"",
-                            "Parent":"kClassifyDeepLearningOptions"
-                        },                        {
-                            "Name":"Dossier Anaconda",
-                            "Key":"kInputAnacondaDir",
-                            "Value":"",
-                            "Type":"FolderSelector",
-                            "ValueType":"Path",
-                            "DefaultValue":"",
-                            "Parent":"kClassifyDeepLearningOptions"
-                        },                        {
-                            "Name":"Donnees de reference (optionnel)",
-                            "Key":"kInputReferenceFile",
-                            "Value":"",
-                            "Type":"FileSelector",
-                            "ValueType":"FilePath",
-                            "DefaultValue":"",
-                            "Parent":"kClassifyDeepLearningOptions"
-                        },                        {
-                            "Name":"Taille des tuiles",
-                            "Key":"kDeepLearningTileSize",
-                            "Value":"256",
-                            "Type":"LineEdit",
-                            "ValueType":"Integer",
-                            "DefaultValue":"256",
-                            "Parent":"kClassifyDeepLearningOptions",
-                            "ValueMin":100,
-                            "ValueMax":1024
-                        },                        {
-                            "Name":"Taille du buffer",
-                            "Key":"kDeepLearningBuffer",
-                            "Value":"50",
-                            "Type":"LineEdit",
-                            "ValueType":"Integer",
-                            "DefaultValue":"50",
-                            "Parent":"kClassifyDeepLearningOptions",
-                            "ValueMin":10,
-                            "ValueMax":100
-                        },                        {
-                            "Name":"Seuil de validation (%)",
-                            "Key":"kDeepLearningThreshold",
-                            "Value":"80",
-                            "Type":"LineEdit",
-                            "ValueType":"Integer",
-                            "DefaultValue":"80",
-                            "Parent":"kClassifyDeepLearningOptions",
-                            "ValueMin":0,
-                            "ValueMax":100
-                        }],
+                            "DefaultValue":""                        },                        {
+                                "Name":"Dossier Anaconda",
+                                "Key":"kInputAnacondaDir",
+                                "Value":"",
+                                "Type":"FolderSelector",
+                                "ValueType":"Path",
+                                "DefaultValue":""                        },                        {
+                                    "Name":"Donnees de reference (optionnel)",
+                                    "Key":"kInputReferenceFile",
+                                    "Value":"",
+                                    "Type":"FileSelector",
+                                    "ValueType":"FilePath",
+                                    "DefaultValue":""                        },                        {
+                                        "Name":"Taille des tuiles",
+                                        "Key":"kDeepLearningTileSize",
+                                        "Value":"256",
+                                        "Type":"LineEdit",
+                                        "ValueType":"Integer",
+                                        "DefaultValue":"256",
+                                        "ValueMin":100,
+                                        "ValueMax":1024
+                                    },                        {
+                                        "Name":"Taille du buffer",
+                                        "Key":"kDeepLearningBuffer",
+                                        "Value":"50",
+                                        "Type":"LineEdit",
+                                        "ValueType":"Integer",
+                                        "DefaultValue":"50",
+                                        "ValueMin":10,
+                                        "ValueMax":100
+                                    },                        {
+                                        "Name":"Seuil de validation (%)",
+                                        "Key":"kDeepLearningThreshold",
+                                        "Value":"80",
+                                        "Type":"LineEdit",
+                                        "ValueType":"Integer",
+                                        "DefaultValue":"80",
+                                        "ValueMin":0,
+                                        "ValueMax":100
+                                    }],
                         "GroupType":"VerticalGroup",
                         "Key":"kClassifyDeepLearningOptions"
                     }],
@@ -890,7 +851,6 @@
                                 "Value":"1;2;4",
                                 "Type":"ComboBox",
                                 "ValueType":"String",
-                                "Parent":"vectorizeGroup",
                                 "DefaultValue":"0"
                             },                            {
                                 "Name":"Simplifier la geometrie (Douglas-Peucker)",
@@ -898,9 +858,7 @@
                                 "Value":"0.2",
                                 "Type":"LineEdit",
                                 "ValueType":"Double",
-                                "DefaultValue":"0.2",
-                                "Parent":"vectorizeGroup"
-                            }],
+                                "DefaultValue":"0.2"                            }],
                             "GroupType":"VerticalGroup",
                             "Key":"vectorizeGroup"
                         },                        {
@@ -926,33 +884,25 @@
                                 "Value":"1.5",
                                 "Type":"LineEdit",
                                 "ValueType":"String",
-                                "DefaultValue":"1.5",
-                                "Parent":"cleaningGroup"
-                            },                            {
-                                "Name":"Suppression des arbres de faible diametre",
-                                "Key":"treeMinDiameter",
-                                "Value":"2.0",
-                                "Type":"LineEdit",
-                                "ValueType":"String",
-                                "DefaultValue":"2.0",
-                                "Parent":"cleaningGroup"
-                            },                            {
-                                "Name":"Suppression des arbres de grand diametre",
-                                "Key":"treeMaxDiameter",
-                                "Value":"50.0",
-                                "Type":"LineEdit",
-                                "ValueType":"String",
-                                "DefaultValue":"50.0",
-                                "Parent":"cleaningGroup"
-                            },                            {
-                                "Name":"Supression des arbres trop hauts",
-                                "Key":"treeMaxHeight",
-                                "Value":"100.0",
-                                "Type":"LineEdit",
-                                "ValueType":"String",
-                                "DefaultValue":"100.0",
-                                "Parent":"cleaningGroup"
-                            }],
+                                "DefaultValue":"1.5"                            },                            {
+                                    "Name":"Suppression des arbres de faible diametre",
+                                    "Key":"treeMinDiameter",
+                                    "Value":"2.0",
+                                    "Type":"LineEdit",
+                                    "ValueType":"String",
+                                    "DefaultValue":"2.0"                            },                            {
+                                        "Name":"Suppression des arbres de grand diametre",
+                                        "Key":"treeMaxDiameter",
+                                        "Value":"50.0",
+                                        "Type":"LineEdit",
+                                        "ValueType":"String",
+                                        "DefaultValue":"50.0"                            },                            {
+                                            "Name":"Supression des arbres trop hauts",
+                                            "Key":"treeMaxHeight",
+                                            "Value":"100.0",
+                                            "Type":"LineEdit",
+                                            "ValueType":"String",
+                                            "DefaultValue":"100.0"                            }],
                             "GroupType":"VerticalGroup",
                             "Key":"cleaningGroup"
                         }],
@@ -1190,21 +1140,23 @@
             "Inverse":true
         }],
         "oncreate":{
-            "directory":"/Users/nbellaiche/DATA/TEMP/",
-            "environment":[
-                {
-                    "name":"IGN_DATA",
-                    "value":"/Applications/SolVeg.app/Contents/Data"
-                },
-                {
-                    "name":"PROJ_LIB",
-                    "value":"/Applications/SolVeg.app/Contents/Data/geodesy/nad"
-                }
-            ],
+            "prerequisite": {
+                "environment":[
+                    "IGN_DATA",
+                    "PROJ_LIB",
+                    "APPLICATION_DIR",
+                    "GPAO_CLIENT_DIR",
+                    "DIRECTORY"
+                ],
+                "directory":"DIRECTORY",
+                "resources":[
+                    "$APPLICATION_DIR$/SolVeg",
+                    "$GPAO_CLIENT_DIR$/io/convert.py",
+                    "$GPAO_CLIENT_DIR$/io/insert_project.py"
+                ]
+            },
             "commands":[
-                {"execute":"open $PARAM$"},
-                {"execute":"/Applications/SolVeg.app/Contents/MacOS/SolVeg --make -i $PARAM$ -o $DIRECTORY$/gpao.json"},
-                {"execute":"electron --input $PARAM$ --output $DIRECTORY$/gpaonew.json"}
+                {"execute":"open $PARAM$"}
             ]
         }
     }

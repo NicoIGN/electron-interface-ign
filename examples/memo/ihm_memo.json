@@ -1,0 +1,58 @@
+{
+   "ihm":{
+      "content":[
+         {
+            "Name":"parametrage",
+            "Type":"Page",
+            "content":[
+               {
+                  "Name":"Fichier de parametre json",
+                  "Key":"kParameterFile",
+                  "Value":"",
+                  "Type":"FileSelector",
+                  "ValueType":"FilePath",
+                  "DefaultValue":""
+               },
+               {
+                  "Name":"Fichier meshlist en entree",
+                  "Key":"kMeshListIn",
+                  "Value":"",
+                  "Type":"FileSelector",
+                  "ValueType":"FilePath",
+                  "DefaultValue":""
+               },
+               {
+                  "Name":"Dossier en sortie",
+                  "Key":"kMeshListOut",
+                  "Value":"",
+                  "Type":"FolderSelector",
+                  "ValueType":"Path",
+                  "DefaultValue":""
+               }
+            ]
+         }
+      ],
+      "oncreate":{
+         "prerequisite":{
+            "environment":[
+               "MEMO_ROOT",
+               "SCRIPT_ROOT",
+               "TEMP"
+            ],
+            "directory":"TEMP",
+            "resources":[
+               "$TEMP$",
+               "$SCRIPT_ROOT$/memo.py",
+               "$MEMO_ROOT$/bin/MeshChange",
+               "$MEMO_ROOT$/bin/MeshUpdate",
+               "$MEMO_ROOT$/bin/MeshMosaic"
+            ]
+         },
+         "commands":[
+            {
+               "execute":"python3 $SCRIPT_ROOT$/memo.py $TEMP$/parameters.json"
+            }
+         ]
+      }
+   }
+}
