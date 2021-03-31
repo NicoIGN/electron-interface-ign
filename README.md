@@ -27,9 +27,11 @@ https://github.com/NicoIGN/electron-interface-ign
 Notes sur les problèmes potentiels:
  - en cas de timeout, verifiez que votre proxy est correctement paramétré. Au besoin (pour l'IGN), utilisez le script set-proxy-ign à la racine du projet.
 
- - sous windows, en cas d'erreur du type "Error: Cannot find module '...\npm\node_modules\electron\cli.js' il est possible que npm n'ait pas réussi à installer correctement electron. En ce cas il faut l'installer à la main en le récupérant directement  à cette adresse:   https://github.com/electron/electron/releases/
+- sous windows, il est possible que npm n'arrive pas à installer correctement electron. Vérifiez-le en lançant la commande 'electron' dans un terminal.
+    En ce cas, il faut l'installer à la main en le récupérant directement  à cette adresse:   https://github.com/electron/electron/releases/
     Cet outil a été développé et validé avec electron v8.3 sous MacOSX101.5 et v8.5 sous Windows10 64b. Il est donc recommandé d'installer une version 8.x d'electron. [https://github.com/electron/electron/releases/tag/v8.5.0]
-    Placez le dossier dans votre répertoire d'applications et ajoutez le chemin à votre PATH système. 
+    Téléchargez l'archive correspondant à votre OS, dézippez-la et placez-la dans votre répertoire d'applications ('Program Files' a priori).
+    Ajoutez-le chemin à votre PATH système. Puis vérifiez que cette fois-ci, la commande 'electron' se lance bien dans un terminal.
     
 ++++++++++++++++++++++++++++++++++++++
 III- Utilisation
