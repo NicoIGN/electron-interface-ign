@@ -18,4 +18,4 @@ if [ ! -e $IHMFILE ]; then
 fi
 
 #launching electron
-cd $ROOT && npm start
+cd $ROOT && electron .

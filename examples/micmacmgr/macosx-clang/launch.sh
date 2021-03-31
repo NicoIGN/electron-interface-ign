@@ -135,4 +135,4 @@ export IHMFILE=$SCRIPTPATH/../ihm_micmacmgr.json
 export PARAMETERS=$GPAO_PARAMETERS_UPDATED_FILE
 
 #launching electron
-cd $SCRIPTPATH/../../.. && npm start
+cd $SCRIPTPATH/../../.. && electron .

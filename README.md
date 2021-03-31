@@ -46,7 +46,7 @@ Le fichier interface en json décrit :
 - le dossier 'DIRECTORY' dans lequel écrire le formulaire utilisateur sous la forme d'un fichier 'parameters.json'
 - les commandes à lancer une fois le formulaire rempli
 
-La commande à lancer est: "electron ." ou "npm start" après avoir initialisé la variable d'environnement 'IHMFILE' avec le fichier json de description d'interface (voir les scripts launch.sh/.bat dans les exemples)
+La commande à lancer est: "electron ." après avoir initialisé la variable d'environnement 'IHMFILE' avec le fichier json de description d'interface (voir les scripts launch.sh/.bat dans les exemples)
 
 Il est possible d'initialiser les valeurs de l'interface avec un fichier de paramètres préexistant en initialisant la variable d'environnement 'PARAMETERS'.
 

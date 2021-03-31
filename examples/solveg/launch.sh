@@ -10,4 +10,4 @@ SCRIPTPATH="`pwd`"
 export IHMFILE=$SCRIPTPATH/ihm_solveg.json
 
 #launching electron
-cd $SCRIPTPATH/../.. && npm start
+cd $SCRIPTPATH/../.. && electron .
