@@ -1,6 +1,6 @@
 {
   "name": "ign-gpao-client",
-  "version": "2.2.1",
+  "version": "3.0.0",
   "description": "application cliente de gpao de l'Institut Geographique National",
   "main": "index.js",
   "scripts": {
@@ -20,16 +20,16 @@
   "author": "Nicolas Bellaiche",
   "license": "CC0-1.0",
   "devDependencies": {
+    "electron": "^8.5.5",
     "electron-react-devtools": "^0.5.3",
-    "eslint": "^7.22.0",
+    "eslint": "^7.23.0",
     "eslint-plugin-import": "^2.21.1",
     "lint": "^0.7.0"
   },
   "dependencies": {
     "console-log-html": "^2.0.2",
     "ejs-electron": "^2.0.3",
-    "ejs-ign": "^2.1.7",
-    "electron": "^8.5.5",
+    "ejs-ign": "^2.2.0",
     "eslint-config-airbnb": "^18.1.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
