@@ -1,6 +1,6 @@
 {
   "name": "ign-gpao-client",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "application cliente de gpao de l'Institut Geographique National",
   "main": "index.js",
   "scripts": {
