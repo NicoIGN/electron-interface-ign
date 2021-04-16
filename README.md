@@ -56,7 +56,7 @@ Notes sur les problèmes d'installation courants d'Electron:
      Vérifiez que votre proxy est correctement paramétré. Au besoin (pour l'IGN), utilisez le script set-proxy-ign à la racine du projet.
 
 - en cas d'échec de l'installation d'electron lors de la commande "bash install.sh"
-    - vérifiez d'abord que vous avez correctement interprété le problème en lançant la commande 'electron -v' dans un terminal. Cela doit renvoyer  une version supérieure à 12.x.
+    - vérifiez d'abord que vous avez correctement interprété le problème en lançant la commande 'electron -v' dans un terminal. Cela doit renvoyer une version supérieure ou égale à 12.x.
     - lancez également la commande 'electron' dans un terminal. L'application se lance-t-elle bien?
     
 - si electron semble effectivement défectueux:
@@ -211,7 +211,7 @@ Pour chaque champ éditable, le champ 'Value' définit la valeur initiale du cha
 
 Le champ 'ValueType' définit la nature du champ 'Boolean', 'Double', 'Integer', 'String', 'Path', 'FilePath'. Le typage du champ permet de valider que l'utilisateur rentre une valeur correcte dans l'interface.
 
-Le champ 'ToolTip', optionnel, permet de générer une info-bulle qui s'affiche quand on reste suffisamment longtemps sur le champ afin de décrire plus précisement ce que l'utilisateur doit rentrer. Par défaut, il affiche simplement la clef du paramètre.
+Le champ 'ToolTip', optionnel, permet de générer une info-bulle qui s'affiche quand on reste suffisamment longtemps sur le champ avec la souris afin de décrire plus précisement ce que l'utilisateur doit rentrer. Par défaut, il affiche simplement la clef du paramètre.
 
 
 L'objet 'Group' permet de regrouper des paramètres sous un même intitulé et d'organiser les champs en les alignant soit verticalement soit horizontalement via la clef 'GroupType' ("GroupType":"VerticalGroup" / "HorizontalGroup"). Il contient ensuite une entrée 'content' qui est un vecteur d'objets d'interface, exactement comme l'objet 'Page'. Cette propriété est récursive, c'est-à-dire que le 'content' d'un objet 'Group' peut lui-même contenir un objet 'Group' etc...  Ceci permet d'organiser les pages en cadrans, en combinant les groupes horizontaux et verticaux.
@@ -316,6 +316,7 @@ VI-  bogs connus et to-do list
 Bogs connus:
 - les champs "FileSelector" et "FolderSelector" sont exportés même lorsqu'ils sont inactifs
 - les info-bulles des "FileSelector", "FolderSelector" et "ComboBox"  ne s'affichent pas
+- les chaînes vides sont considérées comme des Path et des FilePath valides
 
 To-do list:
 - vérification de l'unicité des clefs lors du chargement de l'interface
