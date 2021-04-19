@@ -139,10 +139,12 @@ V- Formalisme du json de description d'interface
     - 'oncreate': les tâches à effectuer une fois que l'utilisateur a cliqué sur le bouton 'Executer'
     
     Patron de l'entrée 'ihm':
-    "ihm":{
-            "content":[ ... ],
-            "dependencies":[...],
-            "oncreate":{... }
+    {
+        "ihm":{
+                "content":[ ... ],
+                "dependencies":[...],
+                "oncreate":{... }
+        }
      }
 
 .   ================
@@ -151,14 +153,12 @@ V- Formalisme du json de description d'interface
 'content' contient obligatoirement un vecteur de N objets de type 'Page', qui correspondront à des onglets dans l'interface. Pour des pipelines un peu complexes, on peut ainsi organiser les paramètres par grands ensembles: données en entrée, paramétrage et données en sortie, par exemple.
 
 Patron de l'entrée 'content' de 'ihm':
-"content":[ {
-                    "Name":"Page1",
-                    "Type":"Page",
-                    "content":[...]
-                 }, {
-                    "Name":"Page2",
-                    "Type":"Page",
-                    "content":[...]
+"content":[   { "Name":"Page1",
+                      "Type":"Page",
+                      "content":[...]
+                 }, { "Name":"Page2",
+                      "Type":"Page",
+                      "content":[...]
                  } ]
     
 Chaque 'Page' contient ensuite N objets d'interface, dont les types, identifiés par la propriété "Type", sont les suivants:
